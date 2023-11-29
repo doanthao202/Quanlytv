@@ -16,6 +16,8 @@ namespace A_DAL.Models
         public DateTime? Ngaymuon { get; set; }
         public DateTime? Ngaytradukien { get; set; }
         public decimal? Tiencoc { get; set; }
+        public decimal? Phimuon { get; set; }
+        public int? Tinhtrang { get; set; }
 
         public virtual Docgium? IddocgiaNavigation { get; set; }
         public virtual Nhanvien IdnhanvienNavigation { get; set; } = null!;

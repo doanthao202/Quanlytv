@@ -182,8 +182,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Tennxb)
                     .HasMaxLength(50)
                     .HasColumnName("TENNXB");
-
-                entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
             });
 
             modelBuilder.Entity<Phieumuon>(entity =>
@@ -204,9 +202,15 @@ namespace A_DAL.Models
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRADUKIEN");
 
+                entity.Property(e => e.Phimuon)
+                    .HasColumnType("money")
+                    .HasColumnName("PHIMUON");
+
                 entity.Property(e => e.Tiencoc)
                     .HasColumnType("money")
                     .HasColumnName("TIENCOC");
+
+                entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
 
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieumuons)
@@ -253,13 +257,25 @@ namespace A_DAL.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.Hoancoc)
+                    .HasColumnType("money")
+                    .HasColumnName("HOANCOC");
+
                 entity.Property(e => e.Iddocgia).HasColumnName("IDDOCGIA");
 
                 entity.Property(e => e.Idnhanvien).HasColumnName("IDNHANVIEN");
 
+                entity.Property(e => e.Lydophat)
+                    .HasColumnType("money")
+                    .HasColumnName("LYDOPHAT");
+
                 entity.Property(e => e.Ngaytra)
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRA");
+
+                entity.Property(e => e.Tienphat)
+                    .HasColumnType("money")
+                    .HasColumnName("TIENPHAT");
 
                 entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
 
@@ -439,8 +455,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Tentheloai)
                     .HasMaxLength(50)
                     .HasColumnName("TENTHELOAI");
-
-                entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
 
                 entity.Property(e => e.Vitri)
                     .HasMaxLength(50)
