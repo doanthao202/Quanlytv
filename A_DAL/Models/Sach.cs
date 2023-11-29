@@ -9,7 +9,6 @@ namespace A_DAL.Models
         {
             SachTacgia = new HashSet<SachTacgium>();
             Sachchitiets = new HashSet<Sachchitiet>();
-            Theloaisaches = new HashSet<Theloaisach>();
         }
 
         public int Id { get; set; }
@@ -19,6 +18,5 @@ namespace A_DAL.Models
 
         public virtual ICollection<SachTacgium> SachTacgia { get; set; }
         public virtual ICollection<Sachchitiet> Sachchitiets { get; set; }
-        public virtual ICollection<Theloaisach> Theloaisaches { get; set; }
     }
 }
