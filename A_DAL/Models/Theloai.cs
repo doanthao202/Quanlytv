@@ -13,7 +13,6 @@ namespace A_DAL.Models
         public int Id { get; set; }
         public string? Tentheloai { get; set; }
         public string? Vitri { get; set; }
-        public int? Trangthai { get; set; }
 
         public virtual ICollection<Theloaisach> Theloaisaches { get; set; }
     }

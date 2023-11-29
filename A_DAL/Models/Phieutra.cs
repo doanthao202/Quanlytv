@@ -14,6 +14,9 @@ namespace A_DAL.Models
         public int Iddocgia { get; set; }
         public int Idnhanvien { get; set; }
         public DateTime? Ngaytra { get; set; }
+        public decimal? Tienphat { get; set; }
+        public decimal? Lydophat { get; set; }
+        public decimal? Hoancoc { get; set; }
         public int? Tinhtrangtra { get; set; }
 
         public virtual Docgium IddocgiaNavigation { get; set; } = null!;

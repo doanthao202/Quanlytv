@@ -17,7 +17,7 @@ namespace C_PRL.Forms
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void txtTentl_TextChanged(object sender, EventArgs e)
         {
 
         }
