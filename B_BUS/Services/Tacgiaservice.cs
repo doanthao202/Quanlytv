@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A_DAL.Repository
+namespace B_BUS.Services
 {
-    public class HangRepos
+    public class Tacgiaservice
     {
     }
 }
