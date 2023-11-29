@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A_DAL.IRepository
+namespace A_DAL.Repository
 {
-    internal interface Tacgia
+    internal class TacgiaRepos
     {
     }
 }
