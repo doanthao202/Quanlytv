@@ -94,7 +94,8 @@ namespace A_DAL.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_HANG");
             });
-            //Nhom4 10 diem
+            //Nhom 4 10 diem
+            //Nhom 4 DEMO
             modelBuilder.Entity<Hangthanhvien>(entity =>
             {
                 entity.ToTable("HANGTHANHVIEN");
