@@ -14,7 +14,6 @@ namespace A_DAL.Models
         public int Id { get; set; }
         public string? Tenhang { get; set; }
         public decimal? Dongia { get; set; }
-        public decimal? Phithuesach { get; set; }
         public int? Thoigianhieuluc { get; set; }
 
         public virtual ICollection<Docgium> Docgia { get; set; }

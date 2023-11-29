@@ -48,9 +48,6 @@ namespace A_DAL.Models
             {
                 entity.ToTable("DOCGIA");
 
-                entity.HasIndex(e => e.Sdt, "UQ__DOCGIA__CA1930A5FE081211")
-                    .IsUnique();
-
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Cmnd)
@@ -112,10 +109,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Dongia)
                     .HasColumnType("money")
                     .HasColumnName("DONGIA");
-
-                entity.Property(e => e.Phithuesach)
-                    .HasColumnType("money")
-                    .HasColumnName("PHITHUESACH");
 
                 entity.Property(e => e.Tenhang)
                     .HasMaxLength(50)

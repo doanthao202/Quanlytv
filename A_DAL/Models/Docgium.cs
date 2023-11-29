@@ -12,11 +12,11 @@ namespace A_DAL.Models
         }
 
         public int Id { get; set; }
-        public string Hoten { get; set; } = null!;
+        public string? Hoten { get; set; }
         public string? Email { get; set; }
-        public string Sdt { get; set; } = null!;
+        public string? Sdt { get; set; }
         public string? Diachi { get; set; }
-        public string Cmnd { get; set; } = null!;
+        public string? Cmnd { get; set; }
         public DateTime? Ngaysinh { get; set; }
         public DateTime? Ngaycapthe { get; set; }
         public DateTime? Ngayhieuluc { get; set; }
