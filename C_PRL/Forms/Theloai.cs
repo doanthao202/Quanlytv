@@ -16,5 +16,10 @@ namespace C_PRL.Forms
         {
             InitializeComponent();
         }
+
+        private void Theloai_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

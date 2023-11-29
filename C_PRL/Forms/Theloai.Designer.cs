@@ -51,7 +51,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(40, 51);
+            label5.Location = new Point(25, 42);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 16);
@@ -60,7 +60,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(113, 49);
+            textBox1.Location = new Point(98, 40);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên thể loại";
@@ -76,7 +76,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtVitri);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(33, 85);
+            groupBox1.Location = new Point(18, 76);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(366, 144);
             groupBox1.TabIndex = 31;
@@ -143,7 +143,7 @@
             // 
             // thoat
             // 
-            thoat.Location = new Point(406, 193);
+            thoat.Location = new Point(391, 184);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -153,7 +153,7 @@
             // 
             // xoa
             // 
-            xoa.Location = new Point(406, 160);
+            xoa.Location = new Point(391, 151);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
@@ -163,7 +163,7 @@
             // 
             // sua
             // 
-            sua.Location = new Point(406, 127);
+            sua.Location = new Point(391, 118);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
@@ -173,7 +173,7 @@
             // 
             // them
             // 
-            them.Location = new Point(406, 94);
+            them.Location = new Point(391, 85);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -185,7 +185,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(145, 9);
+            label1.Location = new Point(130, 0);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(166, 26);
@@ -195,7 +195,7 @@
             // luoi
             // 
             luoi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            luoi.Location = new Point(20, 246);
+            luoi.Location = new Point(5, 237);
             luoi.Margin = new Padding(4, 3, 4, 3);
             luoi.Name = "luoi";
             luoi.Size = new Size(485, 197);
@@ -205,7 +205,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 450);
+            ClientSize = new Size(517, 450);
             Controls.Add(label5);
             Controls.Add(textBox1);
             Controls.Add(groupBox1);
@@ -217,6 +217,7 @@
             Controls.Add(luoi);
             Name = "Theloai";
             Text = "Theloai";
+            Load += Theloai_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
