@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace C_PRL.Forms
 {
-    public partial class Ngonngu1 : Form
+    public partial class NgonNgu1 : Form
     {
-        public Ngonngu1()
+        public NgonNgu1()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
