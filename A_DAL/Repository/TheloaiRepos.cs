@@ -21,19 +21,25 @@ namespace A_DAL.Repository
             _dbContext = dbContext;
         }
 
-        public bool Add(Theloai theloai)
+        public int Add(Theloai theloai)
         {
             try
             {
-    
+                if (string.IsNullOrWhiteSpace(theloai.Tentheloai))
+                {
+                    return 1;
+                }
+                else
+                {
                     _dbContext.Theloais.Add(theloai);
                     _dbContext.SaveChanges();
-                    return true;
+                    return 2;
+                }
             }
             catch (Exception)
             {
 
-                return false;
+                return 0;
             }
         }
 
@@ -47,6 +53,7 @@ namespace A_DAL.Repository
                 _dbContext.Theloais.Remove(exist);
                 _dbContext.SaveChanges();
                 return true;
+
             }
             catch (Exception)
             {
@@ -77,24 +84,31 @@ namespace A_DAL.Repository
             return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(name)).ToList();
         }
 
-        public bool Update(int id, Theloai theloai)
+        public int Update(int id, Theloai theloai)
         {
             try
             {
                 var exist = _dbContext.Theloais.Find(id);
                 if (exist == null)
                 {
-                    return false;
+                    return 1;
                 }
-                exist.Tentheloai = theloai.Tentheloai;
-                exist.Vitri = theloai.Vitri;
-                _dbContext.Theloais.Update(exist);
-                _dbContext.SaveChanges();
-                return true;
+                else if (string.IsNullOrWhiteSpace(theloai.Tentheloai))
+                {
+                    return 2;
+                }
+                else {
+                    exist.Tentheloai = theloai.Tentheloai;
+                    exist.Vitri = theloai.Vitri;
+                    _dbContext.Theloais.Update(exist);
+                    _dbContext.SaveChanges();
+                    return 3;
+                }
+                
             }
             catch
             {
-                return false;
+                return 1;
             }
         }
     }

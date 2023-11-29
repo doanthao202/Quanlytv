@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace A_DAL.Repository
 {
-    internal class NxbRepos
+    public class NxbRepos
     {
     }
 }

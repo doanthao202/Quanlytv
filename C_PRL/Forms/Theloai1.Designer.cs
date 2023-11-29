@@ -1,6 +1,8 @@
-﻿namespace C_PRL.Forms
+﻿
+
+namespace C_PRL.Forms
 {
-    partial class Theloai
+    partial class Theloai1
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +38,13 @@
             label3 = new Label();
             txtVitri = new TextBox();
             thoat = new Button();
-            xoa = new Button();
             sua = new Button();
             them = new Button();
             label1 = new Label();
-            luoi = new DataGridView();
+            dgv = new DataGridView();
+            Xoa = new Button();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)luoi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -64,6 +66,7 @@
             textBox1.PlaceholderText = "Nhập tên thể loại";
             textBox1.Size = new Size(398, 23);
             textBox1.TabIndex = 32;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // groupBox1
             // 
@@ -127,16 +130,6 @@
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
             // 
-            // xoa
-            // 
-            xoa.Location = new Point(283, 194);
-            xoa.Margin = new Padding(4, 3, 4, 3);
-            xoa.Name = "xoa";
-            xoa.Size = new Size(88, 27);
-            xoa.TabIndex = 29;
-            xoa.Text = "Xóa";
-            xoa.UseVisualStyleBackColor = true;
-            // 
             // sua
             // 
             sua.Location = new Point(146, 194);
@@ -146,6 +139,7 @@
             sua.TabIndex = 28;
             sua.Text = "Sửa";
             sua.UseVisualStyleBackColor = true;
+            sua.Click += sua_Click;
             // 
             // them
             // 
@@ -156,6 +150,7 @@
             them.TabIndex = 27;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
@@ -168,38 +163,58 @@
             label1.TabIndex = 26;
             label1.Text = "THỂ LOẠI";
             // 
-            // luoi
+            // dgv
             // 
-            luoi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            luoi.Location = new Point(18, 227);
-            luoi.Margin = new Padding(4, 3, 4, 3);
-            luoi.Name = "luoi";
-            luoi.Size = new Size(485, 197);
-            luoi.TabIndex = 25;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv.Location = new Point(18, 227);
+            dgv.Margin = new Padding(4, 3, 4, 3);
+            dgv.Name = "dgv";
+            dgv.Size = new Size(485, 197);
+            dgv.TabIndex = 25;
+            dgv.CellClick += dgv_CellClick;
+            dgv.CellContentClick += dgv_CellContentClick;
             // 
-            // Theloai
+            // Xoa
+            // 
+            Xoa.Location = new Point(273, 194);
+            Xoa.Margin = new Padding(4, 3, 4, 3);
+            Xoa.Name = "Xoa";
+            Xoa.Size = new Size(88, 27);
+            Xoa.TabIndex = 34;
+            Xoa.Text = "Xóa";
+            Xoa.UseVisualStyleBackColor = true;
+            Xoa.Click += Xoa_Click_1;
+            // 
+            // Theloai1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(517, 450);
+            Controls.Add(Xoa);
             Controls.Add(label5);
             Controls.Add(textBox1);
             Controls.Add(groupBox1);
             Controls.Add(thoat);
-            Controls.Add(xoa);
             Controls.Add(sua);
             Controls.Add(them);
             Controls.Add(label1);
-            Controls.Add(luoi);
-            Name = "Theloai";
+            Controls.Add(dgv);
+            Name = "Theloai1";
             Text = "Theloai";
             Load += Theloai_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private void xoa_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
 
@@ -211,10 +226,10 @@
         private Label label3;
         private TextBox txtVitri;
         private Button thoat;
-        private Button xoa;
         private Button sua;
         private Button them;
         private Label label1;
-        private DataGridView luoi;
+        private DataGridView dgv;
+        private Button Xoa;
     }
 }

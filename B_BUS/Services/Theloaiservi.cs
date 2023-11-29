@@ -8,7 +8,7 @@ using A_DAL.Repository;
 
 namespace B_BUS.Services
 {
-    internal class Theloaiservi
+    public class Theloaiservi
     {
         TheloaiRepos _repos = new TheloaiRepos();
         public Theloaiservi()
@@ -22,10 +22,13 @@ namespace B_BUS.Services
         }
         public string add(Theloai theloai)
         {
-            if (_repos.Add(theloai) == true)
+            if (_repos.Add(theloai) == 2)
             {
                 return "Thêm thành công";
-
+            }
+            else if(_repos.Add(theloai) == 1)
+            {
+                return "Tên thể loại không được để trống";
             }
             else
             {
@@ -48,7 +51,7 @@ namespace B_BUS.Services
         {
             return _repos.GetSearch(searchText);
         }
-        public bool Update(int id, Theloai theloai)
+        public int Update(int id, Theloai theloai)
         {
             return _repos.Update(id, theloai);
         }

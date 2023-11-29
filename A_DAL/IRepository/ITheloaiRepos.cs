@@ -12,9 +12,9 @@ namespace A_DAL.IRepository
        IEnumerable<Theloai> GetAllTheloai();
         List<Theloai> GetTheloaiByName(string name);
         Theloai GetById(int id);
-        bool Add(Theloai theloai);
+       int Add(Theloai theloai);
 
-        bool Update(int id, Theloai theloai);
+        int Update(int id, Theloai theloai);
         bool Delete(int id);
         List<Theloai> GetSearch(string searchText);
 

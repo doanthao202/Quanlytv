@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace C_PRL.Forms
 {
-    public partial class Theloai : Form
+    public partial class Ngonngu1 : Form
     {
-        public Theloai()
+        public Ngonngu1()
         {
             InitializeComponent();
-        }
-
-        private void Theloai_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
