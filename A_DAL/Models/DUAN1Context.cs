@@ -31,7 +31,6 @@ namespace A_DAL.Models
         public virtual DbSet<SachctHang> SachctHangs { get; set; } = null!;
         public virtual DbSet<Tacgium> Tacgia { get; set; } = null!;
         public virtual DbSet<Theloai> Theloais { get; set; } = null!;
-        public virtual DbSet<Theloaisach> Theloaisaches { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -77,10 +76,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Ngaycapthe)
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYCAPTHE");
-
-                entity.Property(e => e.Ngayhieuluc)
-                    .HasColumnType("datetime")
-                    .HasColumnName("NGAYHIEULUC");
 
                 entity.Property(e => e.Ngaysinh)
                     .HasColumnType("datetime")
@@ -459,29 +454,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Vitri)
                     .HasMaxLength(50)
                     .HasColumnName("VITRI");
-            });
-
-            modelBuilder.Entity<Theloaisach>(entity =>
-            {
-                entity.ToTable("THELOAISACH");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Idsach).HasColumnName("IDSACH");
-
-                entity.Property(e => e.Idtheloai).HasColumnName("IDTHELOAI");
-
-                entity.HasOne(d => d.IdsachNavigation)
-                    .WithMany(p => p.Theloaisaches)
-                    .HasForeignKey(d => d.Idsach)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_SACH_THELOAISACH");
-
-                entity.HasOne(d => d.IdtheloaiNavigation)
-                    .WithMany(p => p.Theloaisaches)
-                    .HasForeignKey(d => d.Idtheloai)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_THELOAI_THELOAISACH");
             });
 
             OnModelCreatingPartial(modelBuilder);

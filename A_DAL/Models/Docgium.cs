@@ -19,7 +19,6 @@ namespace A_DAL.Models
         public string? Cmnd { get; set; }
         public DateTime? Ngaysinh { get; set; }
         public DateTime? Ngaycapthe { get; set; }
-        public DateTime? Ngayhieuluc { get; set; }
         public DateTime? Hanthe { get; set; }
         public int? Trangthai { get; set; }
         public int Idhang { get; set; }
