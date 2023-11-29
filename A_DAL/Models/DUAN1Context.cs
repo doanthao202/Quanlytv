@@ -37,7 +37,7 @@ namespace A_DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=THAODTPPH43287\\SQLEXPRESS;Initial Catalog= DUAN1;Integrated Security=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Data Source=TONLAPTOP\\SQLEXPRESS;Initial Catalog= DUAN1;Integrated Security=True;TrustServerCertificate=True");
             }
         }
 
@@ -94,7 +94,7 @@ namespace A_DAL.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_HANG");
             });
-
+            //Nhom4 10 diem
             modelBuilder.Entity<Hangthanhvien>(entity =>
             {
                 entity.ToTable("HANGTHANHVIEN");
