@@ -8,27 +8,29 @@ using A_DAL.Repository;
 
 namespace B_BUS.Services
 {
-    public class Theloaiservi
+    public class Sachservice
     {
-        TheloaiRepos _repos = new TheloaiRepos();
-        public Theloaiservi()
+        Sachrepos _repos = new Sachrepos();
+        public Sachservice()
         {
-            
+
         }
 
-        public Theloaiservi(TheloaiRepos repos)
+        public Sachservice(Sachrepos repos)
         {
             _repos = repos;
+
         }
-        public string add(Theloai theloai)
+
+        public string add(Sach sach)
         {
-            if (_repos.Add(theloai) == 2)
+            if (_repos.Add(sach) == 2)
             {
                 return "Thêm thành công";
             }
-            else if(_repos.Add(theloai) == 1)
+            else if (_repos.Add(sach) == 1)
             {
-                return "Tên thể loại không được để trống";
+                return "Tên sách không được để trống";
             }
             else
             {
@@ -39,21 +41,21 @@ namespace B_BUS.Services
         {
             return _repos.Delete(id);
         }
-        public IEnumerable<Theloai> GetAll()
+        public IEnumerable<Sach> GetAll()
         {
-            return _repos.GetAllTheloai().ToList();
+            return _repos.GetAllSach().ToList();
         }
-        public Theloai GetById(int id)
+        public Sach GetById(int id)
         {
             return _repos.GetById(id);
         }
-        public List<Theloai> GetSearch(string searchText)
+        public List<Sach> GetSearch(string searchText)
         {
             return _repos.GetSearch(searchText);
         }
-        public int Update(int id, Theloai theloai)
+        public int Update(int id, Sach sach)
         {
-            return _repos.Update(id, theloai);
+            return _repos.Update(id, sach);
         }
     }
 }

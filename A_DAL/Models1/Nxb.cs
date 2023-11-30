@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class Nxb
     {

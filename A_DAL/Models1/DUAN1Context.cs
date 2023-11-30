@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class DUAN1Context : DbContext
     {
@@ -320,6 +320,8 @@ namespace A_DAL.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.Idtheloai).HasColumnName("IDTHELOAI");
+
                 entity.Property(e => e.Namxuatban).HasColumnName("NAMXUATBAN");
 
                 entity.Property(e => e.Ngaynhap)
@@ -329,6 +331,12 @@ namespace A_DAL.Models
                 entity.Property(e => e.Tensach)
                     .HasMaxLength(50)
                     .HasColumnName("TENSACH");
+
+                entity.HasOne(d => d.IdtheloaiNavigation)
+                    .WithMany(p => p.Saches)
+                    .HasForeignKey(d => d.Idtheloai)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_SACH_THELOAI");
             });
 
             modelBuilder.Entity<SachTacgium>(entity =>
