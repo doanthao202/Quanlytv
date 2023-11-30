@@ -129,6 +129,7 @@ namespace C_PRL.Forms
             thoat.TabIndex = 30;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
+            thoat.Click += thoat_Click;
             // 
             // sua
             // 
