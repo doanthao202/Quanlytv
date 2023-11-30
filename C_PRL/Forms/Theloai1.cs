@@ -68,12 +68,14 @@ namespace C_PRL.Forms
             txtVitri.Text = selectChild.Cells[3].Value.ToString();
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
+            them.Enabled = false;
         }
         public void reset()
         {
             txtTentl.Text = "";
             txtVitri.Text = "";
             idCellClick = -1;
+            them.Enabled = true;
         }
         private void them_Click(object sender, EventArgs e)
         {
@@ -88,7 +90,7 @@ namespace C_PRL.Forms
             {
                 MessageBox.Show(_service.add(tl));
                 loatData(_service.GetAll());
-
+                reset();
             }
             else
             {
@@ -129,22 +131,29 @@ namespace C_PRL.Forms
 
         private void Xoa_Click_1(object sender, EventArgs e)
         {
-        
-                var result = _service.Delete(idCellClick);
-                if (result)
-                {
-                    MessageBox.Show("Xóa thành công");
-                    loatData(_service.GetAll());
-                }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại");
-                }
-           
+
+            var result = _service.Delete(idCellClick);
+            if (result)
+            {
+                MessageBox.Show("Xóa thành công");
+                loatData(_service.GetAll());
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại");
+            }
+
             reset();
         }
+
+        private void thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Giaodien();
+            f.Show();
+        }
     }
-    
+
 
 
 }
