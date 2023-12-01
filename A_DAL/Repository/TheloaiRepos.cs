@@ -65,9 +65,9 @@ namespace A_DAL.Repository
             return _dbContext.Theloais.ToList();
         }
 
-        public Theloai GetById(int id)
+        public Theloai GetById(string tentl)
         {
-            return _dbContext.Theloais.FirstOrDefault(c => c.Id == id);
+            return _dbContext.Theloais.FirstOrDefault(c => c.Tentheloai == tentl);
         }
 
         public List<Theloai> GetSearch(string searchText)
@@ -79,9 +79,9 @@ namespace A_DAL.Repository
             return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(searchText)).ToList();
         }
 
-        public List<Theloai> GetTheloaiByName(string name)
+        public List<Theloai> GetTheloaiByName(int id)
         {
-            return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(name)).ToList();
+            return _dbContext.Theloais.Where(c => c.Id == id).ToList();
         }
 
         public int Update(int id, Theloai theloai)

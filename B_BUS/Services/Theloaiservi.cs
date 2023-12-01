@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using A_DAL.Models1;
 using A_DAL.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace B_BUS.Services
 {
@@ -43,9 +44,9 @@ namespace B_BUS.Services
         {
             return _repos.GetAllTheloai().ToList();
         }
-        public Theloai GetById(int id)
+        public Theloai GetById(string tl)
         {
-            return _repos.GetById(id);
+            return _repos.GetById(tl);
         }
         public List<Theloai> GetSearch(string searchText)
         {
@@ -54,6 +55,10 @@ namespace B_BUS.Services
         public int Update(int id, Theloai theloai)
         {
             return _repos.Update(id, theloai);
+        }
+        public List<Theloai> GetTheloaiByName(int id)
+        {
+            return _repos.GetTheloaiByName(id);
         }
     }
 }
