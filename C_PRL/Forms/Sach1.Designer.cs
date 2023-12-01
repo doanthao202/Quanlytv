@@ -224,6 +224,7 @@
             cbxTheloai.Name = "cbxTheloai";
             cbxTheloai.Size = new Size(103, 23);
             cbxTheloai.TabIndex = 21;
+            cbxTheloai.SelectedIndexChanged += cbxTheloai_SelectedIndexChanged;
             // 
             // label8
             // 

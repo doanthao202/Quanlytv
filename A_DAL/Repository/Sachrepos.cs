@@ -98,6 +98,7 @@ namespace A_DAL.Repository
                     exist.Tensach = sach.Tensach;
                     exist.Ngaynhap = sach.Ngaynhap;
                     exist.Namxuatban = sach.Namxuatban;
+                    exist.Idtheloai = sach.Idtheloai;
                     _dbContext.Saches.Update(exist);
                     _dbContext.SaveChanges();
                     return 3;

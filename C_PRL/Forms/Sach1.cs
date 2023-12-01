@@ -17,22 +17,27 @@ namespace C_PRL.Forms
     {
         Sachservice _service = new Sachservice();
         Theloaiservi _tlservice = new Theloaiservi();
-       
+        Tacgiaservice _tgservice = new Tacgiaservice();
         int idCellClick = -1;
         public Sach1()
         {
             _service = new Sachservice();
             _tlservice = new Theloaiservi();
+            _tgservice = new Tacgiaservice();
             InitializeComponent();
-            
+
         }
 
         private void Sach1_Load(object sender, EventArgs e)
         {
-            loatData(_service.GetAll());
-            foreach(var item in _tlservice.GetAll())
+            loatData(_service.Getview());
+            foreach (var item in _tlservice.GetAll())
             {
                 cbxTheloai.Items.Add(item.Tentheloai);
+            }
+            foreach (var item in _tgservice.GetAll())
+            {
+                comboBox1.Items.Add(item.Tentacgia);
             }
         }
         public void reset()
@@ -44,29 +49,29 @@ namespace C_PRL.Forms
             cbxTheloai.ResetText();
             them.Enabled = true;
         }
-       /* public void loatData(dynamic data,dynamic data1)
-        {
-            //var theloai=  //_tlservice.GetById(cbxTheloai.Text).Id;
-            dgv.Rows.Clear();
-            int stt = 1;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnCount = 6;
-            dgv.Columns[0].Name = "Stt";
-            dgv.Columns[1].Name = "Mã sách";
-            dgv.Columns[2].Name = "Tên sách";
-            dgv.Columns[3].Name = "Ngày nhập";
-            dgv.Columns[4].Name = "Năm xuất bản";
-            dgv.Columns[5].Name = "Tên thể loại";
-            //dgv.Columns[6].Name = "Tên thể loại";
+        /* public void loatData(dynamic data,dynamic data1)
+         {
+             //var theloai=  //_tlservice.GetById(cbxTheloai.Text).Id;
+             dgv.Rows.Clear();
+             int stt = 1;
+             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+             dgv.ColumnCount = 6;
+             dgv.Columns[0].Name = "Stt";
+             dgv.Columns[1].Name = "Mã sách";
+             dgv.Columns[2].Name = "Tên sách";
+             dgv.Columns[3].Name = "Ngày nhập";
+             dgv.Columns[4].Name = "Năm xuất bản";
+             dgv.Columns[5].Name = "Tên thể loại";
+             //dgv.Columns[6].Name = "Tên thể loại";
 
-            foreach (var s in data)
-            {
-                int x = s.Idtheloai;
-                string m = data1.GetTheloaiByName(x);
-                dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Ngaynhap, s.Namxuatban,m);
-            }
+             foreach (var s in data)
+             {
+                 int x = s.Idtheloai;
+                 string m = data1.GetTheloaiByName(x);
+                 dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Ngaynhap, s.Namxuatban,m);
+             }
 
-        }*/
+         }*/
         public void loatData(dynamic data)
         {
             //var theloai=  //_tlservice.GetById(cbxTheloai.Text).Id;
@@ -84,8 +89,8 @@ namespace C_PRL.Forms
 
             foreach (var s in data)
             {
-               
-                dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Ngaynhap, s.Namxuatban, s.Idtheloai);
+
+                dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Ngaynhap, s.Namxuatban, s.Tentheloai);
             }
 
         }
@@ -97,6 +102,7 @@ namespace C_PRL.Forms
             txtTensach.Text = selectChild.Cells[2].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(selectChild.Cells[3].Value.ToString());
             txtNam.Text = selectChild.Cells[4].Value.ToString();
+            cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
         }
@@ -108,24 +114,29 @@ namespace C_PRL.Forms
             txtTensach.Text = selectChild.Cells[2].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(selectChild.Cells[3].Value.ToString());
             txtNam.Text = selectChild.Cells[4].Value.ToString();
+            cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
-           
+
             them.Enabled = false;
         }
 
         private void them_Click(object sender, EventArgs e)
         {
+            int m = cbxTheloai.SelectedIndex;
             var s1 = new Sach();
             s1.Tensach = txtTensach.Text;
             s1.Ngaynhap = dateTimePicker1.Value.Date;
             s1.Namxuatban = Convert.ToInt32(txtNam.Text);
-            s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
+            //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
+            s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
+            
+            
             var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
             if (thongBao == DialogResult.Yes)
             {
                 MessageBox.Show(_service.add(s1));
                 //loatData(_service.GetAll(),_tlservice);
-                loatData(_service.GetAll());
+                loatData(_service.Getview());
                 reset();
             }
             else
@@ -136,24 +147,25 @@ namespace C_PRL.Forms
 
         private void Sua_Click(object sender, EventArgs e)
         {
+            int m = cbxTheloai.SelectedIndex;
             var result = _service.Update(idCellClick, new Sach()
             {
                 Tensach = txtTensach.Text,
                 Ngaynhap = dateTimePicker1.Value.Date,
                 Namxuatban = Convert.ToInt32(txtNam.Text),
-                Idtheloai = 1,
+                Idtheloai = _tlservice.GetAll().ElementAt(m).Id
 
-            });
+        });
             if (result == 3)
             {
                 MessageBox.Show("Sửa thành công");
-                loatData(_service.GetAll());
+                loatData(_service.Getview());
                 reset();
             }
             else if (result == 2)
             {
                 MessageBox.Show("Tên không được để trống");
-                loatData(_service.GetAll());
+                loatData(_service.Getview());
 
             }
             else
@@ -169,7 +181,7 @@ namespace C_PRL.Forms
             if (result)
             {
                 MessageBox.Show("Xóa thành công");
-                loatData(_service.GetAll());
+                loatData(_service.Getview());
             }
             else
             {
@@ -188,7 +200,12 @@ namespace C_PRL.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            loatData(_service.GetSearch(textBox1.Text));
+            loatData(_service.GetSearch1(textBox1.Text));
+        }
+
+        private void cbxTheloai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
