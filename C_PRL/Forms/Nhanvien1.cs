@@ -227,9 +227,41 @@ namespace C_PRL.Forms
             dgv.DataSource = _service.GetSearch1(textBox1.Text);
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+
+
+        private void txtTen_KeyPress(object sender, KeyPressEventArgs e)
         {
-            dgv.DataSource = _service.GetSearch1(textBox1.Text);
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                // errorProvider1.SetError(txtTen, "Tên không được nhập số");
+
+            }
+            else
+            {
+                //errorProvider1.SetError(txtTen, null);
+                e.Handled = false;
+            }
+        }
+
+        private void txtSdt_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtSdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                // errorProvider1.SetError(txtSdt, null);
+
+            }
+            else
+            {
+                //errorProvider1.SetError(txtSdt, "Không được nhập chữ");
+                e.Handled = true;
+            }
         }
     }
 }

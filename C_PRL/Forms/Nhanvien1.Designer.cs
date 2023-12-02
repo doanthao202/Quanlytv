@@ -152,6 +152,8 @@
             txtSdt.Name = "txtSdt";
             txtSdt.Size = new Size(103, 23);
             txtSdt.TabIndex = 23;
+            txtSdt.TextChanged += txtSdt_TextChanged;
+            txtSdt.KeyPress += txtSdt_KeyPress;
             // 
             // label9
             // 
@@ -203,6 +205,7 @@
             txtTen.Size = new Size(103, 23);
             txtTen.TabIndex = 14;
             txtTen.TextChanged += txtTensach_TextChanged;
+            txtTen.KeyPress += txtTen_KeyPress;
             // 
             // label2
             // 
