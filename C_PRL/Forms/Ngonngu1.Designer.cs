@@ -49,21 +49,22 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(11, 74);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(16, 123);
+            label5.Margin = new Padding(6, 0, 6, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 16);
+            label5.Size = new Size(100, 24);
             label5.TabIndex = 69;
             label5.Text = "Tìm kiếm:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(99, 67);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Location = new Point(141, 112);
+            textBox1.Margin = new Padding(6, 5, 6, 5);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên ngôn ngữ";
-            textBox1.Size = new Size(291, 23);
+            textBox1.Size = new Size(414, 31);
             textBox1.TabIndex = 68;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // groupBox2
             // 
@@ -72,9 +73,11 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label3);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(11, 108);
+            groupBox2.Location = new Point(16, 180);
+            groupBox2.Margin = new Padding(4, 5, 4, 5);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(379, 102);
+            groupBox2.Padding = new Padding(4, 5, 4, 5);
+            groupBox2.Size = new Size(541, 170);
             groupBox2.TabIndex = 67;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin";
@@ -83,28 +86,28 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(10, 107);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(14, 178);
+            label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(0, 16);
+            label4.Size = new Size(0, 24);
             label4.TabIndex = 18;
             // 
             // txtTentl
             // 
-            txtTentl.Location = new Point(95, 49);
-            txtTentl.Margin = new Padding(4, 3, 4, 3);
+            txtTentl.Location = new Point(136, 82);
+            txtTentl.Margin = new Padding(6, 5, 6, 5);
             txtTentl.Name = "txtTentl";
-            txtTentl.Size = new Size(264, 23);
+            txtTentl.Size = new Size(375, 31);
             txtTentl.TabIndex = 14;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(0, 51);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(0, 85);
+            label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 16);
+            label2.Size = new Size(141, 24);
             label2.TabIndex = 13;
             label2.Text = "Tên ngôn ngữ:";
             // 
@@ -112,78 +115,86 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(10, 68);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(14, 113);
+            label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(0, 16);
+            label3.Size = new Size(0, 24);
             label3.TabIndex = 15;
             // 
             // thoat
             // 
-            thoat.Location = new Point(397, 196);
-            thoat.Margin = new Padding(4, 3, 4, 3);
+            thoat.Location = new Point(567, 327);
+            thoat.Margin = new Padding(6, 5, 6, 5);
             thoat.Name = "thoat";
-            thoat.Size = new Size(88, 27);
+            thoat.Size = new Size(126, 45);
             thoat.TabIndex = 66;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
+            thoat.Click += thoat_Click;
             // 
             // xoa
             // 
-            xoa.Location = new Point(397, 163);
-            xoa.Margin = new Padding(4, 3, 4, 3);
+            xoa.Location = new Point(567, 272);
+            xoa.Margin = new Padding(6, 5, 6, 5);
             xoa.Name = "xoa";
-            xoa.Size = new Size(88, 27);
+            xoa.Size = new Size(126, 45);
             xoa.TabIndex = 65;
             xoa.Text = "Xóa";
             xoa.UseVisualStyleBackColor = true;
+            xoa.Click += xoa_Click;
             // 
             // sua
             // 
-            sua.Location = new Point(397, 130);
-            sua.Margin = new Padding(4, 3, 4, 3);
+            sua.Location = new Point(567, 217);
+            sua.Margin = new Padding(6, 5, 6, 5);
             sua.Name = "sua";
-            sua.Size = new Size(88, 27);
+            sua.Size = new Size(126, 45);
             sua.TabIndex = 64;
             sua.Text = "Sửa";
             sua.UseVisualStyleBackColor = true;
+            sua.Click += sua_Click;
             // 
             // them
             // 
-            them.Location = new Point(397, 97);
-            them.Margin = new Padding(4, 3, 4, 3);
+            them.Location = new Point(567, 162);
+            them.Margin = new Padding(6, 5, 6, 5);
             them.Name = "them";
-            them.Size = new Size(88, 27);
+            them.Size = new Size(126, 45);
             them.TabIndex = 63;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(171, 21);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(244, 35);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(126, 26);
+            label1.Size = new Size(194, 39);
             label1.TabIndex = 62;
             label1.Text = "NGÔN NGỮ";
             label1.Click += label1_Click;
             // 
             // luoi
             // 
+            luoi.BackgroundColor = SystemColors.AppWorkspace;
             luoi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            luoi.Location = new Point(11, 234);
-            luoi.Margin = new Padding(4, 3, 4, 3);
+            luoi.Location = new Point(16, 390);
+            luoi.Margin = new Padding(6, 5, 6, 5);
             luoi.Name = "luoi";
-            luoi.Size = new Size(485, 192);
+            luoi.RowHeadersWidth = 62;
+            luoi.Size = new Size(693, 320);
             luoi.TabIndex = 61;
+            luoi.CellClick += luoi_CellClick;
+            luoi.CellContentClick += luoi_CellContentClick;
             // 
             // NgonNgu1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(511, 450);
+            ClientSize = new Size(730, 750);
             Controls.Add(label5);
             Controls.Add(textBox1);
             Controls.Add(groupBox2);
@@ -193,8 +204,10 @@
             Controls.Add(them);
             Controls.Add(label1);
             Controls.Add(luoi);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "NgonNgu1";
             Text = "NgonNgu1";
+            Load += NgonNgu1_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();

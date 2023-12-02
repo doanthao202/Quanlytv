@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models
+namespace A_DAL.Model
 {
     public partial class DUAN1Context : DbContext
     {
@@ -37,7 +37,7 @@ namespace A_DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=THAODTPPH43287\\SQLEXPRESS;Initial Catalog= DUAN1;Integrated Security=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-NHT2019\\SQLEXPRESS;Database=DUAN1;Trusted_Connection=True");
             }
         }
 
@@ -76,6 +76,10 @@ namespace A_DAL.Models
                 entity.Property(e => e.Ngaycapthe)
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYCAPTHE");
+
+                entity.Property(e => e.Ngayhieuluc)
+                    .HasColumnType("datetime")
+                    .HasColumnName("NGAYHIEULUC");
 
                 entity.Property(e => e.Ngaysinh)
                     .HasColumnType("datetime")

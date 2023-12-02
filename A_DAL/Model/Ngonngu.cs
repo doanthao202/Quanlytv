@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models
+namespace A_DAL.Model
 {
-    public partial class Nxb
+    public partial class Ngonngu
     {
-        public Nxb()
+        public Ngonngu()
         {
             Sachchitiets = new HashSet<Sachchitiet>();
         }
 
         public int Id { get; set; }
-        public string? Tennxb { get; set; }
-        public string? Ghichu { get; set; }
-        public string? Diachi { get; set; }
-        public string? Sdt { get; set; }
+        public string? Tennn { get; set; }
 
         public virtual ICollection<Sachchitiet> Sachchitiets { get; set; }
     }
