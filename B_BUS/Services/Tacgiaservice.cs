@@ -24,5 +24,34 @@ namespace B_BUS.Services
         {
             return _repos.GetAll().ToList();
         }
+        public string add(Tacgium tacgia)
+        {
+            if (_repos.Add(tacgia) == 2)
+            {
+                return "Thêm thành công";
+            }
+            else if (_repos.Add(tacgia) == 1)
+            {
+                return "Tên tác giả không được để trống";
+            }
+            else
+            {
+                return "Thêm thất bại";
+            }
+        }
+        public bool Delete(int id)
+        {
+            return _repos.Delete(id);
+        }
+
+        
+        public List<Tacgium> GetSearch(string searchText)
+        {
+            return _repos.GetSearch(searchText);
+        }
+        public int Update(int id, Tacgium tacgia)
+        {
+            return _repos.Update(id, tacgia);
+        }
     }
 }

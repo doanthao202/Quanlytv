@@ -70,6 +70,7 @@
             textBox1.PlaceholderText = "Nhập tên hạng";
             textBox1.Size = new Size(291, 23);
             textBox1.TabIndex = 59;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // groupBox2
             // 

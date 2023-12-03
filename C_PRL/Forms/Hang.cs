@@ -157,5 +157,10 @@ namespace C_PRL.Forms
             Form form = new Giaodien();
             form.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            luoi.DataSource = _Hservice.GetSearch(textBox1.Text);
+        }
     }
 }
