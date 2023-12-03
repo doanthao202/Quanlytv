@@ -65,6 +65,7 @@
             textBox1.PlaceholderText = "Nhập tên tác giả";
             textBox1.Size = new Size(271, 23);
             textBox1.TabIndex = 41;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // groupBox2
             // 
@@ -98,6 +99,7 @@
             txtTentl.Name = "txtTentl";
             txtTentl.Size = new Size(264, 23);
             txtTentl.TabIndex = 14;
+            txtTentl.KeyPress += txtTentl_KeyPress;
             // 
             // label2
             // 
@@ -138,6 +140,7 @@
             thoat.TabIndex = 39;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
+            thoat.Click += thoat_Click;
             // 
             // xoa
             // 
@@ -148,6 +151,7 @@
             xoa.TabIndex = 38;
             xoa.Text = "Xóa";
             xoa.UseVisualStyleBackColor = true;
+            xoa.Click += xoa_Click;
             // 
             // sua
             // 
@@ -158,6 +162,7 @@
             sua.TabIndex = 37;
             sua.Text = "Sửa";
             sua.UseVisualStyleBackColor = true;
+            sua.Click += sua_Click;
             // 
             // them
             // 
@@ -168,6 +173,7 @@
             them.TabIndex = 36;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
@@ -188,6 +194,8 @@
             luoi.Name = "luoi";
             luoi.Size = new Size(485, 192);
             luoi.TabIndex = 34;
+            luoi.CellClick += luoi_CellClick;
+            luoi.CellContentClick += luoi_CellContentClick;
             // 
             // Tacgia
             // 
@@ -205,6 +213,7 @@
             Controls.Add(luoi);
             Name = "Tacgia";
             Text = "Tacgia";
+            Load += Tacgia_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
