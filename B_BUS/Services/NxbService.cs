@@ -24,7 +24,7 @@ namespace B_BUS.Services
 
         public IEnumerable<Nxb> GetAll()
         {
-            return _repos.GetAllHang().ToList();
+            return _repos.GetAll().ToList();
         }
         public string add(Nxb nxb)
         {
