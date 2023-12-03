@@ -30,9 +30,8 @@
         {
             Sua = new Button();
             groupBox2 = new GroupBox();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnXoa = new Button();
+            btnXacnhan = new Button();
             comboBox1 = new ComboBox();
             label4 = new Label();
             label6 = new Label();
@@ -40,11 +39,13 @@
             label5 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            listView1 = new ListView();
+            lvtacgia = new ColumnHeader();
+            lvvaitro = new ColumnHeader();
             txtNam = new TextBox();
             label9 = new Label();
             cbxTheloai = new ComboBox();
             label8 = new Label();
-            listBox1 = new ListBox();
             label7 = new Label();
             dateTimePicker1 = new DateTimePicker();
             txtTensach = new TextBox();
@@ -62,7 +63,7 @@
             // 
             // Sua
             // 
-            Sua.Location = new Point(123, 222);
+            Sua.Location = new Point(146, 229);
             Sua.Margin = new Padding(4, 3, 4, 3);
             Sua.Name = "Sua";
             Sua.Size = new Size(88, 27);
@@ -73,9 +74,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button3);
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(btnXoa);
+            groupBox2.Controls.Add(btnXacnhan);
             groupBox2.Controls.Add(comboBox1);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label6);
@@ -88,35 +88,26 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Tác giả";
             // 
-            // button3
+            // btnXoa
             // 
-            button3.Location = new Point(172, 91);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(81, 27);
-            button3.TabIndex = 39;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
+            btnXoa.Location = new Point(161, 102);
+            btnXoa.Margin = new Padding(4, 3, 4, 3);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(81, 27);
+            btnXoa.TabIndex = 39;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnXacnhan
             // 
-            button2.Location = new Point(89, 91);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 27);
-            button2.TabIndex = 38;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(10, 91);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(77, 27);
-            button1.TabIndex = 37;
-            button1.Text = "Xác nhận";
-            button1.UseVisualStyleBackColor = true;
+            btnXacnhan.Location = new Point(40, 102);
+            btnXacnhan.Margin = new Padding(4, 3, 4, 3);
+            btnXacnhan.Name = "btnXacnhan";
+            btnXacnhan.Size = new Size(77, 27);
+            btnXacnhan.TabIndex = 37;
+            btnXacnhan.Text = "Xác nhận";
+            btnXacnhan.UseVisualStyleBackColor = true;
+            btnXacnhan.Click += btnXacnhan_Click;
             // 
             // comboBox1
             // 
@@ -160,7 +151,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(11, 41);
+            label5.Location = new Point(13, 36);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 16);
@@ -169,7 +160,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(96, 41);
+            textBox1.Location = new Point(90, 34);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên sách";
@@ -179,38 +170,60 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(listView1);
             groupBox1.Controls.Add(txtNam);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(cbxTheloai);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(listBox1);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(txtTensach);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(11, 70);
+            groupBox1.Location = new Point(11, 60);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(511, 146);
+            groupBox1.Size = new Size(511, 163);
             groupBox1.TabIndex = 70;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { lvtacgia, lvvaitro });
+            listView1.FullRowSelect = true;
+            listView1.Location = new Point(289, 42);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(216, 109);
+            listView1.TabIndex = 24;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            // 
+            // lvtacgia
+            // 
+            lvtacgia.Text = "Tên tác giả";
+            lvtacgia.Width = 130;
+            // 
+            // lvvaitro
+            // 
+            lvvaitro.Text = "Vai trò";
+            lvvaitro.Width = 100;
+            // 
             // txtNam
             // 
             txtNam.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNam.Location = new Point(97, 60);
+            txtNam.Location = new Point(97, 59);
             txtNam.Margin = new Padding(4, 3, 4, 3);
             txtNam.Name = "txtNam";
-            txtNam.Size = new Size(103, 23);
+            txtNam.Size = new Size(126, 23);
             txtNam.TabIndex = 23;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(7, 102);
+            label9.Location = new Point(7, 101);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(88, 16);
@@ -220,9 +233,9 @@
             // cbxTheloai
             // 
             cbxTheloai.FormattingEnabled = true;
-            cbxTheloai.Location = new Point(97, 94);
+            cbxTheloai.Location = new Point(97, 96);
             cbxTheloai.Name = "cbxTheloai";
-            cbxTheloai.Size = new Size(103, 23);
+            cbxTheloai.Size = new Size(126, 23);
             cbxTheloai.TabIndex = 21;
             cbxTheloai.SelectedIndexChanged += cbxTheloai_SelectedIndexChanged;
             // 
@@ -230,27 +243,18 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(232, 64);
+            label8.Location = new Point(238, 19);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(113, 16);
             label8.TabIndex = 20;
             label8.Text = "Danh sách tác giả:";
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(361, 61);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(107, 79);
-            listBox1.TabIndex = 19;
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(7, 67);
+            label7.Location = new Point(7, 63);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(91, 16);
@@ -262,9 +266,9 @@
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(305, 22);
+            dateTimePicker1.Location = new Point(97, 133);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(196, 23);
+            dateTimePicker1.Size = new Size(126, 23);
             dateTimePicker1.TabIndex = 16;
             // 
             // txtTensach
@@ -273,7 +277,7 @@
             txtTensach.Location = new Point(97, 22);
             txtTensach.Margin = new Padding(4, 3, 4, 3);
             txtTensach.Name = "txtTensach";
-            txtTensach.Size = new Size(103, 23);
+            txtTensach.Size = new Size(126, 23);
             txtTensach.TabIndex = 14;
             // 
             // label2
@@ -291,7 +295,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(232, 25);
+            label3.Location = new Point(7, 139);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(72, 16);
@@ -300,7 +304,7 @@
             // 
             // thoat
             // 
-            thoat.Location = new Point(351, 222);
+            thoat.Location = new Point(402, 229);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -311,7 +315,7 @@
             // 
             // xoa
             // 
-            xoa.Location = new Point(243, 222);
+            xoa.Location = new Point(274, 229);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
@@ -322,7 +326,7 @@
             // 
             // them
             // 
-            them.Location = new Point(11, 222);
+            them.Location = new Point(18, 229);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -335,7 +339,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(269, 10);
+            label1.Location = new Point(327, 5);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(66, 26);
@@ -345,7 +349,7 @@
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(13, 255);
+            dgv.Location = new Point(18, 264);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
@@ -385,9 +389,8 @@
 
         private Button Sua;
         private GroupBox groupBox2;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnXoa;
+        private Button btnXacnhan;
         private ComboBox comboBox1;
         private Label label4;
         private Label label6;
@@ -399,7 +402,6 @@
         private Label label9;
         private ComboBox cbxTheloai;
         private Label label8;
-        private ListBox listBox1;
         private Label label7;
         private DateTimePicker dateTimePicker1;
         private TextBox txtTensach;
@@ -410,5 +412,8 @@
         private Button them;
         private Label label1;
         private DataGridView dgv;
+        private ListView listView1;
+        private ColumnHeader lvtacgia;
+        private ColumnHeader lvvaitro;
     }
 }

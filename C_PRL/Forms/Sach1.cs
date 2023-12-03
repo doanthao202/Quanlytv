@@ -48,6 +48,11 @@ namespace C_PRL.Forms
             dateTimePicker1.Value = DateTime.Now;
             cbxTheloai.ResetText();
             them.Enabled = true;
+            btnXacnhan.Enabled = true;
+            Sua.Enabled = false;
+            xoa.Enabled = false;
+           
+            btnXoa.Enabled = false;
         }
         /* public void loatData(dynamic data,dynamic data1)
          {
@@ -72,6 +77,7 @@ namespace C_PRL.Forms
              }
 
          }*/
+
         public void loatData(dynamic data)
         {
             //var theloai=  //_tlservice.GetById(cbxTheloai.Text).Id;
@@ -129,8 +135,8 @@ namespace C_PRL.Forms
             s1.Namxuatban = Convert.ToInt32(txtNam.Text);
             //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
             s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
-            
-            
+
+
             var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
             if (thongBao == DialogResult.Yes)
             {
@@ -155,7 +161,7 @@ namespace C_PRL.Forms
                 Namxuatban = Convert.ToInt32(txtNam.Text),
                 Idtheloai = _tlservice.GetAll().ElementAt(m).Id
 
-        });
+            });
             if (result == 3)
             {
                 MessageBox.Show("Sửa thành công");
@@ -206,6 +212,32 @@ namespace C_PRL.Forms
         private void cbxTheloai_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem lv = listView1.SelectedItems[0];
+                string tentacgia = lv.SubItems[0].Text;
+                string vaitro = lv.SubItems[1].Text;
+                comboBox1.Text = tentacgia;
+                textBox3.Text= vaitro;
+                btnXacnhan.Enabled = false;
+                btnXoa.Enabled = true;
+            }
+
+        }
+
+        private void btnXacnhan_Click(object sender, EventArgs e)
+        {
+            
+            ListViewItem lv1 = new ListViewItem(comboBox1.Text);
+            //THÊM CÁC Ô TIẾP THEo
+            lv1.SubItems.Add(textBox3.Text);
+            listView1.Items.Add(lv1 );
+            comboBox1.ResetText();
+            textBox3.Text = "";
         }
     }
 }
