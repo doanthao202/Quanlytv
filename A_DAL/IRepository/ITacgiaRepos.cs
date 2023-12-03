@@ -11,7 +11,7 @@ namespace A_DAL.IRepository
     {
         IEnumerable<Tacgium> GetAll();
        
-        Tacgium GetById(int id);
+        Tacgium GetById(string tg);
         int Add(Tacgium tacgia);
 
         int Update(int id, Tacgium tacgia);

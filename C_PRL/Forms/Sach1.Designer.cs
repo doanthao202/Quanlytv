@@ -193,9 +193,9 @@
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { lvtacgia, lvvaitro });
             listView1.FullRowSelect = true;
-            listView1.Location = new Point(289, 42);
+            listView1.Location = new Point(298, 43);
             listView1.Name = "listView1";
-            listView1.Size = new Size(216, 109);
+            listView1.Size = new Size(195, 97);
             listView1.TabIndex = 24;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -204,12 +204,12 @@
             // lvtacgia
             // 
             lvtacgia.Text = "Tên tác giả";
-            lvtacgia.Width = 130;
+            lvtacgia.Width = 110;
             // 
             // lvvaitro
             // 
             lvvaitro.Text = "Vai trò";
-            lvvaitro.Width = 100;
+            lvvaitro.Width = 80;
             // 
             // txtNam
             // 

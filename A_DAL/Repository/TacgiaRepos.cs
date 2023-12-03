@@ -65,9 +65,9 @@ namespace A_DAL.Repository
                 return false;
             }
         }
-        public Tacgium GetById(int id)
+        public Tacgium GetById(string tg)
         {
-            return _dbContext.Tacgia.FirstOrDefault(c => c.Id == id);
+            return _dbContext.Tacgia.FirstOrDefault(c => c.Tentacgia == tg);
         }
 
         public List<Tacgium> GetSearch(string searchText)

@@ -44,7 +44,10 @@ namespace B_BUS.Services
             return _repos.Delete(id);
         }
 
-        
+        public Tacgium GetById(string tl)
+        {
+            return _repos.GetById(tl);
+        }
         public List<Tacgium> GetSearch(string searchText)
         {
             return _repos.GetSearch(searchText);

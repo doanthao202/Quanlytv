@@ -18,12 +18,14 @@ namespace C_PRL.Forms
         Sachservice _service = new Sachservice();
         Theloaiservi _tlservice = new Theloaiservi();
         Tacgiaservice _tgservice = new Tacgiaservice();
+        SachtacgiaService _sachtacgiaService = new SachtacgiaService();
         int idCellClick = -1;
         public Sach1()
         {
             _service = new Sachservice();
             _tlservice = new Theloaiservi();
             _tgservice = new Tacgiaservice();
+            _sachtacgiaService = new SachtacgiaService();
             InitializeComponent();
 
         }
@@ -37,7 +39,7 @@ namespace C_PRL.Forms
             }
             foreach (var item in _tgservice.GetAll())
             {
-                comboBox1.Items.Add(item.Tentacgia);
+                comboBox1.Items.Add(item.Tentacgia );
             }
             them.Enabled = true;
 
@@ -116,6 +118,8 @@ namespace C_PRL.Forms
             cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
+            Sua.Enabled = true;
+            xoa.Enabled = true;
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -129,6 +133,8 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
 
             them.Enabled = false;
+            Sua.Enabled = true;
+            xoa.Enabled = true;
         }
 
         private void them_Click(object sender, EventArgs e)
@@ -140,15 +146,41 @@ namespace C_PRL.Forms
             s1.Namxuatban = Convert.ToInt32(txtNam.Text);
             //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
             s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
-
-
+            /*for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                ListViewItem lv = listView1.Items[i];
+                string tentacgia = lv.SubItems[1].Text;
+                var sachtg = new SachTacgium();
+                sachtg.Idsach = s1.Id;
+                sachtg.Idtacgia = _tgservice.GetById(tentacgia).Id; ;
+                sachtg.Vaitro = lv.SubItems[2].Text;
+                i++;
+            }
+*/
             var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
             if (thongBao == DialogResult.Yes)
             {
                 MessageBox.Show(_service.add(s1));
                 //loatData(_service.GetAll(),_tlservice);
                 loatData(_service.Getview());
+                /*if (listView1.Items.Count > 0)
+                {*/
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        ListViewItem lv = listView1.Items[i];
+                        string tentacgia = lv.SubItems[0].Text;
+                        var sachtg = new SachTacgium();
+                        sachtg.Idsach = s1.Id;
+                        sachtg.Idtacgia = _tgservice.GetById(tentacgia).Id; ;
+                        sachtg.Vaitro = lv.SubItems[1].Text;
+
+                        _sachtacgiaService.add(sachtg);
+                        i++;
+                    }
+                    
+                
                 reset();
+
             }
             else
             {
@@ -218,11 +250,12 @@ namespace C_PRL.Forms
         {
 
         }
-
+        
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
+               
                 ListViewItem lv = listView1.SelectedItems[0];
                 string tentacgia = lv.SubItems[0].Text;
                 string vaitro = lv.SubItems[1].Text;
@@ -233,16 +266,17 @@ namespace C_PRL.Forms
             }
 
         }
-
+        
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-
+           
             ListViewItem lv1 = new ListViewItem(comboBox1.Text);
             //THÊM CÁC Ô TIẾP THEo
             lv1.SubItems.Add(textBox3.Text);
             listView1.Items.Add(lv1);
             comboBox1.ResetText();
             textBox3.Text = "";
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
