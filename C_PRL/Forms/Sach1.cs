@@ -39,6 +39,12 @@ namespace C_PRL.Forms
             {
                 comboBox1.Items.Add(item.Tentacgia);
             }
+            them.Enabled = true;
+
+            Sua.Enabled = false;
+            xoa.Enabled = false;
+
+
         }
         public void reset()
         {
@@ -48,11 +54,10 @@ namespace C_PRL.Forms
             dateTimePicker1.Value = DateTime.Now;
             cbxTheloai.ResetText();
             them.Enabled = true;
-            btnXacnhan.Enabled = true;
+
             Sua.Enabled = false;
             xoa.Enabled = false;
-           
-            btnXoa.Enabled = false;
+
         }
         /* public void loatData(dynamic data,dynamic data1)
          {
@@ -216,13 +221,13 @@ namespace C_PRL.Forms
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count > 0)
+            if (listView1.SelectedItems.Count > 0)
             {
                 ListViewItem lv = listView1.SelectedItems[0];
                 string tentacgia = lv.SubItems[0].Text;
                 string vaitro = lv.SubItems[1].Text;
                 comboBox1.Text = tentacgia;
-                textBox3.Text= vaitro;
+                textBox3.Text = vaitro;
                 btnXacnhan.Enabled = false;
                 btnXoa.Enabled = true;
             }
@@ -231,13 +236,24 @@ namespace C_PRL.Forms
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-            
+
             ListViewItem lv1 = new ListViewItem(comboBox1.Text);
             //THÊM CÁC Ô TIẾP THEo
             lv1.SubItems.Add(textBox3.Text);
-            listView1.Items.Add(lv1 );
+            listView1.Items.Add(lv1);
             comboBox1.ResetText();
             textBox3.Text = "";
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
+                comboBox1.ResetText();
+                textBox3.Text = "";
+                
+            }
         }
     }
 }
