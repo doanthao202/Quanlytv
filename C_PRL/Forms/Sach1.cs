@@ -109,7 +109,7 @@ namespace C_PRL.Forms
         }
         public void loatData1(dynamic data)
         {
-            
+            listView1.Items.Clear();
 
             foreach (var s in data)
             {
@@ -124,6 +124,7 @@ namespace C_PRL.Forms
        
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             int index = e.RowIndex;
             var selectChild = dgv.Rows[index];//lấy data từ index được chọn
             txtTensach.Text = selectChild.Cells[2].Value.ToString();
