@@ -102,4 +102,5 @@ namespace A_DAL.Repository
                 return 1;
             }
         }
+    }
 }
