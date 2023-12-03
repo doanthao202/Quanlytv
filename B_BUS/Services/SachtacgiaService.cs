@@ -30,5 +30,9 @@ namespace B_BUS.Services
         {
             return _repos.GetAll().ToList();
         }
+        public bool Delete(int id)
+        {
+            return _repos.Delete(id);
+        }
     }
 }

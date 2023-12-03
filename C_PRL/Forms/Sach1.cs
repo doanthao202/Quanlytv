@@ -135,6 +135,7 @@ namespace C_PRL.Forms
             them.Enabled = false;
             Sua.Enabled = true;
             xoa.Enabled = true;
+            
         }
 
         private void them_Click(object sender, EventArgs e)
@@ -190,6 +191,7 @@ namespace C_PRL.Forms
 
         private void Sua_Click(object sender, EventArgs e)
         {
+            _sachtacgiaService.Delete(idCellClick);
             int m = cbxTheloai.SelectedIndex;
             var result = _service.Update(idCellClick, new Sach()
             {
@@ -199,6 +201,18 @@ namespace C_PRL.Forms
                 Idtheloai = _tlservice.GetAll().ElementAt(m).Id
 
             });
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                ListViewItem lv = listView1.Items[i];
+                string tentacgia = lv.SubItems[0].Text;
+                var sachtg = new SachTacgium();
+                sachtg.Idsach = idCellClick;
+                sachtg.Idtacgia = _tgservice.GetById(tentacgia).Id; ;
+                sachtg.Vaitro = lv.SubItems[1].Text;
+
+                _sachtacgiaService.add(sachtg);
+
+            }
             if (result == 3)
             {
                 MessageBox.Show("Sửa thành công");
@@ -220,6 +234,7 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
+            _sachtacgiaService.Delete(idCellClick);
             var result = _service.Delete(idCellClick);
             if (result)
             {

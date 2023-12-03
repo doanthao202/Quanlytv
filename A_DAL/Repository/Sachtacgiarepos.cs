@@ -38,7 +38,26 @@ namespace A_DAL.Repository
             }
         }
 
+        public bool Delete(int id)
+        {
+            try
+            {
+                var exist = _dbContext.SachTacgia.Where(c=>c.Idsach==id).ToList();
+                foreach(var item in exist)
+                {
+                    _dbContext.SachTacgia.Remove(item);
+                   
+                }
+                _dbContext.SaveChanges();
 
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public IEnumerable<SachTacgium> GetAll()
         {

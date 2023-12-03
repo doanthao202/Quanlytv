@@ -12,6 +12,7 @@ namespace A_DAL.IRepository
         IEnumerable<SachTacgium> GetAll();
 
         bool Add(SachTacgium sachTacgium);
-        
+        bool Delete(int id);
+
     }
 }
