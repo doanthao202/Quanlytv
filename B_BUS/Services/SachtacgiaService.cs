@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using A_DAL.Models1;
 using A_DAL.Repository;
+using B_BUS.Viewmoder;
 using Microsoft.EntityFrameworkCore;
 
 namespace B_BUS.Services
@@ -13,6 +14,7 @@ namespace B_BUS.Services
     public class SachtacgiaService
     {
         Sachtacgiarepos _repos = new Sachtacgiarepos();
+        TacgiaRepos _tgrepoes = new TacgiaRepos();
         public SachtacgiaService()
         {
 
@@ -22,6 +24,12 @@ namespace B_BUS.Services
         {
             _repos = repos;
         }
+
+        public SachtacgiaService(TacgiaRepos tgrepoes)
+        {
+            _tgrepoes = tgrepoes;
+        }
+
         public bool add(SachTacgium sachtg)
         {
             return _repos.Add(sachtg);
@@ -33,6 +41,18 @@ namespace B_BUS.Services
         public bool Delete(int id)
         {
             return _repos.Delete(id);
+        }
+        public List<Sachtacgia> Getview(int id)
+        {
+            var joinData = from SachTacgium in _repos.GetAll()
+                           join Tacgium in _tgrepoes.GetAll() on SachTacgium.Idtacgia equals Tacgium.Id where SachTacgium.Idsach == id
+                           select new Sachtacgia
+                           {
+                               Idsach = SachTacgium.Idsach,
+                               Tentacgia= Tacgium.Tentacgia,
+                               Vaitro = SachTacgium.Vaitro
+                           };
+            return joinData.ToList();
         }
     }
 }

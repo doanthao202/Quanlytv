@@ -107,7 +107,21 @@ namespace C_PRL.Forms
             }
 
         }
+        public void loatData1(dynamic data)
+        {
+            
 
+            foreach (var s in data)
+            {
+                ListViewItem lv1 = new ListViewItem(s.Tentacgia);
+                //THÊM CÁC Ô TIẾP THEo
+                lv1.SubItems.Add(s.Vaitro);
+                listView1.Items.Add(lv1);
+               
+            }
+
+        }
+       
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -120,6 +134,7 @@ namespace C_PRL.Forms
             them.Enabled = false;
             Sua.Enabled = true;
             xoa.Enabled = true;
+            loatData1(_sachtacgiaService.Getview(idCellClick));
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -131,7 +146,7 @@ namespace C_PRL.Forms
             txtNam.Text = selectChild.Cells[4].Value.ToString();
             cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
-
+            loatData1(_sachtacgiaService.Getview(idCellClick));
             them.Enabled = false;
             Sua.Enabled = true;
             xoa.Enabled = true;
