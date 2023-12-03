@@ -11,7 +11,7 @@ namespace A_DAL.IRepository
     {
         IEnumerable<Sach> GetAllSach();
         //List<Sach> GetTheloaiByName(string name);
-        Sach GetById(int id);
+        
         int Add(Sach sach);
 
         int Update(int id, Sach sach);
