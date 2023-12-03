@@ -175,7 +175,7 @@ namespace C_PRL.Forms
                         sachtg.Vaitro = lv.SubItems[1].Text;
 
                         _sachtacgiaService.add(sachtg);
-                        i++;
+                      
                     }
                     
                 

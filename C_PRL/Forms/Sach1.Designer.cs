@@ -375,7 +375,7 @@
             Controls.Add(label1);
             Controls.Add(dgv);
             Name = "Sach1";
-            Text = "Sach1";
+            Text = "df";
             Load += Sach1_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
