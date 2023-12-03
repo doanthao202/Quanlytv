@@ -64,6 +64,7 @@
             textBox1.PlaceholderText = "Nhập tên ngôn ngữ";
             textBox1.Size = new Size(291, 23);
             textBox1.TabIndex = 68;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // groupBox2
             // 
@@ -91,7 +92,7 @@
             // 
             // txtTentl
             // 
-            txtTentl.Location = new Point(95, 49);
+            txtTentl.Location = new Point(108, 44);
             txtTentl.Margin = new Padding(4, 3, 4, 3);
             txtTentl.Name = "txtTentl";
             txtTentl.Size = new Size(264, 23);
@@ -101,7 +102,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(0, 51);
+            label2.Location = new Point(7, 44);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(92, 16);
@@ -127,6 +128,7 @@
             thoat.TabIndex = 66;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
+            thoat.Click += thoat_Click;
             // 
             // xoa
             // 
@@ -137,6 +139,7 @@
             xoa.TabIndex = 65;
             xoa.Text = "Xóa";
             xoa.UseVisualStyleBackColor = true;
+            xoa.Click += xoa_Click;
             // 
             // sua
             // 
@@ -147,6 +150,7 @@
             sua.TabIndex = 64;
             sua.Text = "Sửa";
             sua.UseVisualStyleBackColor = true;
+            sua.Click += sua_Click;
             // 
             // them
             // 
@@ -157,6 +161,7 @@
             them.TabIndex = 63;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
@@ -178,6 +183,8 @@
             luoi.Name = "luoi";
             luoi.Size = new Size(485, 192);
             luoi.TabIndex = 61;
+            luoi.CellClick += luoi_CellClick;
+            luoi.CellContentClick += luoi_CellContentClick;
             // 
             // NgonNgu1
             // 
@@ -195,6 +202,7 @@
             Controls.Add(luoi);
             Name = "NgonNgu1";
             Text = "NgonNgu1";
+            Load += NgonNgu1_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
