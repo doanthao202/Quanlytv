@@ -1,4 +1,5 @@
-﻿namespace C_PRL
+﻿
+namespace C_PRL
 {
     partial class Sachchitiet1
     {
@@ -37,6 +38,13 @@
             label5 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            txtTuoi = new TextBox();
+            label11 = new Label();
+            label10 = new Label();
+            cxbTinhtrang = new ComboBox();
+            label6 = new Label();
+            cxbNXB = new ComboBox();
+            cxbNgonngu = new ComboBox();
             listView1 = new ListView();
             lvhang = new ColumnHeader();
             txtGia = new TextBox();
@@ -52,13 +60,6 @@
             them = new Button();
             label1 = new Label();
             dgv = new DataGridView();
-            cxbNgonngu = new ComboBox();
-            cxbNXB = new ComboBox();
-            cxbTinhtrang = new ComboBox();
-            label6 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            txtTuoi = new TextBox();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
@@ -115,6 +116,7 @@
             cxbHang.Name = "cxbHang";
             cxbHang.Size = new Size(153, 23);
             cxbHang.TabIndex = 17;
+            cxbHang.SelectedIndexChanged += cxbHang_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -172,6 +174,73 @@
             groupBox1.TabIndex = 80;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
+            // 
+            // txtTuoi
+            // 
+            txtTuoi.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTuoi.Location = new Point(363, 22);
+            txtTuoi.Margin = new Padding(4, 3, 4, 3);
+            txtTuoi.Name = "txtTuoi";
+            txtTuoi.Size = new Size(141, 23);
+            txtTuoi.TabIndex = 31;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(257, 61);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(71, 16);
+            label11.TabIndex = 30;
+            label11.Text = "Tình trạng:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(257, 24);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(107, 16);
+            label10.TabIndex = 29;
+            label10.Text = "Độ tuội đọc sách:";
+            // 
+            // cxbTinhtrang
+            // 
+            cxbTinhtrang.FormattingEnabled = true;
+            cxbTinhtrang.Location = new Point(363, 54);
+            cxbTinhtrang.Name = "cxbTinhtrang";
+            cxbTinhtrang.Size = new Size(141, 23);
+            cxbTinhtrang.TabIndex = 27;
+            cxbTinhtrang.SelectedIndexChanged += this.cxbTinhtrang_SelectedIndexChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(7, 186);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(60, 16);
+            label6.TabIndex = 28;
+            label6.Text = "Giá sách:";
+            // 
+            // cxbNXB
+            // 
+            cxbNXB.FormattingEnabled = true;
+            cxbNXB.Location = new Point(97, 94);
+            cxbNXB.Name = "cxbNXB";
+            cxbNXB.Size = new Size(126, 23);
+            cxbNXB.TabIndex = 26;
+            // 
+            // cxbNgonngu
+            // 
+            cxbNgonngu.FormattingEnabled = true;
+            cxbNgonngu.Location = new Point(97, 61);
+            cxbNgonngu.Name = "cxbNgonngu";
+            cxbNgonngu.Size = new Size(126, 23);
+            cxbNgonngu.TabIndex = 25;
             // 
             // listView1
             // 
@@ -323,72 +392,6 @@
             dgv.Size = new Size(721, 186);
             dgv.TabIndex = 75;
             // 
-            // cxbNgonngu
-            // 
-            cxbNgonngu.FormattingEnabled = true;
-            cxbNgonngu.Location = new Point(97, 61);
-            cxbNgonngu.Name = "cxbNgonngu";
-            cxbNgonngu.Size = new Size(126, 23);
-            cxbNgonngu.TabIndex = 25;
-            // 
-            // cxbNXB
-            // 
-            cxbNXB.FormattingEnabled = true;
-            cxbNXB.Location = new Point(97, 94);
-            cxbNXB.Name = "cxbNXB";
-            cxbNXB.Size = new Size(126, 23);
-            cxbNXB.TabIndex = 26;
-            // 
-            // cxbTinhtrang
-            // 
-            cxbTinhtrang.FormattingEnabled = true;
-            cxbTinhtrang.Location = new Point(363, 54);
-            cxbTinhtrang.Name = "cxbTinhtrang";
-            cxbTinhtrang.Size = new Size(141, 23);
-            cxbTinhtrang.TabIndex = 27;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(7, 186);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(60, 16);
-            label6.TabIndex = 28;
-            label6.Text = "Giá sách:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(257, 24);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(107, 16);
-            label10.TabIndex = 29;
-            label10.Text = "Độ tuội đọc sách:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(257, 61);
-            label11.Margin = new Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(71, 16);
-            label11.TabIndex = 30;
-            label11.Text = "Tình trạng:";
-            // 
-            // txtTuoi
-            // 
-            txtTuoi.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTuoi.Location = new Point(363, 22);
-            txtTuoi.Margin = new Padding(4, 3, 4, 3);
-            txtTuoi.Name = "txtTuoi";
-            txtTuoi.Size = new Size(141, 23);
-            txtTuoi.TabIndex = 31;
-            // 
             // Sachchitiet1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -414,6 +417,11 @@
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void cxbTinhtrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
