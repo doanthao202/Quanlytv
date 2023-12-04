@@ -258,11 +258,6 @@ namespace C_PRL
             {
                 cxbTinhtrang.ResetText();
             }
-
-
-
-
-
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
 
             them.Enabled = false;
