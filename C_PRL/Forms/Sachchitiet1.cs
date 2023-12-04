@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using A_DAL.Models1;
 using B_BUS.Services;
 using C_PRL.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -29,18 +30,20 @@ namespace C_PRL
             _nxbService = new NxbService();
             _nnservice = new Ngonnguservice();
             _sachhangservie = new SachHangService();
+            _hangservice = new HangService();
             InitializeComponent();
         }
 
         private void Sachchitiet1_Load(object sender, EventArgs e)
         {
+            loatData(_service.Getview());
             foreach (var item in _sservice.GetAll())
             {
-               cbxTensach.Items.Add(item.Tensach);
+                cbxTensach.Items.Add(item.Tensach);
             }
             foreach (var item in _nnservice.GetAll())
             {
-               cxbNgonngu.Items.Add(item.Tennn);
+                cxbNgonngu.Items.Add(item.Tennn);
             }
             foreach (var item in _nnservice.GetAll())
             {
@@ -62,14 +65,286 @@ namespace C_PRL
             Sua.Enabled = false;
             xoa.Enabled = false;
         }
+        public void reset()
+        {
+            cbxTensach.ResetText();
+            cxbNgonngu.ResetText();
+            cxbNXB.ResetText();
+            cxbHang.ResetText();
+            cxbTinhtrang.ResetText();
+            txtlantaiban.Text = "";
+            txtGia.Text = "";
+            txtTuoi.Text = "";
+            them.Enabled = true;
 
+            Sua.Enabled = false;
+            xoa.Enabled = false;
+
+        }
         private void label8_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void cxbHang_SelectedIndexChanged(object sender, EventArgs e)
+        public void loatData(dynamic data)
         {
+
+            dgv.Rows.Clear();
+            int stt = 1;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ColumnCount = 9;
+            dgv.Columns[0].Name = "Stt";
+            dgv.Columns[1].Name = "Mã sách chi tiết";
+            dgv.Columns[2].Name = "Tên sách";
+            dgv.Columns[3].Name = "Tên ngôn ngữ";
+            dgv.Columns[4].Name = "Tên nxb";
+            dgv.Columns[5].Name = "Lần tái bản";
+            dgv.Columns[6].Name = "Giá sách";
+            dgv.Columns[7].Name = "Độ tuổi đọc sách";
+            dgv.Columns[8].Name = "Tình trạng";
+            //dgv.Columns[6].Name = "Tên thể loại";
+
+
+            foreach (var s in data)
+            {
+                /*string x = "";
+                if (s.Tinhtrang == 1)
+                {
+                    x = "Sách mới";
+                }else if (s.Tinhtrang == 2)
+                {
+                    x = "Sách cũ";
+                }
+                else if (s.Tinhtrang == 0)
+                {
+                    x = "Dừng hoạt động";
+                }
+                else
+                {
+                    x = "";
+                }*/
+                dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Tennn, s.Tennxb, s.Lantaiban, s.Giasach, s.Dotuoidocsach, s.Tinhtrang);
+            }
+
+        }
+
+        private void them_Click(object sender, EventArgs e)
+        {
+            int m = cbxTensach.SelectedIndex;
+            int n = cxbNgonngu.SelectedIndex;
+            int g = cxbNXB.SelectedIndex;
+            var s1 = new Sachchitiet();
+            s1.Idsach = _sservice.GetAll().ElementAt(m).Id;
+            s1.Idngonngu = _nnservice.GetAll().ElementAt(n).Id;
+            s1.Idnxb = _nxbService.GetAll().ElementAt(g).Id;
+            s1.Lantaiban = Convert.ToInt32(txtlantaiban.Text);
+            s1.Giasach = Convert.ToInt32(txtGia.Text);
+            s1.Dotuoidocsach = Convert.ToInt32(txtTuoi.Text);
+            if (cxbTinhtrang.Text == "Sách mới")
+            {
+                s1.Tinhtrang = 1;
+            }
+            else if (cxbTinhtrang.Text == "Sách cũ")
+            {
+                s1.Tinhtrang = 2;
+            }
+            else if (cxbTinhtrang.Text == "Dừng hoạt động")
+            {
+                s1.Tinhtrang = 0;
+            }
+            else
+            {
+                s1.Tinhtrang = null;
+            }
+
+
+            var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
+            if (thongBao == DialogResult.Yes)
+            {
+                MessageBox.Show(_service.add(s1));
+
+                loatData(_service.Getview());
+
+
+
+                reset();
+
+            }
+            else
+            {
+                return;
+            }
+
+
+        }
+
+        private void Sua_Click(object sender, EventArgs e)
+        {
+            string x = "";
+            if (cxbTinhtrang.Text == "Sách mới")
+            {
+                x = "1";
+            }
+            else if (cxbTinhtrang.Text == "Sách cũ")
+            {
+                x = "2";
+            }
+            else if (cxbTinhtrang.Text == "Dừng hoạt động")
+            {
+                x = "0";
+            }
+            else
+            {
+                x = null;
+            }
+            int m = cbxTensach.SelectedIndex;
+            int n = cxbNgonngu.SelectedIndex;
+            int g = cxbNXB.SelectedIndex;
+            var result = _service.Update(idCellClick, new Sachchitiet()
+            {
+                Idsach = _sservice.GetAll().ElementAt(m).Id,
+                Idngonngu = _nnservice.GetAll().ElementAt(n).Id,
+                Idnxb = _nxbService.GetAll().ElementAt(g).Id,
+                Lantaiban = Convert.ToInt32(txtlantaiban.Text),
+                Giasach = Convert.ToInt32(txtGia.Text),
+                Dotuoidocsach = Convert.ToInt32(txtTuoi.Text),
+                Tinhtrang = Convert.ToInt32(x)
+
+            });
+
+            if (result == 3)
+            {
+                MessageBox.Show("Sửa thành công");
+                loatData(_service.Getview());
+                reset();
+            }
+            else if (result == 2)
+            {
+                MessageBox.Show("Tên không được để trống");
+                loatData(_service.Getview());
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại");
+            }
+            reset();
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            var selectChild = dgv.Rows[index];//lấy data từ index được chọn
+            cbxTensach.Text = selectChild.Cells[2].Value.ToString();
+            cxbNgonngu.Text = selectChild.Cells[3].Value.ToString();
+            cxbNXB.Text = selectChild.Cells[4].Value.ToString();
+            txtlantaiban.Text = selectChild.Cells[5].Value.ToString();
+            txtGia.Text = selectChild.Cells[6].Value.ToString();
+
+            txtTuoi.Text = selectChild.Cells[7].Value.ToString();
+
+            if (selectChild.Cells[8].Value.ToString() == "0")
+            {
+                cxbTinhtrang.Text = "Dừng hoạt động";
+            }
+            else if (selectChild.Cells[8].Value.ToString() == "1")
+            {
+                cxbTinhtrang.Text = "Sách mới";
+            }
+            else if (selectChild.Cells[8].Value.ToString() == "2")
+            {
+                cxbTinhtrang.Text = "Sách cũ";
+            }
+            else
+            {
+                cxbTinhtrang.ResetText();
+            }
+
+
+
+
+
+            idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
+
+            them.Enabled = false;
+            Sua.Enabled = true;
+            xoa.Enabled = true;
+
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            var selectChild = dgv.Rows[index];//lấy data từ index được chọn
+            cbxTensach.Text = selectChild.Cells[2].Value.ToString();
+            cxbNgonngu.Text = selectChild.Cells[3].Value.ToString();
+            cxbNXB.Text = selectChild.Cells[4].Value.ToString();
+            txtlantaiban.Text = selectChild.Cells[5].Value.ToString();
+            txtGia.Text = selectChild.Cells[6].Value.ToString();
+            txtTuoi.Text = selectChild.Cells[7].Value.ToString();
+            if (selectChild.Cells[8].Value.ToString() == "0")
+            {
+                cxbTinhtrang.Text = "Dừng hoạt động";
+            }
+            else if (selectChild.Cells[8].Value.ToString() == "1")
+            {
+                cxbTinhtrang.Text = "Sách mới";
+            }
+            else if (selectChild.Cells[8].Value.ToString() == "2")
+            {
+                cxbTinhtrang.Text = "Sách cũ";
+            }
+            else
+            {
+                cxbTinhtrang.ResetText();
+            }
+
+
+
+
+
+            idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
+
+            them.Enabled = false;
+            Sua.Enabled = true;
+            xoa.Enabled = true;
+        }
+
+        private void xoa_Click(object sender, EventArgs e)
+        {
+            var result = _service.Delete(idCellClick);
+            if (result)
+            {
+                MessageBox.Show("Xóa thành công");
+                loatData(_service.Getview());
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại");
+            }
+
+            reset();
+        }
+
+        private void thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Giaodien();
+            f.Show();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+
+                ListViewItem lv = listView1.SelectedItems[0];
+                string tenhang= lv.SubItems[0].Text;
+                
+                cxbHang.Text = tenhang;
+                
+                btnXacnhan.Enabled = false;
+                btnXoa.Enabled = true;
+            }
 
         }
     }

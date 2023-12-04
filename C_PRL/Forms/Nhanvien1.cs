@@ -171,7 +171,6 @@ namespace C_PRL.Forms
 
             txtTen.Text = selectChild.Cells[2].Value.ToString();
             txtSdt.Text = selectChild.Cells[3].Value.ToString();
-
             cbxVaitro.Text = selectChild.Cells[4].Value.ToString();
             txtEmail.Text = selectChild.Cells[5].Value.ToString();
             txtPass.Text = selectChild.Cells[6].Value.ToString();

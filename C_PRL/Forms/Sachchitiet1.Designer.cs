@@ -74,6 +74,7 @@ namespace C_PRL
             Sua.TabIndex = 84;
             Sua.Text = "Sửa";
             Sua.UseVisualStyleBackColor = true;
+            Sua.Click += Sua_Click;
             // 
             // groupBox2
             // 
@@ -116,7 +117,6 @@ namespace C_PRL
             cxbHang.Name = "cxbHang";
             cxbHang.Size = new Size(153, 23);
             cxbHang.TabIndex = 17;
-            cxbHang.SelectedIndexChanged += cxbHang_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -213,7 +213,6 @@ namespace C_PRL
             cxbTinhtrang.Name = "cxbTinhtrang";
             cxbTinhtrang.Size = new Size(141, 23);
             cxbTinhtrang.TabIndex = 27;
-            cxbTinhtrang.SelectedIndexChanged += this.cxbTinhtrang_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -252,6 +251,7 @@ namespace C_PRL
             listView1.TabIndex = 24;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // lvhang
             // 
@@ -349,6 +349,7 @@ namespace C_PRL
             thoat.TabIndex = 79;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
+            thoat.Click += thoat_Click;
             // 
             // xoa
             // 
@@ -359,6 +360,7 @@ namespace C_PRL
             xoa.TabIndex = 78;
             xoa.Text = "Xóa";
             xoa.UseVisualStyleBackColor = true;
+            xoa.Click += xoa_Click;
             // 
             // them
             // 
@@ -369,6 +371,7 @@ namespace C_PRL
             them.TabIndex = 77;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
@@ -391,6 +394,8 @@ namespace C_PRL
             dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(721, 186);
             dgv.TabIndex = 75;
+            dgv.CellClick += dgv_CellClick;
+            dgv.CellContentClick += dgv_CellContentClick;
             // 
             // Sachchitiet1
             // 
@@ -419,10 +424,7 @@ namespace C_PRL
             PerformLayout();
         }
 
-        private void cxbTinhtrang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
 
         #endregion
 
