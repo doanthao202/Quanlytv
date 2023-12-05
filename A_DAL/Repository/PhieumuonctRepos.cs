@@ -5,34 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
 using A_DAL.Models1;
+using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
 {
-    public class NxbRepos: INxbRepos
+    public class PhieumuonctRepos : IPhieumuonct
     {
         DUAN3Context _dbContext = new DUAN3Context();
-        public NxbRepos()
-        {
-
-        }
-
-        public NxbRepos(DUAN3Context dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-
-        public int Add(Nxb nxb)
+        public int Add(Phieumuonct phieumuonct)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(nxb.Tennxb))
+                if (string.IsNullOrWhiteSpace(phieumuonct.Idsachct.ToString())|| string.IsNullOrWhiteSpace(phieumuonct.Idphieumuon.ToString()))
                 {
                     return 1;
                 }
                 else
                 {
-                    _dbContext.Nxbs.Add(nxb);
+                    _dbContext.Phieumuoncts.Add(phieumuonct);
                     _dbContext.SaveChanges();
                     return 2;
                 }
@@ -48,10 +38,10 @@ namespace A_DAL.Repository
         {
             try
             {
-                var exist = _dbContext.Nxbs.Find(id);
+                var exist = _dbContext.Phieumuoncts.Find(id);
 
 
-                _dbContext.Nxbs.Remove(exist);
+                _dbContext.Phieumuoncts.Remove(exist);
                 _dbContext.SaveChanges();
                 return true;
 
@@ -62,39 +52,30 @@ namespace A_DAL.Repository
             }
         }
 
-
-        public List<Nxb> GetSearch(string searchText)
+        public IEnumerable<Phieumuonct> GetAll()
         {
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                return _dbContext.Nxbs.ToList();
-            }
-            return _dbContext.Nxbs.Where(c => c.Tennxb.Contains(searchText)).ToList();
+            return _dbContext.Phieumuoncts.ToList();
         }
 
-
-
-        public int Update(int id, Nxb nxb)
+        public int Update(int id, Phieumuonct phieumuonct)
         {
             try
             {
-                var exist = _dbContext.Nxbs.Find(id);
+                var exist = _dbContext.Phieumuoncts.Find(id);
                 if (exist == null)
                 {
                     return 1;
                 }
-                else if (string.IsNullOrWhiteSpace(nxb.Tennxb))
+                else if (string.IsNullOrWhiteSpace(phieumuonct.Idsachct.ToString()) || string.IsNullOrWhiteSpace(phieumuonct.Idphieumuon.ToString()))
                 {
                     return 2;
                 }
                 else
                 {
-                    exist.Tennxb = nxb.Tennxb;
-
-                    exist.Ghichu = nxb.Ghichu;
-                    exist.Diachi = nxb.Diachi;
-                    exist.Sdt = nxb.Sdt;
-                    _dbContext.Nxbs.Update(exist);
+                    exist.Idsachct = phieumuonct.Idsachct;
+                    exist.Idphieumuon= phieumuonct.Idphieumuon;
+                    
+                    _dbContext.Phieumuoncts.Update(exist);
                     _dbContext.SaveChanges();
                     return 3;
                 }
@@ -104,11 +85,6 @@ namespace A_DAL.Repository
             {
                 return 1;
             }
-        }
-
-        public IEnumerable<Nxb> GetAll()
-        {
-            return _dbContext.Nxbs.ToList();
         }
     }
 }

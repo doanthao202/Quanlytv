@@ -99,6 +99,7 @@ namespace C_PRL
             btnXoa.TabIndex = 39;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnXacnhan
             // 
@@ -109,6 +110,7 @@ namespace C_PRL
             btnXacnhan.TabIndex = 37;
             btnXacnhan.Text = "Xác nhận";
             btnXacnhan.UseVisualStyleBackColor = true;
+            btnXacnhan.Click += btnXacnhan_Click;
             // 
             // cxbHang
             // 

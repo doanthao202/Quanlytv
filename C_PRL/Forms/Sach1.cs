@@ -159,7 +159,7 @@ namespace C_PRL.Forms
             int m = cbxTheloai.SelectedIndex;
             var s1 = new Sach();
             s1.Tensach = txtTensach.Text;
-            s1.Ngaynhap = dateTimePicker1.Value.Date;
+            s1.Ngaynhap = dateTimePicker1.Value;
             s1.Namxuatban = Convert.ToInt32(txtNam.Text);
             //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
             s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;

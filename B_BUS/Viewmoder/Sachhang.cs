@@ -8,5 +8,7 @@ namespace B_BUS.Viewmoder
 {
    public class Sachhang
     {
+        
+        public string? Tenhang { get; set; }
     }
 }

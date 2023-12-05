@@ -10,13 +10,13 @@ namespace A_DAL.Repository
 {
   public class Sachtacgiarepos: ISachtacgiaRepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+        DUAN3Context _dbContext = new DUAN3Context();
         public Sachtacgiarepos()
         {
 
         }
 
-        public Sachtacgiarepos(DUAN1Context dbContext)
+        public Sachtacgiarepos(DUAN3Context dbContext)
         {
             _dbContext = dbContext;
         }

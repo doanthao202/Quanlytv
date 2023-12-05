@@ -9,7 +9,6 @@ namespace A_DAL.Models1
         public int Idsach { get; set; }
         public int Idtacgia { get; set; }
         public string? Vaitro { get; set; }
-        public string? Ghichu { get; set; }
 
         public virtual Sach IdsachNavigation { get; set; } = null!;
         public virtual Tacgium IdtacgiaNavigation { get; set; } = null!;

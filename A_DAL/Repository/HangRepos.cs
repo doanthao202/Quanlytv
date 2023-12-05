@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using A_DAL.IRepository;
 using A_DAL.Models1;
+using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
 {
-    public class HangRepos
+    public class HangRepos: IHangRepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+      DUAN3Context _dbContext= new DUAN3Context();
         public HangRepos()
         {
 
         }
-        public HangRepos(DUAN1Context dbContext)
+        public HangRepos(DUAN3Context dbContext)
         {
             _dbContext = dbContext;
         }
@@ -60,9 +62,10 @@ namespace A_DAL.Repository
             return _dbContext.Hangthanhviens.ToList();
         }
 
-
-
-
+        public Hangthanhvien GetById(string hang)
+        {
+            return _dbContext.Hangthanhviens.FirstOrDefault(c => c.Tenhang == hang);
+        }
 
         public List<Hangthanhvien> GetSearch(string searchText)
         {

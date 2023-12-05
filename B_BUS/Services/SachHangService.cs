@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using A_DAL.Models1;
 using A_DAL.Repository;
+using B_BUS.Viewmoder;
 
 namespace B_BUS.Services
 {
@@ -33,6 +34,17 @@ namespace B_BUS.Services
         public bool Delete(int id)
         {
             return _repos.Delete(id);
+        }
+        public List<Sachhang> Getview(int id)
+        {
+            var joinData = from SachctHang in _repos.GetAll()
+                           join Hangthanhvien in _hangRepos.GetAllHang() on SachctHang.Idhang equals Hangthanhvien.Id
+                           where SachctHang.Idsachct == id
+                           select new Sachhang
+                           {
+                               Tenhang= Hangthanhvien.Tenhang
+                           };
+            return joinData.ToList();
         }
     }
 }

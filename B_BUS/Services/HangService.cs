@@ -48,5 +48,9 @@ namespace B_BUS.Services
         {
             return _hangRepos.Update(id, hang);
         }
+        public Hangthanhvien GetById(string hang)
+        {
+            return _hangRepos.GetById(hang);
+        }
     }
 }

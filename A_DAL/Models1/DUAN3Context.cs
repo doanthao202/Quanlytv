@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace A_DAL.Models1
 {
-    public partial class DUAN1Context : DbContext
+    public partial class DUAN3Context : DbContext
     {
-        public DUAN1Context()
+        public DUAN3Context()
         {
         }
 
-        public DUAN1Context(DbContextOptions<DUAN1Context> options)
+        public DUAN3Context(DbContextOptions<DUAN3Context> options)
             : base(options)
         {
         }
@@ -37,7 +37,7 @@ namespace A_DAL.Models1
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=THAODTPPH43287\\SQLEXPRESS;Initial Catalog= DUAN1;Integrated Security=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Data Source=THAODTPPH43287\\SQLEXPRESS;Initial Catalog= DUAN3;Integrated Security=True;TrustServerCertificate=True");
             }
         }
 
@@ -201,6 +201,12 @@ namespace A_DAL.Models1
                     .HasColumnType("money")
                     .HasColumnName("PHIMUON");
 
+                entity.Property(e => e.Sdt)
+                    .HasMaxLength(1)
+                    .HasColumnName("SDT");
+
+                entity.Property(e => e.Tendocgia).HasColumnName("TENDOCGIA");
+
                 entity.Property(e => e.Tiencoc)
                     .HasColumnType("money")
                     .HasColumnName("TIENCOC");
@@ -268,6 +274,14 @@ namespace A_DAL.Models1
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRA");
 
+                entity.Property(e => e.Sdt)
+                    .HasMaxLength(1)
+                    .HasColumnName("SDT");
+
+                entity.Property(e => e.Tendocgia)
+                    .HasMaxLength(1)
+                    .HasColumnName("TENDOCGIA");
+
                 entity.Property(e => e.Tienphat)
                     .HasColumnType("money")
                     .HasColumnName("TIENPHAT");
@@ -277,7 +291,6 @@ namespace A_DAL.Models1
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)
                     .HasForeignKey(d => d.Iddocgia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_PHIEUTRA");
 
                 entity.HasOne(d => d.IdnhanvienNavigation)
@@ -344,10 +357,6 @@ namespace A_DAL.Models1
                 entity.ToTable("SACH_TACGIA");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Ghichu)
-                    .HasMaxLength(50)
-                    .HasColumnName("GHICHU");
 
                 entity.Property(e => e.Idsach).HasColumnName("IDSACH");
 

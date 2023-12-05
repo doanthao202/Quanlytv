@@ -10,13 +10,13 @@ namespace A_DAL.Repository
 {
     public class SachHangRepos : ISachHangRepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+        DUAN3Context _dbContext = new DUAN3Context();
         public SachHangRepos()
         {
             
         }
 
-        public SachHangRepos(DUAN1Context dbContext)
+        public SachHangRepos(DUAN3Context dbContext)
         {
             _dbContext = dbContext;
         }

@@ -11,13 +11,13 @@ namespace A_DAL.Repository
 {
     public class NhanvienRepos : INhanvienRepos
     {
-        DUAN1Context _context = new DUAN1Context();
+        DUAN3Context _context = new DUAN3Context();
         public NhanvienRepos()
         {
             
         }
 
-        public NhanvienRepos(DUAN1Context context)
+        public NhanvienRepos(DUAN3Context context)
         {
             _context = context;
         }

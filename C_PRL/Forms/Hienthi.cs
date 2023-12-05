@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace C_PRL.Forms
 {
-    public partial class Docgia : Form
+    public partial class Hienthi : Form
     {
-        public Docgia()
+        public Hienthi()
         {
             InitializeComponent();
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

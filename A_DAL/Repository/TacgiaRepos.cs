@@ -11,13 +11,13 @@ namespace A_DAL.Repository
 {
     public class TacgiaRepos : ITacgiaRepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+        DUAN3Context _dbContext = new DUAN3Context();
         public TacgiaRepos()
         {
             
         }
 
-        public TacgiaRepos(DUAN1Context dbcontext)
+        public TacgiaRepos(DUAN3Context dbcontext)
         {
             _dbContext = dbcontext;
         }

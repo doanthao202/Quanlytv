@@ -10,13 +10,13 @@ namespace A_DAL.Repository
 {
     public class Sachrepos: ISachrepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+        DUAN3Context _dbContext = new DUAN3Context();
         public Sachrepos()
         {
 
         }
 
-        public Sachrepos(DUAN1Context dbContext)
+        public Sachrepos(DUAN3Context dbContext)
         {
             _dbContext = dbContext;
         }

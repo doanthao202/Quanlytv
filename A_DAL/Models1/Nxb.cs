@@ -11,7 +11,7 @@ namespace A_DAL.Models1
         }
 
         public int Id { get; set; }
-        public string? Tennxb { get; set; }
+        public string Tennxb { get; set; } = null!;
         public string? Ghichu { get; set; }
         public string? Diachi { get; set; }
         public string? Sdt { get; set; }
