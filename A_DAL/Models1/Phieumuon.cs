@@ -12,11 +12,11 @@ namespace A_DAL.Models1
 
         public int Id { get; set; }
         public int? Iddocgia { get; set; }
-        public int? Tendocgia { get; set; }
-        public string? Sdt { get; set; }
         public int Idnhanvien { get; set; }
+        public string? Tendocgia { get; set; }
+        public string? Sdt { get; set; }
         public DateTime Ngaymuon { get; set; }
-        public DateTime? Ngaytradukien { get; set; }
+        public DateTime Ngaytradukien { get; set; }
         public decimal? Tiencoc { get; set; }
         public decimal? Phimuon { get; set; }
         public int? Tinhtrang { get; set; }

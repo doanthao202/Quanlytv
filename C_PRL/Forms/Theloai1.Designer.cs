@@ -30,6 +30,7 @@ namespace C_PRL.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label5 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
@@ -40,11 +41,13 @@ namespace C_PRL.Forms
             thoat = new Button();
             sua = new Button();
             them = new Button();
-            label1 = new Label();
             dgv = new DataGridView();
             Xoa = new Button();
+            errorProvider1 = new ErrorProvider(components);
+            label1 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -122,6 +125,7 @@ namespace C_PRL.Forms
             // 
             // thoat
             // 
+            thoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             thoat.Location = new Point(408, 194);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
@@ -133,6 +137,7 @@ namespace C_PRL.Forms
             // 
             // sua
             // 
+            sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             sua.Location = new Point(146, 194);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
@@ -144,6 +149,7 @@ namespace C_PRL.Forms
             // 
             // them
             // 
+            them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             them.Location = new Point(25, 194);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
@@ -153,23 +159,13 @@ namespace C_PRL.Forms
             them.UseVisualStyleBackColor = true;
             them.Click += them_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(188, 9);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(106, 26);
-            label1.TabIndex = 26;
-            label1.Text = "THỂ LOẠI";
-            // 
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.Location = new Point(18, 227);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
+            dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(485, 197);
             dgv.TabIndex = 25;
             dgv.CellClick += dgv_CellClick;
@@ -177,6 +173,7 @@ namespace C_PRL.Forms
             // 
             // Xoa
             // 
+            Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Xoa.Location = new Point(273, 194);
             Xoa.Margin = new Padding(4, 3, 4, 3);
             Xoa.Name = "Xoa";
@@ -186,11 +183,26 @@ namespace C_PRL.Forms
             Xoa.UseVisualStyleBackColor = true;
             Xoa.Click += Xoa_Click_1;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(188, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 25);
+            label1.TabIndex = 35;
+            label1.Text = "Thể loại";
+            // 
             // Theloai1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(517, 450);
+            Controls.Add(label1);
             Controls.Add(Xoa);
             Controls.Add(label5);
             Controls.Add(textBox1);
@@ -198,7 +210,6 @@ namespace C_PRL.Forms
             Controls.Add(thoat);
             Controls.Add(sua);
             Controls.Add(them);
-            Controls.Add(label1);
             Controls.Add(dgv);
             Name = "Theloai1";
             Text = "Theloai";
@@ -206,6 +217,7 @@ namespace C_PRL.Forms
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,8 +241,9 @@ namespace C_PRL.Forms
         private Button thoat;
         private Button sua;
         private Button them;
-        private Label label1;
         private DataGridView dgv;
         private Button Xoa;
+        private ErrorProvider errorProvider1;
+        private Label label1;
     }
 }

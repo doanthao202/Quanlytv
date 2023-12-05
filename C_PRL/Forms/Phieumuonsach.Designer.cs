@@ -253,7 +253,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(424, 102);
+            label10.Location = new Point(410, 99);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(106, 16);
@@ -270,6 +270,7 @@
             datengaytra.Name = "datengaytra";
             datengaytra.Size = new Size(124, 23);
             datengaytra.TabIndex = 26;
+            datengaytra.ValueChanged += datengaytra_ValueChanged_1;
             // 
             // cbxTenthanhvien
             // 
@@ -407,6 +408,7 @@
             them.TabIndex = 77;
             them.Text = "Thêm ";
             them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
             // 
             // label1
             // 
@@ -442,6 +444,7 @@
             button3.TabIndex = 86;
             button3.Text = "Gia hạn";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button1
             // 

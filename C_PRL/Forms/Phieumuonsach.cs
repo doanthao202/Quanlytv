@@ -147,7 +147,89 @@ namespace C_PRL.Forms
         private void dtpNgaymuon_ValueChanged(object sender, EventArgs e)
         {
             datengaytra.Value = (dtpNgaymuon.Value.AddDays(7));
-            
+
+        }
+        int x = 0;
+        private void them_Click(object sender, EventArgs e)
+        {
+            var phieumuon1 = new Phieumuon();
+
+            if (cbxTenthanhvien.Text == "")
+            {
+                phieumuon1.Iddocgia = null;
+                phieumuon1.Idnhanvien = _nvservice.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                phieumuon1.Tendocgia = txtTenkhachle.Text;
+                phieumuon1.Sdt = txtsdt.Text;
+                phieumuon1.Ngaymuon = dtpNgaymuon.Value;
+                phieumuon1.Ngaytradukien = datengaytra.Value;
+                phieumuon1.Tiencoc = Convert.ToDecimal(txtTiencoc.Text);
+                //phieumuon1.Phimuon = Convert.ToDecimal(txtTiencoc.Text);
+                phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text);
+                phieumuon1.Tinhtrang = 1;
+            }
+            else
+            {
+                if (cbxTenthanhvien.Text != "")
+                {
+                    phieumuon1.Iddocgia = _dgservice.GetAll().ElementAt(cbxTenthanhvien.SelectedIndex).Id; ;
+                    phieumuon1.Idnhanvien = _nvservice.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                    phieumuon1.Tendocgia = cbxTenthanhvien.Text;
+                    phieumuon1.Sdt = txtsdt.Text;
+                    phieumuon1.Ngaymuon = dtpNgaymuon.Value;
+                    phieumuon1.Ngaytradukien = datengaytra.Value;
+                    phieumuon1.Tiencoc = null;
+                    //phieumuon1.Phimuon = Convert.ToDecimal(txtTiencoc.Text);
+                    phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text);
+                    phieumuon1.Tinhtrang = 1;
+                }
+            }
+
+            var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
+            if (thongBao == DialogResult.Yes)
+            {
+                MessageBox.Show(_service.add(phieumuon1));
+                x = phieumuon1.Id;
+
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    ListViewItem lv = listView1.Items[i];
+                    int idsach = Convert.ToInt16(lv.SubItems[0].Text);
+
+                    var phieumuonchitiet = new Phieumuonct();
+                    phieumuonchitiet.Idsachct = idsach;
+                    phieumuonchitiet.Idphieumuon = x;
+                    phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
+
+                    _pmctservice.add(phieumuonchitiet);
+
+                }
+
+
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = false;
+            cbxDocgia.Enabled = false;
+            cbxTenthanhvien.Enabled = false;
+            txtTenkhachle.Enabled = false;
+            cbxTennv.Enabled = false;
+            txtsdt.Enabled = false;
+            dtpNgaymuon.Enabled = false;
+            datengaytra.Enabled = true;
+            txtTiencoc.Enabled = false;
+            textBox2.Enabled = false;
+        }
+
+        private void datengaytra_ValueChanged_1(object sender, EventArgs e)
+        {
+            //datengaytra.Value > dtpNgaymuon.Value.AddDays(7);
         }
     }
 }

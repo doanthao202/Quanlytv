@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using A_DAL.Models1;
 using B_BUS.Services;
 
+
 namespace C_PRL.Forms
 {
     public partial class Theloai1 : Form
@@ -26,11 +27,13 @@ namespace C_PRL.Forms
         {
             // dgv.DataSource = _service.GetAll();
             loatData(_service.GetAll());
+            sua.Enabled = false;
+            Xoa.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dgv.DataSource = _service.GetSearch(textBox1.Text);
+            loatData(_service.GetSearch(textBox1.Text));
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -41,6 +44,9 @@ namespace C_PRL.Forms
             txtVitri.Text = selectChild.Cells[3].Value.ToString();
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
+            them.Enabled = false;
+            sua.Enabled = true;
+            Xoa.Enabled = true;
         }
         public void loatData(dynamic data)
         {
@@ -49,7 +55,7 @@ namespace C_PRL.Forms
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.ColumnCount = 4;
             dgv.Columns[0].Name = "Stt";
-            dgv.Columns[1].Name = "Mã thể loại";
+            dgv.Columns[1].Name = "Id thể loại";
             dgv.Columns[2].Name = "Tên thể loại";
             dgv.Columns[3].Name = "Vị trí";
 
@@ -69,6 +75,8 @@ namespace C_PRL.Forms
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
+            sua.Enabled = true;
+            Xoa.Enabled = true;
         }
         public void reset()
         {
@@ -76,6 +84,8 @@ namespace C_PRL.Forms
             txtVitri.Text = "";
             idCellClick = -1;
             them.Enabled = true;
+            sua.Enabled = false;
+            Xoa.Enabled = false;
         }
         private void them_Click(object sender, EventArgs e)
         {
@@ -85,17 +95,12 @@ namespace C_PRL.Forms
             tl.Tentheloai = txtTentl.Text; ;
             tl.Vitri = txtVitri.Text;
 
-            var thongBao = MessageBox.Show("Xác nhận thêm sinh viên", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
+            
                 MessageBox.Show(_service.add(tl));
                 loatData(_service.GetAll());
                 reset();
-            }
-            else
-            {
-                return;
-            }
+            
+          
 
 
         }

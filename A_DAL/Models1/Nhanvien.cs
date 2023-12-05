@@ -12,9 +12,9 @@ namespace A_DAL.Models1
         }
 
         public int Id { get; set; }
-        public string Hoten { get; set; } = null!;
+        public string? Hoten { get; set; }
         public string? Sdt { get; set; }
-        public string Vaitro { get; set; } = null!;
+        public string? Vaitro { get; set; }
         public string? Email { get; set; }
         public string? Pass { get; set; }
         public int? Trangthai { get; set; }
