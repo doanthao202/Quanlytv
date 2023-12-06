@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label5 = new Label();
             textBox1 = new TextBox();
             groupBox2 = new GroupBox();
@@ -42,8 +43,10 @@
             them = new Button();
             label1 = new Label();
             luoi = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -77,7 +80,7 @@
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(32, 108);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(366, 102);
+            groupBox2.Size = new Size(377, 102);
             groupBox2.TabIndex = 40;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin";
@@ -133,7 +136,7 @@
             // 
             // thoat
             // 
-            thoat.Location = new Point(405, 196);
+            thoat.Location = new Point(416, 196);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -144,7 +147,7 @@
             // 
             // xoa
             // 
-            xoa.Location = new Point(405, 163);
+            xoa.Location = new Point(416, 163);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
@@ -155,7 +158,7 @@
             // 
             // sua
             // 
-            sua.Location = new Point(405, 130);
+            sua.Location = new Point(416, 130);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
@@ -166,7 +169,7 @@
             // 
             // them
             // 
-            them.Location = new Point(405, 97);
+            them.Location = new Point(416, 97);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -197,6 +200,10 @@
             luoi.CellClick += luoi_CellClick;
             luoi.CellContentClick += luoi_CellContentClick;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Tacgia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -217,6 +224,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,5 +245,6 @@
         private Button them;
         private Label label1;
         private DataGridView luoi;
+        private ErrorProvider errorProvider1;
     }
 }

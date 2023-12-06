@@ -15,9 +15,11 @@ namespace C_PRL.Forms
     public partial class Tacgia : Form
     {
         Tacgiaservice _service = new Tacgiaservice();
+        SachtacgiaService _stgservice = new SachtacgiaService();
         int idWhenclick = -1;
         public Tacgia()
         {
+            _stgservice = new SachtacgiaService();
             _service = new Tacgiaservice();
             InitializeComponent();
         }
@@ -64,7 +66,25 @@ namespace C_PRL.Forms
 
             idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _stgservice.GetAll())
+            {
+                if (idWhenclick == i.Idtacgia)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
             sua.Enabled = true;
         }
 
@@ -77,13 +97,31 @@ namespace C_PRL.Forms
 
             idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _stgservice.GetAll())
+            {
+                if (idWhenclick == i.Idtacgia)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
             sua.Enabled = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            luoi.DataSource = _service.GetSearch(textBox1.Text);
+            LoadData(_service.GetSearch(textBox1.Text));
         }
 
         private void them_Click(object sender, EventArgs e)
@@ -92,17 +130,9 @@ namespace C_PRL.Forms
             tg.Tentacgia = txtTentl.Text; ;
             tg.Ghichu = txtVitri.Text;
 
-            var thongBao = MessageBox.Show("Xác nhận thêm ", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
-                MessageBox.Show(_service.add(tg));
-                LoadData(_service.GetAll());
-                reset();
-            }
-            else
-            {
-                return;
-            }
+            MessageBox.Show(_service.add(tg));
+            LoadData(_service.GetAll());
+            reset();
         }
 
         private void sua_Click(object sender, EventArgs e)
@@ -162,13 +192,14 @@ namespace C_PRL.Forms
             if (Char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-
+                errorProvider1.SetError(txtTentl, "Tên tác giả không được nhập số");
 
             }
             else
             {
-
+                errorProvider1.Clear();
                 e.Handled = false;
+               
             }
         }
     }

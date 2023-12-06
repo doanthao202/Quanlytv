@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BoldReports.AspNet.Core" Version="5.3.13" />
+    <PackageReference Include="BoldReports.Net.Core" Version="5.3.13" />
     <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="140.802.134-rc" />
   </ItemGroup>
 

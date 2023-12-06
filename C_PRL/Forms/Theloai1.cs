@@ -16,9 +16,11 @@ namespace C_PRL.Forms
     public partial class Theloai1 : Form
     {
         Theloaiservi _service = new Theloaiservi();
+        Sachservice _sachservice = new Sachservice();
         int idCellClick = -1;
         public Theloai1()
         {
+            _sachservice = new Sachservice();
             _service = new Theloaiservi();
             InitializeComponent();
         }
@@ -46,7 +48,24 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            Xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sachservice.GetAll())
+            {
+                if (idCellClick == i.Idtheloai)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                Xoa.Enabled = false;
+            }
+            else
+            {
+                Xoa.Enabled = true;
+            }
         }
         public void loatData(dynamic data)
         {
@@ -76,7 +95,24 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            Xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sachservice.GetAll())
+            {
+                if (idCellClick == i.Idtheloai)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                Xoa.Enabled = false;
+            }
+            else
+            {
+                Xoa.Enabled = true;
+            }
         }
         public void reset()
         {
@@ -123,7 +159,7 @@ namespace C_PRL.Forms
             }
             else if (result == 2)
             {
-                MessageBox.Show("Tên không được để trống");
+                MessageBox.Show("Tên thể loại không được để trống");
                 loatData(_service.GetAll());
 
             }
