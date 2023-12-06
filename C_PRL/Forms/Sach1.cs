@@ -19,6 +19,7 @@ namespace C_PRL.Forms
         Theloaiservi _tlservice = new Theloaiservi();
         Tacgiaservice _tgservice = new Tacgiaservice();
         SachtacgiaService _sachtacgiaService = new SachtacgiaService();
+        SachctService _sct = new SachctService();
         int idCellClick = -1;
         public Sach1()
         {
@@ -26,6 +27,7 @@ namespace C_PRL.Forms
             _tlservice = new Theloaiservi();
             _tgservice = new Tacgiaservice();
             _sachtacgiaService = new SachtacgiaService();
+            _sct = new SachctService();
             InitializeComponent();
 
         }
@@ -134,8 +136,36 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
+           
             loatData1(_sachtacgiaService.Getview(idCellClick));
+            var x = 0;
+            var y = 0;
+            foreach (var i in _sachtacgiaService.GetAll())
+            {
+                if (idCellClick == i.Idsach)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _sct.GetAll())
+            {
+                if (idCellClick == i.Idsach)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -150,8 +180,35 @@ namespace C_PRL.Forms
             loatData1(_sachtacgiaService.Getview(idCellClick));
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
-            
+            var x = 0;
+            var y = 0;
+            foreach (var i in _sachtacgiaService.GetAll())
+            {
+                if (idCellClick == i.Idsach)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _sct.GetAll())
+            {
+                if (idCellClick == i.Idsach)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
+
         }
 
         private void them_Click(object sender, EventArgs e)
@@ -163,20 +220,9 @@ namespace C_PRL.Forms
             s1.Namxuatban = Convert.ToInt32(txtNam.Text);
             //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
             s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
-            /*for (int i = 0; i < listView1.Items.Count; i++)
-            {
-                ListViewItem lv = listView1.Items[i];
-                string tentacgia = lv.SubItems[1].Text;
-                var sachtg = new SachTacgium();
-                sachtg.Idsach = s1.Id;
-                sachtg.Idtacgia = _tgservice.GetById(tentacgia).Id; ;
-                sachtg.Vaitro = lv.SubItems[2].Text;
-                i++;
-            }
-*/
-            var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
+         
+
+            
                 MessageBox.Show(_service.add(s1));
                 //loatData(_service.GetAll(),_tlservice);
                 loatData(_service.Getview());
@@ -198,11 +244,7 @@ namespace C_PRL.Forms
                 
                 reset();
 
-            }
-            else
-            {
-                return;
-            }
+             
         }
 
         private void Sua_Click(object sender, EventArgs e)

@@ -47,7 +47,32 @@ namespace B_BUS.Services
             return _repos.GetAll().ToList();
         }
        
-        
+        public List<Docgiahang> Getview1(string searchText)
+        {
+            var joinData = from Hangthanhvien in _hrepos.GetAllHang()
+                           join Docgium in _repos.GetAll() on Hangthanhvien.Id equals Docgium.Idhang
+                           select new Docgiahang
+                           {
+                               Id = Docgium.Id,
+                               Hoten = Docgium.Hoten,
+                               Email = Docgium.Email,
+                               Sdt = Docgium.Sdt,
+                               Diachi = Docgium.Diachi,
+                               Cmnd = Docgium.Cmnd,
+                               Ngaysinh = Docgium.Ngaysinh,
+                               Ngaycapthe = Docgium.Ngaycapthe,
+                               Hanthe = Docgium.Hanthe,
+                               Trangthai = Docgium.Trangthai,
+                               Tenhang = Hangthanhvien.Tenhang
+
+                           };
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return joinData.ToList();
+            }
+            return joinData.Where(c => c.Hoten.Contains(searchText) || c.Sdt.Contains(searchText)).ToList();
+            
+        }
         public int Update(int id, Docgium docgium)
         {
             return _repos.Update(id, docgium);

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox2 = new GroupBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
             label4 = new Label();
             textBox1 = new TextBox();
             label5 = new Label();
@@ -62,15 +61,15 @@
             them = new Button();
             label1 = new Label();
             luoi = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(textBox1);
             groupBox2.Controls.Add(label5);
@@ -78,32 +77,10 @@
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(580, 40);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(249, 135);
+            groupBox2.Size = new Size(249, 78);
             groupBox2.TabIndex = 51;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tìm kiếm";
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(34, 93);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(132, 19);
-            radioButton2.TabIndex = 44;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Tìm kiếm theo SDT";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(34, 65);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(128, 19);
-            radioButton1.TabIndex = 43;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Tìm kiếm theo tên";
-            radioButton1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -123,6 +100,7 @@
             textBox1.PlaceholderText = "Nhập tên hoặc số điện thoại";
             textBox1.Size = new Size(243, 23);
             textBox1.TabIndex = 41;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label5
             // 
@@ -279,6 +257,7 @@
             txtCCCD.Name = "txtCCCD";
             txtCCCD.Size = new Size(153, 23);
             txtCCCD.TabIndex = 24;
+            txtCCCD.KeyPress += txtCCCD_KeyPress;
             // 
             // dtpNgaysinh
             // 
@@ -326,6 +305,7 @@
             txtSdt.Name = "txtSdt";
             txtSdt.Size = new Size(153, 23);
             txtSdt.TabIndex = 19;
+            txtSdt.KeyPress += txtSdt_KeyPress;
             // 
             // label8
             // 
@@ -351,11 +331,13 @@
             // 
             // txtDocgia
             // 
-            txtDocgia.Location = new Point(85, 17);
+            txtDocgia.Location = new Point(112, 17);
             txtDocgia.Margin = new Padding(4, 3, 4, 3);
             txtDocgia.Name = "txtDocgia";
-            txtDocgia.Size = new Size(153, 23);
+            txtDocgia.Size = new Size(126, 23);
             txtDocgia.TabIndex = 14;
+            txtDocgia.TextChanged += txtDocgia_TextChanged;
+            txtDocgia.KeyPress += txtDocgia_KeyPress;
             // 
             // label2
             // 
@@ -364,9 +346,9 @@
             label2.Location = new Point(7, 24);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(79, 16);
+            label2.Size = new Size(97, 16);
             label2.TabIndex = 13;
-            label2.Text = "Tên độc giả:";
+            label2.Text = "Tên thành viên:";
             // 
             // thoat
             // 
@@ -419,9 +401,9 @@
             label1.Location = new Point(301, 6);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(97, 26);
+            label1.Size = new Size(139, 26);
             label1.TabIndex = 45;
-            label1.Text = "ĐỘC GIẢ";
+            label1.Text = "THÀNH VIÊN";
             // 
             // luoi
             // 
@@ -433,6 +415,10 @@
             luoi.TabIndex = 44;
             luoi.CellClick += luoi_CellClick;
             luoi.CellContentClick += luoi_CellContentClick;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // Docgia1
             // 
@@ -454,6 +440,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)luoi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -461,8 +448,6 @@
         #endregion
 
         private GroupBox groupBox2;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
         private Label label4;
         private TextBox textBox1;
         private Label label5;
@@ -494,5 +479,6 @@
         private Button them;
         private Label label1;
         private DataGridView luoi;
+        private ErrorProvider errorProvider1;
     }
 }

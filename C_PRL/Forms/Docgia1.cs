@@ -17,9 +17,13 @@ namespace C_PRL.Forms
     {
         Docgiaservice _service = new Docgiaservice();
         HangService _hserviec = new HangService();
+        PhieumuonService _pm = new PhieumuonService();
+        Phieutraservice _ph = new Phieutraservice();
         int idCellClick = -1;
         public Docgia1()
         {
+            _pm = new PhieumuonService();
+            _ph = new Phieutraservice();
             _service = new Docgiaservice();
             _hserviec = new HangService();
             InitializeComponent();
@@ -34,7 +38,8 @@ namespace C_PRL.Forms
                 cbxHang.Items.Add(i.Tenhang);
             }
             loatData(_service.Getview());
-
+            sua.Enabled = false;
+            xoa.Enabled = false;
         }
         public void reset()
         {
@@ -82,42 +87,49 @@ namespace C_PRL.Forms
             }
 
         }
+        private bool IsValidateMail(string email)
+        {
+            var r = new System.Text.RegularExpressions.Regex(@"([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");
+            return !String.IsNullOrEmpty(email) && r.IsMatch(email);
+        }
 
         private void them_Click(object sender, EventArgs e)
         {
-            var s1 = new Docgium();
-            s1.Hoten = txtDocgia.Text;
-            s1.Email = txtEmail.Text;
-            s1.Sdt = txtSdt.Text;
-            s1.Diachi = txtSdt.Text;
-            s1.Cmnd = txtCCCD.Text;
-            s1.Ngaysinh = dtpNgaysinh.Value;
-            s1.Ngaycapthe = dtpNgaycapthe.Value;
-            s1.Hanthe = Hanthe.Value;
-            if (cbxtrangthai.Text == "Hoạt động")
+            if (!IsValidateMail(txtEmail.Text))
             {
-                s1.Trangthai = 1;
+                MessageBox.Show("Mail không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtEmail.Focus();
             }
             else
             {
-                if (cbxtrangthai.Text == "Dừng hoạt động")
+                var s1 = new Docgium();
+                s1.Hoten = txtDocgia.Text;
+                s1.Email = txtEmail.Text;
+                s1.Sdt = txtSdt.Text;
+                s1.Diachi = txtSdt.Text;
+                s1.Cmnd = txtCCCD.Text;
+                s1.Ngaysinh = dtpNgaysinh.Value;
+                s1.Ngaycapthe = dtpNgaycapthe.Value;
+                s1.Hanthe = Hanthe.Value;
+                if (cbxtrangthai.Text == "Hoạt động")
                 {
-                    s1.Trangthai = 0;
+                    s1.Trangthai = 1;
                 }
-            }
-            s1.Idhang = _hserviec.GetAll().ElementAt(cbxHang.SelectedIndex).Id;
-            var thongBao = MessageBox.Show("Xác nhận thêm độc giả", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
+                else
+                {
+                    if (cbxtrangthai.Text == "Dừng hoạt động")
+                    {
+                        s1.Trangthai = 0;
+                    }
+                }
+                s1.Idhang = _hserviec.GetAll().ElementAt(cbxHang.SelectedIndex).Id;
+
                 MessageBox.Show(_service.add(s1));
                 //loatData(_service.GetAll(),_tlservice);
                 loatData(_service.Getview());
                 reset();
 
-            }
-            else
-            {
-                return;
             }
         }
 
@@ -136,38 +148,47 @@ namespace C_PRL.Forms
                     x = "0";
                 }
             }
-            var result = _service.Update(idCellClick, new Docgium()
+            if (!IsValidateMail(txtEmail.Text))
             {
-                Hoten = txtDocgia.Text,
-                Email = txtEmail.Text,
-                Sdt = txtSdt.Text,
-                Diachi = txtSdt.Text,
-                Cmnd = txtCCCD.Text,
-                Ngaysinh = dtpNgaysinh.Value,
-                Ngaycapthe = dtpNgaycapthe.Value,
-                Hanthe = Hanthe.Value,
-                Trangthai = Convert.ToInt32(x),
-                Idhang = _hserviec.GetAll().ElementAt(cbxHang.SelectedIndex).Id
+                MessageBox.Show("Mail không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            });
-
-            if (result == 3)
-            {
-                MessageBox.Show("Sửa thành công");
-                loatData(_service.Getview());
-                reset();
-            }
-            else if (result == 2)
-            {
-                MessageBox.Show("Tên không được để trống");
-                loatData(_service.Getview());
-
+                txtEmail.Focus();
             }
             else
             {
-                MessageBox.Show("Sửa thất bại");
+                var result = _service.Update(idCellClick, new Docgium()
+                {
+                    Hoten = txtDocgia.Text,
+                    Email = txtEmail.Text,
+                    Sdt = txtSdt.Text,
+                    Diachi = txtSdt.Text,
+                    Cmnd = txtCCCD.Text,
+                    Ngaysinh = dtpNgaysinh.Value,
+                    Ngaycapthe = dtpNgaycapthe.Value,
+                    Hanthe = Hanthe.Value,
+                    Trangthai = Convert.ToInt32(x),
+                    Idhang = _hserviec.GetAll().ElementAt(cbxHang.SelectedIndex).Id
+
+                });
+
+                if (result == 3)
+                {
+                    MessageBox.Show("Sửa thành công");
+                    loatData(_service.Getview());
+                    reset();
+                }
+                else if (result == 2)
+                {
+                    MessageBox.Show("Tên không được để trống");
+                    loatData(_service.Getview());
+
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại");
+                }
+                reset();
             }
-            reset();
         }
 
         private void luoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -198,7 +219,34 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pm.GetAll())
+            {
+                if (idCellClick == i.Iddocgia)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _ph.GetAll())
+            {
+                if (idCellClick == i.Iddocgia)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
 
 
         }
@@ -231,9 +279,34 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pm.GetAll())
+            {
+                if (idCellClick == i.Iddocgia)
+                {
+                    x = 1;
+                    continue;
+                }
 
-            //Convert.ToDateTime()
+            }
+            foreach (var i in _ph.GetAll())
+            {
+                if (idCellClick == i.Iddocgia)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
         }
 
         private void xoa_Click(object sender, EventArgs e)
@@ -258,6 +331,62 @@ namespace C_PRL.Forms
             this.Hide();
             Form f = new Giaodien();
             f.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            loatData(_service.Getview1(textBox1.Text));
+        }
+
+        private void txtDocgia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDocgia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtDocgia, "Tên không được nhập số");
+
+            }
+            else
+            {
+                errorProvider1.Clear();
+                e.Handled = false;
+            }
+
+        }
+
+        private void txtSdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                errorProvider1.Clear();
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtSdt, "Số điện thoại không được nhập chữ");
+                e.Handled = true;
+            }
+        }
+
+        private void txtCCCD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                errorProvider1.Clear();
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtCCCD, "Số CCCD không được nhập chữ");
+                e.Handled = true;
+            }
         }
     }
 }

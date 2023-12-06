@@ -43,6 +43,7 @@ namespace A_DAL.Repository
                 return 0;
             }
         }
+      
 
         public bool Delete(int id)
         {

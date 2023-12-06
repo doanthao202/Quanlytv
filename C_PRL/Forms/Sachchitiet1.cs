@@ -22,9 +22,11 @@ namespace C_PRL
         NxbService _nxbService = new NxbService();
         Sachservice _sservice = new Sachservice();
         HangService _hangservice = new HangService();
+        PhieumuonctService _pm = new PhieumuonctService();
         int idCellClick = -1;
         public Sachchitiet1()
         {
+            _pm = new PhieumuonctService();
             _sservice = new Sachservice();
             _service = new SachctService();
             _nxbService = new NxbService();
@@ -117,7 +119,7 @@ namespace C_PRL
 
         public void loatData1(dynamic data)
         {
-           listView1.Items.Clear();
+            listView1.Items.Clear();
 
             foreach (var s in data)
             {
@@ -158,103 +160,32 @@ namespace C_PRL
             }
 
 
-            var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
-                MessageBox.Show(_service.add(s1));
 
-                loatData(_service.Getview());
+            MessageBox.Show(_service.add(s1));
 
-                for (int i = 0; i < listView1.Items.Count; i++)
-                {
-                    ListViewItem lv = listView1.Items[i];
-                    string tenhang = lv.SubItems[0].Text;
-                    var sachcthang = new SachctHang();
-                    sachcthang.Idsachct = s1.Id;
-                    sachcthang.Idhang = _hangservice.GetById(tenhang).Id; ;
+            loatData(_service.Getview());
 
-
-                    _sachhangservie.add(sachcthang);
-
-                }
-
-                reset();
-
-            }
-            else
-            {
-                return;
-            }
-
-
-        }
-
-        /*private void Sua_Click(object sender, EventArgs e)
-        {
-
-            string x = "";
-            if (cxbTinhtrang.Text == "Sách mới")
-            {
-                x = "1";
-            }
-            else if (cxbTinhtrang.Text == "Sách cũ")
-            {
-                x = "2";
-            }
-            else
-            {
-                if (cxbTinhtrang.Text == "Dừng hoạt động")
-                {
-                    x = "0";
-                }
-            }
-            
-            int m = cbxTensach.SelectedIndex;
-            int n = cxbNgonngu.SelectedIndex;
-            int g = cxbNXB.SelectedIndex;
-            var result = _service.Update(idCellClick, new Sachchitiet()
-            {
-                Idsach = _sservice.GetAll().ElementAt(m).Id,
-                Idngonngu = _nnservice.GetAll().ElementAt(n).Id,
-                Idnxb = _nxbService.GetAll().ElementAt(g).Id,
-                Lantaiban = Convert.ToInt32(txtlantaiban.Text),
-                Giasach = Convert.ToInt32(txtGia.Text),
-                Dotuoidocsach = Convert.ToInt32(txtTuoi.Text),
-                Tinhtrang = Convert.ToInt32(x)
-
-            });
-            //_sachhangservie.Delete(idCellClick);
-            *//*for (int i = 0; i < listView1.Items.Count; i++)
+            for (int i = 0; i < listView1.Items.Count; i++)
             {
                 ListViewItem lv = listView1.Items[i];
                 string tenhang = lv.SubItems[0].Text;
                 var sachcthang = new SachctHang();
-                sachcthang.Idsachct = idCellClick;
+                sachcthang.Idsachct = s1.Id;
                 sachcthang.Idhang = _hangservice.GetById(tenhang).Id; ;
 
 
                 _sachhangservie.add(sachcthang);
 
-            }*//*
+            }
 
-            if (result == 3)
-            {
-                MessageBox.Show("Sửa thành công");
-                loatData(_service.Getview());
-                reset();
-            }
-            else if (result == 2)
-            {
-                MessageBox.Show("Tên không được để trống");
-                loatData(_service.Getview());
-
-            }
-            else
-            {
-                MessageBox.Show("Sửa thất bại");
-            }
             reset();
-        }*/
+
+
+
+
+        }
+
+
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -288,7 +219,34 @@ namespace C_PRL
             loatData1(_sachhangservie.Getview(idCellClick));
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pm.GetAll())
+            {
+                if (idCellClick == i.Idsachct)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _sachhangservie.GetAll())
+            {
+                if (idCellClick == i.Idsachct)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
 
         }
 
@@ -328,7 +286,34 @@ namespace C_PRL
 
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pm.GetAll())
+            {
+                if (idCellClick == i.Idsachct)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _sachhangservie.GetAll())
+            {
+                if (idCellClick == i.Idsachct)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
         }
 
         private void xoa_Click(object sender, EventArgs e)
@@ -383,7 +368,7 @@ namespace C_PRL
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
+
             if (listView1.SelectedItems.Count > 0)
             {
                 listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
@@ -396,7 +381,7 @@ namespace C_PRL
         private void Sua_Click(object sender, EventArgs e)
         {
             _sachhangservie.Delete(idCellClick);
-            
+
             string x = "";
             if (cxbTinhtrang.Text == "Sách mới")
             {
@@ -461,6 +446,11 @@ namespace C_PRL
                 MessageBox.Show("Sửa thất bại");
             }
             reset();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

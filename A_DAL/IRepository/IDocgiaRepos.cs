@@ -15,6 +15,7 @@ namespace A_DAL.IRepository
 
         int Update(int id, Docgium docgium);
         bool Delete(int id);
-        
+      
+
     }
 }
