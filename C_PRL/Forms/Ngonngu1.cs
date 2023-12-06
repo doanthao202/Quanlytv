@@ -15,9 +15,11 @@ namespace C_PRL.Forms
     public partial class NgonNgu1 : Form
     {
         Ngonnguservice _service = new Ngonnguservice();
+        SachctService _sch = new SachctService();
         int idWhenClick = -1;
         public NgonNgu1()
         {
+            _sch = new SachctService();
             _service = new Ngonnguservice();
             InitializeComponent();
         }
@@ -51,24 +53,62 @@ namespace C_PRL.Forms
         }
         private void luoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
             idWhenClick = Convert.ToInt32(selectChild.Cells[1].Value);
             sua.Enabled = true;
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sch.GetAll())
+            {
+                if (idWhenClick == i.Idnxb)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
         }
 
         private void luoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
             idWhenClick = Convert.ToInt32(selectChild.Cells[1].Value);
             sua.Enabled = true;
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sch.GetAll())
+            {
+                if (idWhenClick == i.Idnxb)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
         }
 
         private void NgonNgu1_Load(object sender, EventArgs e)
@@ -83,17 +123,9 @@ namespace C_PRL.Forms
             var nn = new Ngonngu();
             nn.Tennn = txtTentl.Text;
 
-            var thongBao = MessageBox.Show("Xác nhận thêm ", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
-                MessageBox.Show(_service.add(nn));
-                LoadData(_service.GetAll());
-                reset();
-            }
-            else
-            {
-                return;
-            }
+            MessageBox.Show(_service.add(nn));
+            LoadData(_service.GetAll());
+            reset();
         }
 
         private void sua_Click(object sender, EventArgs e)
@@ -147,7 +179,7 @@ namespace C_PRL.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            luoi.DataSource = _service.GetSearch(textBox1.Text);
+            LoadData(_service.GetSearch(textBox1.Text));
         }
     }
 }
