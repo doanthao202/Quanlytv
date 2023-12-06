@@ -15,9 +15,13 @@ namespace C_PRL.Forms
     public partial class Nhanvien1 : Form
     {
         Nhanvienservice _service = new Nhanvienservice();
+        PhieumuonService _pmservice = new PhieumuonService();
+        Phieutraservice _ptservice = new Phieutraservice();
         public Nhanvien1()
         {
             _service = new Nhanvienservice();
+            _pmservice = new PhieumuonService();
+           _ptservice = new Phieutraservice();
             InitializeComponent();
         }
         int idCellClick = -1;
@@ -35,6 +39,9 @@ namespace C_PRL.Forms
             loatData(_service.GetAll());
             Sua.Enabled = false;
             xoa.Enabled = false;
+            cxbTrangthai.Text = "Hoạt động";
+            cxbTrangthai.Enabled = false;
+
 
         }
         public void loatData(dynamic data)
@@ -79,6 +86,13 @@ namespace C_PRL.Forms
             them.Enabled = true;
             Sua.Enabled = false;
             xoa.Enabled = false;
+            cxbTrangthai.Text = "Hoạt động";
+            cxbTrangthai.Enabled = false;
+        }
+        private bool IsValidateMail(string email)
+        {
+            var r = new System.Text.RegularExpressions.Regex(@"([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");
+            return !String.IsNullOrEmpty(email) && r.IsMatch(email);
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -87,35 +101,24 @@ namespace C_PRL.Forms
 
         private void them_Click(object sender, EventArgs e)
         {
-            var nv = new Nhanvien();
-            nv.Hoten = txtTen.Text; ;
-            nv.Sdt = txtSdt.Text;
-            nv.Vaitro = cbxVaitro.Text;
-            nv.Email = txtEmail.Text;
-            nv.Pass = txtPass.Text;
-            if (cxbTrangthai.Text == "Dừng hoạt động")
+            if (!IsValidateMail(txtEmail.Text))
             {
-                nv.Trangthai = 0;
-            }
-            else if (cxbTrangthai.Text == "Hoạt động")
-            {
-                nv.Trangthai = 1;
+                MessageBox.Show("Mail không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtEmail.Focus();
             }
             else
             {
-                nv.Trangthai = null;
-            }
-
-            var thongBao = MessageBox.Show("Xác nhận thêm sinh viên", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
+                var nv = new Nhanvien();
+                nv.Hoten = txtTen.Text; ;
+                nv.Sdt = txtSdt.Text;
+                nv.Vaitro = cbxVaitro.Text;
+                nv.Email = txtEmail.Text;
+                nv.Pass = txtPass.Text;
+                nv.Trangthai = 1;
                 MessageBox.Show(_service.add(nv));
                 loatData(_service.GetAll());
                 reset();
-            }
-            else
-            {
-                return;
             }
 
         }
@@ -135,31 +138,40 @@ namespace C_PRL.Forms
             {
                 x = null;
             }
-            var result = _service.Update(idCellClick, new Nhanvien()
+            if (!IsValidateMail(txtEmail.Text))
             {
-                Hoten = txtTen.Text,
-                Sdt = txtSdt.Text,
-                Vaitro = cbxVaitro.Text,
-                Email = txtEmail.Text,
-                Pass = txtPass.Text,
-                Trangthai = Convert.ToInt32(x)
+                MessageBox.Show("Mail không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            });
-            if (result == 3)
-            {
-                MessageBox.Show("Sửa thành công");
-                loatData(_service.GetAll());
-                reset();
-            }
-            else if (result == 2)
-            {
-                MessageBox.Show("Tên không được để trống");
-                loatData(_service.GetAll());
-
+                txtEmail.Focus();
             }
             else
             {
-                MessageBox.Show("Sửa thất bại");
+                var result = _service.Update(idCellClick, new Nhanvien()
+                {
+                    Hoten = txtTen.Text,
+                    Sdt = txtSdt.Text,
+                    Vaitro = cbxVaitro.Text,
+                    Email = txtEmail.Text,
+                    Pass = txtPass.Text,
+                    Trangthai = Convert.ToInt32(x)
+
+                });
+                if (result == 3)
+                {
+                    MessageBox.Show("Sửa thành công");
+                    loatData(_service.GetAll());
+                    reset();
+                }
+                else if (result == 2)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                    loatData(_service.GetAll());
+
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại");
+                }
             }
             reset();
         }
@@ -178,7 +190,36 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pmservice.GetAll())
+            {
+                if (idCellClick == i.Idnhanvien)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _ptservice.GetAll())
+            {
+                if (idCellClick == i.Idnhanvien)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
+           // cxbTrangthai.ResetText();
+            cxbTrangthai.Enabled = true;
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -195,7 +236,36 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _pmservice.GetAll())
+            {
+                if (idCellClick == i.Idnhanvien)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _ptservice.GetAll())
+            {
+                if (idCellClick == i.Idnhanvien)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+                xoa.Enabled = false;
+            }
+            //cxbTrangthai.ResetText();
+            cxbTrangthai.Enabled = true;
         }
 
         private void xoa_Click(object sender, EventArgs e)
@@ -223,7 +293,7 @@ namespace C_PRL.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dgv.DataSource = _service.GetSearch1(textBox1.Text);
+            loatData(_service.GetSearch1(textBox1.Text));
         }
 
 
@@ -233,12 +303,12 @@ namespace C_PRL.Forms
             if (Char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-                // errorProvider1.SetError(txtTen, "Tên không được nhập số");
+                errorProvider1.SetError(txtTen, "Tên không được nhập số");
 
             }
             else
             {
-                //errorProvider1.SetError(txtTen, null);
+                errorProvider1.Clear();
                 e.Handled = false;
             }
         }
@@ -253,12 +323,12 @@ namespace C_PRL.Forms
             if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
-                // errorProvider1.SetError(txtSdt, null);
+                errorProvider1.Clear();
 
             }
             else
             {
-                //errorProvider1.SetError(txtSdt, "Không được nhập chữ");
+                errorProvider1.SetError(txtSdt, "Số điện thoại không được nhập chữ");
                 e.Handled = true;
             }
         }

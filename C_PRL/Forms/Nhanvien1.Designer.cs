@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Sua = new Button();
             label5 = new Label();
             textBox1 = new TextBox();
@@ -49,8 +50,10 @@
             them = new Button();
             label1 = new Label();
             dgv = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // Sua
@@ -286,6 +289,10 @@
             dgv.CellClick += dgv_CellClick;
             dgv.CellContentClick += dgv_CellContentClick;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Nhanvien1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -306,6 +313,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -333,5 +341,6 @@
         private TextBox txtEmail;
         private TextBox txtPass;
         private ComboBox cxbTrangthai;
+        private ErrorProvider errorProvider1;
     }
 }

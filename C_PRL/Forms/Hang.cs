@@ -16,10 +16,14 @@ namespace C_PRL.Forms
 
     {
         HangService _Hservice = new HangService();
+        SachHangService _shservice = new SachHangService();
+        Docgiaservice _docgiaservice = new Docgiaservice();
         int idCellClick = -1;
         public Hang()
         {
             _Hservice = new HangService();
+            _shservice = new SachHangService();
+            _docgiaservice = new Docgiaservice();
             InitializeComponent();
         }
         public void LoadData(dynamic data)
@@ -69,17 +73,10 @@ namespace C_PRL.Forms
             {
                 Htv.Thoigianhieuluc = thoigianValue;
             }
-            var thongBao = MessageBox.Show("Xác nhận thêm hạng", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
-                MessageBox.Show(_Hservice.Add(Htv));
-                LoadData(_Hservice.GetAll());
-                reset();
-            }
-            else
-            {
-                return;
-            }
+
+            MessageBox.Show(_Hservice.Add(Htv));
+            LoadData(_Hservice.GetAll());
+            reset();
         }
 
         private void luoi_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,7 +90,35 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
             sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _shservice.GetAll())
+            {
+                if (idCellClick == i.Idhang)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _docgiaservice.GetAll())
+            {
+                if (idCellClick == i.Idhang)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+
+                xoa.Enabled = false;
+            }
         }
 
         private void luoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -107,16 +132,62 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
             sua.Enabled = true;
-            xoa.Enabled = true;
+            var x = 0;
+            var y = 0;
+            foreach (var i in _shservice.GetAll())
+            {
+                if (idCellClick == i.Idhang)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _docgiaservice.GetAll())
+            {
+                if (idCellClick == i.Idhang)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x != 1 && y != 1)
+            {
+                xoa.Enabled = true;
+            }
+            else
+            {
+
+                xoa.Enabled = false;
+            }
         }
 
         private void sua_Click(object sender, EventArgs e)
         {
+            string i = "";
+            if (textBox2.Text == "")
+            {
+                i = null;
+            }
+            else
+            {
+                i = textBox2.Text;
+            }
+            string m = "";
+            if (textBox3.Text == "")
+            {
+                m = null;
+            }
+            else
+            {
+                m = textBox3.Text;
+            }
             var result = _Hservice.Update(idCellClick, new Hangthanhvien()
             {
                 Tenhang = txtTentl.Text,
-                Dongia = decimal.Parse(textBox2.Text),
-                Thoigianhieuluc = int.Parse(textBox3.Text)
+                Dongia = Convert.ToDecimal(i),
+                Thoigianhieuluc = Convert.ToInt32(m)
             });
             if (result == 3)
             {
@@ -160,7 +231,7 @@ namespace C_PRL.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            luoi.DataSource = _Hservice.GetSearch(textBox1.Text);
+            LoadData(_Hservice.GetSearch(textBox1.Text));
         }
     }
 }
