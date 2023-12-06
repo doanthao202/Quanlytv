@@ -15,10 +15,12 @@ namespace C_PRL.Forms
     public partial class NXB : Form
     {
         NxbService _service = new NxbService();
+        SachctService _sch = new SachctService();
         int idWhenclick = -1;
         public NXB()
         {
-            _service = new NxbService();
+             _service = new NxbService();
+             _sch = new SachctService();
             InitializeComponent();
         }
         public void reset()
@@ -74,7 +76,25 @@ namespace C_PRL.Forms
 
             idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sch.GetAll())
+            {
+                if (idWhenclick == i.Idnxb)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
             sua.Enabled = true;
         }
 
@@ -89,7 +109,25 @@ namespace C_PRL.Forms
 
             idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
-            xoa.Enabled = true;
+            var x = 0;
+            foreach (var i in _sch.GetAll())
+            {
+                if (idWhenclick == i.Idnxb)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                xoa.Enabled = false;
+            }
+            else
+            {
+
+                xoa.Enabled = true;
+            }
             sua.Enabled = true;
         }
 
@@ -101,17 +139,9 @@ namespace C_PRL.Forms
             nxb.Diachi = textBox3.Text;
             nxb.Sdt = textBox2.Text;
 
-            var thongBao = MessageBox.Show("Xác nhận thêm ", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
-                MessageBox.Show(_service.add(nxb));
-                LoadData(_service.GetAll());
-                reset();
-            }
-            else
-            {
-                return;
-            }
+            MessageBox.Show(_service.add(nxb));
+            LoadData(_service.GetAll());
+            reset();
         }
 
         private void sua_Click(object sender, EventArgs e)
@@ -168,7 +198,7 @@ namespace C_PRL.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            LoadData(_service.GetSearch(textBox1.Text));
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
