@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class Nhanvien
     {
@@ -12,11 +12,11 @@ namespace A_DAL.Models1
         }
 
         public int Id { get; set; }
-        public string? Hoten { get; set; }
-        public string? Sdt { get; set; }
-        public string? Vaitro { get; set; }
-        public string? Email { get; set; }
-        public string? Pass { get; set; }
+        public string Hoten { get; set; } = null!;
+        public string Sdt { get; set; } = null!;
+        public string Vaitro { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public string Pass { get; set; } = null!;
         public int? Trangthai { get; set; }
 
         public virtual ICollection<Phieumuon> Phieumuons { get; set; }

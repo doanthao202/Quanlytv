@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using A_DAL.Models1;
+using A_DAL.Models;
 
 namespace A_DAL.IRepository
 {
@@ -16,6 +16,6 @@ namespace A_DAL.IRepository
 
         int Update(int id, Phieumuon phieumuon);
         bool Delete(int id);
-       
+        List<Phieumuon> GetSearch(string searchText,string x);
     }
 }

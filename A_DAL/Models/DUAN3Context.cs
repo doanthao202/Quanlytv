@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class DUAN3Context : DbContext
     {
@@ -207,7 +207,7 @@ namespace A_DAL.Models1
                     .HasColumnName("SDT");
 
                 entity.Property(e => e.Tendocgia)
-                    .HasMaxLength(50)
+                    .HasMaxLength(30)
                     .HasColumnName("TENDOCGIA");
 
                 entity.Property(e => e.Tiencoc)
@@ -270,12 +270,21 @@ namespace A_DAL.Models1
                 entity.Property(e => e.Idnhanvien).HasColumnName("IDNHANVIEN");
 
                 entity.Property(e => e.Lydophat)
-                    .HasMaxLength(100)
+                    .HasMaxLength(200)
                     .HasColumnName("LYDOPHAT");
 
                 entity.Property(e => e.Ngaytra)
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRA");
+
+                entity.Property(e => e.Sdt)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("SDT");
+
+                entity.Property(e => e.Tendocgia)
+                    .HasMaxLength(20)
+                    .HasColumnName("TENDOCGIA");
 
                 entity.Property(e => e.Tienphat)
                     .HasColumnType("money")
@@ -286,7 +295,6 @@ namespace A_DAL.Models1
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)
                     .HasForeignKey(d => d.Iddocgia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_PHIEUTRA");
 
                 entity.HasOne(d => d.IdnhanvienNavigation)
@@ -353,6 +361,10 @@ namespace A_DAL.Models1
                 entity.ToTable("SACH_TACGIA");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Ghichu)
+                    .HasMaxLength(50)
+                    .HasColumnName("GHICHU");
 
                 entity.Property(e => e.Idsach).HasColumnName("IDSACH");
 

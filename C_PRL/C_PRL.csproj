@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="140.802.134-rc" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\B_BUS\B_BUS.csproj" />
   </ItemGroup>
 

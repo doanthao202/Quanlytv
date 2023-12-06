@@ -7,11 +7,10 @@ using A_DAL.Models;
 
 namespace A_DAL.IRepository
 {
-    internal interface ISachHangRepos
+    internal interface Iphieutrachitiet
     {
-        IEnumerable<SachctHang> GetAll();
+        IEnumerable<Phieutract> GetAll();
 
-        bool Add(SachctHang sachctHang);
-        bool Delete(int id);
+        int Add(Phieutract phieutract);
     }
 }

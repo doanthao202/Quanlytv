@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models1;
+using A_DAL.Models;
 
 namespace A_DAL.Repository
 {
@@ -41,7 +42,7 @@ namespace A_DAL.Repository
 
                 return 0;
             }
-            new NotImplementedException();
+            
         }
 
         public bool Delete(int id)
@@ -82,6 +83,7 @@ namespace A_DAL.Repository
                 }
                 else
                 {
+                    
                     exist.Iddocgia = phieumuon.Iddocgia;
                     exist.Tendocgia = phieumuon.Tendocgia;
                     exist.Sdt=phieumuon.Sdt;
@@ -101,6 +103,37 @@ namespace A_DAL.Repository
             {
                 return 1;
             }
+        }
+        public List<Phieumuon> GetSearch(string searchText,string x)
+        {
+            if (string.IsNullOrWhiteSpace(searchText) && string.IsNullOrWhiteSpace(x))
+            {
+                return _dbContext.Phieumuons.ToList();
+            }
+            else if (x =="Khách lẻ"&& !string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieumuons.Where(c => c.Tendocgia.Contains(searchText)|| c.Sdt.Contains(searchText)&& c.Iddocgia==null ).ToList();
+            }
+            else if (x =="Khách lẻ"&& string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieumuons.Where(c=> c.Iddocgia==null ).ToList();
+            }
+            else if (x =="Thành viên"&& !string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieumuons.Where(c => c.Tendocgia.Contains(searchText)|| c.Sdt.Contains(searchText)&& c.Iddocgia!=null ).ToList();
+            }else if (x =="Thành viên"&& string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieumuons.Where(c=>c.Iddocgia!=null ).ToList();
+            }
+           
+            else
+            {
+
+
+                return _dbContext.Phieumuons.Where(c => c.Tendocgia.Contains(searchText) || c.Sdt.Contains(searchText)).ToList();
+
+            }
+           // return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(searchText)).ToList();
         }
     }
 }
