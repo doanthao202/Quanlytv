@@ -85,6 +85,7 @@
             txtMK.Location = new Point(320, 245);
             txtMK.Margin = new Padding(2);
             txtMK.Name = "txtMK";
+            txtMK.PasswordChar = '*';
             txtMK.Size = new Size(254, 29);
             txtMK.TabIndex = 20;
             // 

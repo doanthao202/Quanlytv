@@ -32,10 +32,12 @@
             // 
             // GiaoDienNV
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 510);
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.Gainsboro;
+            ClientSize = new Size(962, 637);
+            Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "GiaoDienNV";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GiaoDienNV";
             ResumeLayout(false);
         }
