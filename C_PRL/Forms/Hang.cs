@@ -225,8 +225,8 @@ namespace C_PRL.Forms
         private void thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new Giaodien();
-            form.Show();
+            Form f = new Giaodien1();
+            f.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

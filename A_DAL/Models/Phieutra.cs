@@ -19,7 +19,7 @@ namespace A_DAL.Models
         public decimal? Tienphat { get; set; }
         public string? Lydophat { get; set; }
         public decimal? Hoancoc { get; set; }
-        public int? Tinhtrangtra { get; set; }
+       
 
         public virtual Docgium? IddocgiaNavigation { get; set; }
         public virtual Nhanvien IdnhanvienNavigation { get; set; } = null!;

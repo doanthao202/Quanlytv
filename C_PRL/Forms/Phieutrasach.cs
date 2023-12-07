@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using A_DAL.Models;
 using B_BUS.Services;
+using C_PRL.Forms;
 
 namespace C_PRL
 {
@@ -36,7 +37,7 @@ namespace C_PRL
 
         private void Phieutrasach_Load(object sender, EventArgs e)
         {
-            
+
             comboBox3.Items.Add("Khách lẻ");
             comboBox3.Items.Add("Thành viên");
             loatData1(_pm.GetAll());
@@ -391,7 +392,7 @@ namespace C_PRL
                             }
                             else
                             {
-                               
+
                                 int idpm = Convert.ToInt16(lv.SubItems[0].Text);
                                 string y = lv.SubItems[1].Text;
                                 foreach (var item in _pmct.Getview())
@@ -430,7 +431,7 @@ namespace C_PRL
                     phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
                     phieutra.Lydophat = textBox2.Text;
                     phieutra.Hoancoc = null;
-                    phieutra.Tinhtrangtra = 0;
+                    // phieutra.Tinhtrangtra = 0;
                 }
 
             }
@@ -448,6 +449,13 @@ namespace C_PRL
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Giaodien1();
+            f.Show();
         }
     }
 }

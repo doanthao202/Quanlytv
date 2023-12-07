@@ -110,6 +110,7 @@
             label3.Size = new Size(201, 47);
             label3.TabIndex = 18;
             label3.Text = "Đăng nhập";
+            label3.Click += label3_Click;
             // 
             // label2
             // 

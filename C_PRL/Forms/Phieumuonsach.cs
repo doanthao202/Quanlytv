@@ -197,7 +197,7 @@ namespace C_PRL.Forms
 
 
                     phieumuon1.Tinhtrang = 1;
-                    _service.add(phieumuon1 );
+                    _service.add(phieumuon1);
                     x = phieumuon1.Id;
                     if (listView1.Items.Count == 0)
                     {
@@ -408,9 +408,16 @@ namespace C_PRL.Forms
             cbxTennv.Enabled = false;
             txtsdt.Enabled = false;
             dtpNgaymuon.Enabled = false;
-            
+
             txtTiencoc.Enabled = false;
             textBox2.Enabled = false;
+        }
+
+        private void thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Giaodien1();
+            f.Show();
         }
     }
 }

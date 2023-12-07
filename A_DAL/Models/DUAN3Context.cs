@@ -290,7 +290,7 @@ namespace A_DAL.Models
                     .HasColumnType("money")
                     .HasColumnName("TIENPHAT");
 
-                entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
+               // entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
 
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)

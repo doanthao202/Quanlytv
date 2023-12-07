@@ -310,7 +310,7 @@ namespace C_PRL.Forms
         private void thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form f = new Giaodien();
+            Form f = new Giaodien1();
             f.Show();
         }
 

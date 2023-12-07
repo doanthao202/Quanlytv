@@ -49,7 +49,7 @@ namespace C_PRL.Forms
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1)
             {
                 MessageBox.Show("Đăng nhập thành công!");
-                Giaodien giaodien = new Giaodien();
+                Giaodien1 giaodien = new Giaodien1();
                 giaodien.Show();
                 this.Hide();
             }
@@ -61,6 +61,11 @@ namespace C_PRL.Forms
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

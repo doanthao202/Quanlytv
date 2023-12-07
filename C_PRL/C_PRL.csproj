@@ -11,11 +11,27 @@
   <ItemGroup>
     <PackageReference Include="BoldReports.AspNet.Core" Version="5.3.13" />
     <PackageReference Include="BoldReports.Net.Core" Version="5.3.13" />
+    <PackageReference Include="Bunifu.UI.WinForms" Version="6.0.2" />
     <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="140.802.134-rc" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\B_BUS\B_BUS.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
