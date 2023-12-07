@@ -28,34 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             QMK = new Label();
             btExit = new Button();
             btLogin = new Button();
             txtMK = new TextBox();
             txtTK = new TextBox();
             label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // QMK
             // 
             QMK.AutoSize = true;
             QMK.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            QMK.ForeColor = Color.Red;
-            QMK.Location = new Point(454, 279);
+            QMK.ForeColor = Color.OrangeRed;
+            QMK.Location = new Point(534, 229);
             QMK.Margin = new Padding(2, 0, 2, 0);
             QMK.Name = "QMK";
             QMK.Size = new Size(116, 20);
             QMK.TabIndex = 23;
             QMK.Text = "Quên mật khẩu?";
+            QMK.Click += QMK_Click;
             // 
             // btExit
             // 
-            btExit.BackColor = Color.Red;
+            btExit.BackColor = Color.OrangeRed;
             btExit.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btExit.ForeColor = SystemColors.ButtonHighlight;
-            btExit.Location = new Point(470, 309);
+            btExit.Location = new Point(550, 262);
             btExit.Margin = new Padding(2);
             btExit.Name = "btExit";
             btExit.Size = new Size(104, 35);
@@ -66,10 +67,10 @@
             // 
             // btLogin
             // 
-            btLogin.BackColor = Color.FromArgb(0, 192, 0);
+            btLogin.BackColor = Color.LightSeaGreen;
             btLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btLogin.ForeColor = SystemColors.ButtonHighlight;
-            btLogin.Location = new Point(312, 309);
+            btLogin.Location = new Point(392, 262);
             btLogin.Margin = new Padding(2);
             btLogin.Name = "btLogin";
             btLogin.Size = new Size(104, 35);
@@ -82,29 +83,31 @@
             // 
             txtMK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMK.ForeColor = Color.Black;
-            txtMK.Location = new Point(320, 245);
+            txtMK.Location = new Point(392, 195);
             txtMK.Margin = new Padding(2);
             txtMK.Name = "txtMK";
             txtMK.PasswordChar = '*';
-            txtMK.Size = new Size(254, 29);
+            txtMK.PlaceholderText = "Nhập password";
+            txtMK.Size = new Size(262, 29);
             txtMK.TabIndex = 20;
             // 
             // txtTK
             // 
             txtTK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtTK.ForeColor = Color.Black;
-            txtTK.Location = new Point(320, 198);
+            txtTK.Location = new Point(392, 148);
             txtTK.Margin = new Padding(2);
             txtTK.Name = "txtTK";
-            txtTK.Size = new Size(254, 29);
+            txtTK.PlaceholderText = "Nhập email hoặc số điện thoại";
+            txtTK.Size = new Size(262, 29);
             txtTK.TabIndex = 19;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.CornflowerBlue;
-            label3.Location = new Point(344, 107);
+            label3.ForeColor = Color.LightSeaGreen;
+            label3.Location = new Point(424, 73);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(201, 47);
@@ -112,41 +115,28 @@
             label3.Text = "Đăng nhập";
             label3.Click += label3_Click;
             // 
-            // label2
+            // panel1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(227, 247);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(75, 21);
-            label2.TabIndex = 17;
-            label2.Text = "Mật khẩu";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(227, 200);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(75, 21);
-            label1.TabIndex = 16;
-            label1.Text = "Tài khoản";
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(351, 410);
+            panel1.TabIndex = 24;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(697, 410);
+            Controls.Add(panel1);
             Controls.Add(QMK);
             Controls.Add(btExit);
             Controls.Add(btLogin);
             Controls.Add(txtMK);
             Controls.Add(txtTK);
             Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
@@ -162,7 +152,6 @@
         private TextBox txtMK;
         private TextBox txtTK;
         private Label label3;
-        private Label label2;
-        private Label label1;
+        private Panel panel1;
     }
 }

@@ -42,7 +42,7 @@ namespace C_PRL.Forms
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Nhân viên")
             {
                 MessageBox.Show("Đăng nhập thành công!");
-                GiaoDienNV giaodienNV = new GiaoDienNV();
+                Hienthi giaodienNV = new Hienthi();
                 giaodienNV.Show();
                 this.Hide();
             }
@@ -66,6 +66,11 @@ namespace C_PRL.Forms
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QMK_Click(object sender, EventArgs e)
         {
 
         }
