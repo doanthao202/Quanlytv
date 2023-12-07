@@ -12,7 +12,7 @@ namespace A_DAL.IRepository
         IEnumerable<Phieumuon> GetAll();
         //List<Sach> GetTheloaiByName(string name);
 
-        int Add(Phieumuon phieumuon);
+     bool Add(Phieumuon phieumuon);
 
         int Update(int id, Phieumuon phieumuon);
         bool Delete(int id);

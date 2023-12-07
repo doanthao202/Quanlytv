@@ -12,7 +12,7 @@ namespace A_DAL.IRepository
         IEnumerable<Phieutra> GetAll();
         //List<Sach> GetTheloaiByName(string name);
 
-        int Add(Phieutra phieutra);
+        bool Add(Phieutra phieutra);
 
        
     }

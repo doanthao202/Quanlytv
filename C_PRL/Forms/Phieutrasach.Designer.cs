@@ -355,12 +355,12 @@
             // 
             txtDocgia.AutoSize = true;
             txtDocgia.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDocgia.Location = new Point(263, 31);
+            txtDocgia.Location = new Point(252, 35);
             txtDocgia.Margin = new Padding(4, 0, 4, 0);
             txtDocgia.Name = "txtDocgia";
-            txtDocgia.Size = new Size(79, 16);
+            txtDocgia.Size = new Size(85, 16);
             txtDocgia.TabIndex = 17;
-            txtDocgia.Text = "Tên độc giả:";
+            txtDocgia.Text = "Tên khách lẻ:";
             // 
             // dtpNgaymuon
             // 

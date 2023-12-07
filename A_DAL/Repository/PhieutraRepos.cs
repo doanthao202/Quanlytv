@@ -21,26 +21,13 @@ namespace A_DAL.Repository
             _dbContext = dbContext;
         }
 
-        public int Add(Phieutra phieutra)
+        public bool Add(Phieutra phieutra)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(phieutra.Idnhanvien.ToString()))
-                {
-                    return 1;
-                }
-                else
-                {
+           
                     _dbContext.Phieutras.Add(phieutra);
                     _dbContext.SaveChanges();
-                    return 2;
-                }
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
+                    return true;
+          
         }
 
         public IEnumerable<Phieutra> GetAll()

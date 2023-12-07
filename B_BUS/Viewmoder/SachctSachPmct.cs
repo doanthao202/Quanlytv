@@ -18,6 +18,7 @@ namespace B_BUS.Viewmoder
         public string Tennn { get; set; }
         public string Tennxb { get; set; }
         public int? Lantaiban { get; set; }
+        //public int Idphieutra { get; set; }
 
     }
 }

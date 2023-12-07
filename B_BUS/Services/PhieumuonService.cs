@@ -24,20 +24,11 @@ namespace B_BUS.Services
             _repos = repos;
         }
 
-        public string add(Phieumuon phieumuon)
+        public bool add(Phieumuon phieumuon)
         {
-            if (_repos.Add(phieumuon) == 2)
-            {
-                return "Thêm thành công";
-            }
-            else if (_repos.Add(phieumuon) == 1)
-            {
-                return "Tên  không được để trống";
-            }
-            else
-            {
-                return "Thêm thất bại";
-            }
+            
+                return _repos.Add(phieumuon) ;
+            
         }
         public bool Delete(int id)
         {

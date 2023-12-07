@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox2 = new GroupBox();
             listView1 = new ListView();
             lvid = new ColumnHeader();
@@ -64,8 +65,10 @@
             button2 = new Button();
             button3 = new Button();
             button1 = new Button();
+            errorProvider1 = new ErrorProvider(components);
             groupBox2.SuspendLayout();
             cbxDocgia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
@@ -142,6 +145,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(283, 23);
             comboBox1.TabIndex = 17;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -209,6 +213,8 @@
             txtsdt.Name = "txtsdt";
             txtsdt.Size = new Size(126, 23);
             txtsdt.TabIndex = 34;
+            txtsdt.TextChanged += txtsdt_TextChanged;
+            txtsdt.KeyPress += txtsdt_KeyPress;
             // 
             // label7
             // 
@@ -275,7 +281,7 @@
             // cbxTenthanhvien
             // 
             cbxTenthanhvien.FormattingEnabled = true;
-            cbxTenthanhvien.Location = new Point(304, 22);
+            cbxTenthanhvien.Location = new Point(325, 17);
             cbxTenthanhvien.Name = "cbxTenthanhvien";
             cbxTenthanhvien.Size = new Size(126, 23);
             cbxTenthanhvien.TabIndex = 25;
@@ -285,7 +291,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(210, 24);
+            label5.Location = new Point(221, 22);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(97, 16);
@@ -300,6 +306,7 @@
             txtTenkhachle.Name = "txtTenkhachle";
             txtTenkhachle.Size = new Size(126, 23);
             txtTenkhachle.TabIndex = 23;
+            txtTenkhachle.KeyPress += txtTenkhachle_KeyPress;
             // 
             // label9
             // 
@@ -315,7 +322,7 @@
             // cbxKieudocgia
             // 
             cbxKieudocgia.FormattingEnabled = true;
-            cbxKieudocgia.Location = new Point(72, 22);
+            cbxKieudocgia.Location = new Point(89, 17);
             cbxKieudocgia.Name = "cbxKieudocgia";
             cbxKieudocgia.Size = new Size(114, 23);
             cbxKieudocgia.TabIndex = 21;
@@ -370,9 +377,9 @@
             label2.Location = new Point(10, 24);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(55, 16);
+            label2.Size = new Size(81, 16);
             label2.TabIndex = 13;
-            label2.Text = "Độc giả:";
+            label2.Text = "Kiểu độc giả:";
             // 
             // label3
             // 
@@ -389,7 +396,7 @@
             // 
             thoat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             thoat.ForeColor = Color.Red;
-            thoat.Location = new Point(358, 517);
+            thoat.Location = new Point(390, 517);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(60, 27);
@@ -404,9 +411,9 @@
             them.Location = new Point(19, 517);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
-            them.Size = new Size(59, 27);
+            them.Size = new Size(143, 27);
             them.TabIndex = 77;
-            them.Text = "Thêm ";
+            them.Text = "Thêm phiếu mượn";
             them.UseVisualStyleBackColor = true;
             them.Click += them_Click;
             // 
@@ -425,7 +432,7 @@
             // 
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.Red;
-            button2.Location = new Point(102, 517);
+            button2.Location = new Point(170, 517);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(104, 27);
@@ -437,7 +444,7 @@
             // 
             button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.Red;
-            button3.Location = new Point(240, 517);
+            button3.Location = new Point(282, 517);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(76, 27);
@@ -459,6 +466,10 @@
             button1.Text = "Xem danh sách phiếu mượn";
             button1.UseVisualStyleBackColor = false;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Phieumuonsach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -479,6 +490,7 @@
             groupBox2.PerformLayout();
             cbxDocgia.ResumeLayout(false);
             cbxDocgia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -520,5 +532,6 @@
         private TextBox txtsdt;
         private Label label7;
         private Button button1;
+        private ErrorProvider errorProvider1;
     }
 }

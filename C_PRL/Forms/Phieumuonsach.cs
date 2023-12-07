@@ -154,20 +154,105 @@ namespace C_PRL.Forms
         {
             var phieumuon1 = new Phieumuon();
 
-            if (cbxTenthanhvien.Text == "")
+            if (cbxTenthanhvien.Text == "" && txtTenkhachle.Text != "")
             {
-                phieumuon1.Iddocgia = null;
-                phieumuon1.Idnhanvien = _nvservice.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
-                phieumuon1.Tendocgia = txtTenkhachle.Text;
-                phieumuon1.Sdt = txtsdt.Text;
-                phieumuon1.Ngaymuon = dtpNgaymuon.Value;
-                phieumuon1.Ngaytradukien = datengaytra.Value;
-                phieumuon1.Tiencoc = Convert.ToDecimal(txtTiencoc.Text);
-                //phieumuon1.Phimuon = Convert.ToDecimal(txtTiencoc.Text);
-                phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text);
-                phieumuon1.Tinhtrang = 1;
+
+                if (txtTiencoc.Text == "" || textBox2.Text == "" || cbxTennv.Text == "")
+                {
+                    if (txtTiencoc.Text == "" && textBox2.Text != "")
+                    {
+                        MessageBox.Show("Khách lẻ thiếu tiền cọc sách");
+                    }
+                    else if (txtTiencoc.Text != "" && textBox2.Text == "")
+                    {
+                        MessageBox.Show("Khách lẻ thiếu phí mượn sách");
+                    }
+                    else
+                    {
+                        if (txtTiencoc.Text == "" && textBox2.Text == "")
+                        {
+                            MessageBox.Show("Khách lẻ phải đóng tiền cọc và phí mượn sách");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng điền tên nhân viên");
+                        }
+                    }
+                    return;
+
+                }
+
+                else
+                {
+                    phieumuon1.Iddocgia = null;
+                    phieumuon1.Idnhanvien = _nvservice.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                    phieumuon1.Tendocgia = txtTenkhachle.Text;
+                    phieumuon1.Sdt = txtsdt.Text;
+                    phieumuon1.Ngaymuon = dtpNgaymuon.Value;
+                    phieumuon1.Ngaytradukien = datengaytra.Value;
+
+                    phieumuon1.Tiencoc = Convert.ToDecimal(txtTiencoc.Text);
+                    phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text);
+
+
+
+                    phieumuon1.Tinhtrang = 1;
+                    _service.add(phieumuon1 );
+                    x = phieumuon1.Id;
+                    if (listView1.Items.Count == 0)
+                    {
+                        MessageBox.Show("Phiếu mượn chưa có sách");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < listView1.Items.Count; i++)
+                        {
+
+                            ListViewItem lv = listView1.Items[i];
+                            if (lv.SubItems[0].Text == "" || lv.SubItems[1].Text == "")
+                            {
+                                MessageBox.Show("Phiếu mượn chưa có sách");
+                                return;
+                            }
+                            else
+                            {
+                                int idsach = Convert.ToInt16(lv.SubItems[0].Text);
+
+                                var phieumuonchitiet = new Phieumuonct();
+                                phieumuonchitiet.Idsachct = idsach;
+                                phieumuonchitiet.Idphieumuon = x;
+                                phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
+
+                                _pmctservice.add(phieumuonchitiet);
+                                MessageBox.Show("Thêm phiếu thành công");
+                                comboBox1.Enabled = true;
+                                cbxKieudocgia.Text = "";
+                                txtTenkhachle.Text = "";
+                                cbxTennv.ResetText();
+                                cbxTenthanhvien.ResetText();
+                                txtTenkhachle.Text = "";
+                                txtTiencoc.Text = "";
+                                textBox2.Text = "";
+                                txtsdt.Text = "";
+                                cbxTenthanhvien.Enabled = false;
+                                txtTenkhachle.Enabled = false;
+                                txtTiencoc.Enabled = false;
+                                textBox2.Enabled = false;
+                                txtsdt.Enabled = false;
+                                dtpNgaymuon.Value = DateTime.Now;
+                                datengaytra.Enabled = false;
+                                datengaytra.Value = (dtpNgaymuon.Value.AddDays(7));
+                                listView1.Items.Clear();
+                            }
+
+
+                        }
+                    }
+
+
+                }
             }
-            else
+            else if (cbxTenthanhvien.Text != "" && txtTenkhachle.Text == "")
             {
                 if (cbxTenthanhvien.Text != "")
                 {
@@ -177,44 +262,145 @@ namespace C_PRL.Forms
                     phieumuon1.Sdt = txtsdt.Text;
                     phieumuon1.Ngaymuon = dtpNgaymuon.Value;
                     phieumuon1.Ngaytradukien = datengaytra.Value;
-                    phieumuon1.Tiencoc = null;
+                    phieumuon1.Tiencoc = 0;
                     //phieumuon1.Phimuon = Convert.ToDecimal(txtTiencoc.Text);
-                    phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text);
+                    if (textBox2.Text == "")
+                    {
+                        phieumuon1.Phimuon = 0;
+                    }
+                    else
+                    { phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text); }
                     phieumuon1.Tinhtrang = 1;
+                    phieumuon1.Tinhtrang = 1;
+                    x = phieumuon1.Id;
+                    if (listView1.Items.Count == 0)
+                    {
+                        MessageBox.Show("Phiếu mượn chưa có sách");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < listView1.Items.Count; i++)
+                        {
+
+                            ListViewItem lv = listView1.Items[i];
+                            if (lv.SubItems[0].Text == "" || lv.SubItems[1].Text == "")
+                            {
+                                MessageBox.Show("Không được để trống tên sách");
+                                return;
+                            }
+                            else
+                            {
+                                int idsach = Convert.ToInt16(lv.SubItems[0].Text);
+
+                                var phieumuonchitiet = new Phieumuonct();
+                                phieumuonchitiet.Idsachct = idsach;
+                                phieumuonchitiet.Idphieumuon = x;
+                                phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
+
+                                _pmctservice.add(phieumuonchitiet);
+                                MessageBox.Show("Thêm phiếu thành công");
+                                comboBox1.Enabled = true;
+
+                                comboBox1.Enabled = true;
+                                cbxKieudocgia.Text = "";
+                                cbxTennv.ResetText();
+                                cbxTenthanhvien.ResetText();
+                                txtTenkhachle.Text = "";
+                                txtTiencoc.Text = "";
+                                txtsdt.Text = "";
+                                textBox2.Text = "";
+                                cbxTenthanhvien.Enabled = false;
+                                txtTenkhachle.Enabled = false;
+                                txtTiencoc.Enabled = false;
+                                textBox2.Enabled = false;
+                                txtsdt.Enabled = false;
+                                dtpNgaymuon.Value = DateTime.Now;
+                                datengaytra.Enabled = false;
+                                datengaytra.Value = (dtpNgaymuon.Value.AddDays(7));
+                                listView1.Items.Clear();
+                            }
+
+
+                        }
+                    }
                 }
             }
-
-            var thongBao = MessageBox.Show("Xác nhận thêm sách", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
+            else
             {
-                MessageBox.Show(_service.add(phieumuon1));
-                x = phieumuon1.Id;
-
-                for (int i = 0; i < listView1.Items.Count; i++)
-                {
-                    ListViewItem lv = listView1.Items[i];
-                    int idsach = Convert.ToInt16(lv.SubItems[0].Text);
-
-                    var phieumuonchitiet = new Phieumuonct();
-                    phieumuonchitiet.Idsachct = idsach;
-                    phieumuonchitiet.Idphieumuon = x;
-                    phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
-
-                    _pmctservice.add(phieumuonchitiet);
-
-                }
+                MessageBox.Show("Vui lòng điền thông tin độc giả");
+            }
 
 
+
+
+
+
+        }
+
+        /*  private void button3_Click(object sender, EventArgs e)
+          {
+
+                  groupBox2.Enabled = false;
+                  cbxDocgia.Enabled = false;
+                  cbxTenthanhvien.Enabled = false;
+                  txtTenkhachle.Enabled = false;
+                  cbxTennv.Enabled = false;
+                  txtsdt.Enabled = false;
+                  dtpNgaymuon.Enabled = false;
+                  datengaytra.Enabled = true;
+                  txtTiencoc.Enabled = false;
+                  textBox2.Enabled = false;
+
+          }*/
+
+        private void datengaytra_ValueChanged_1(object sender, EventArgs e)
+        {
+            //datengaytra.Value > dtpNgaymuon.Value.AddDays(7);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtsdt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtsdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                errorProvider1.Clear();
 
             }
             else
             {
-                return;
+                errorProvider1.SetError(txtsdt, "Số điện thoại không được nhập chữ");
+                e.Handled = true;
+            }
+        }
+
+        private void txtTenkhachle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtTenkhachle, "Tên không được nhập số");
+
+            }
+            else
+            {
+                errorProvider1.Clear();
+                e.Handled = false;
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            datengaytra.Enabled = true;
             groupBox2.Enabled = false;
             cbxDocgia.Enabled = false;
             cbxTenthanhvien.Enabled = false;
@@ -222,14 +408,9 @@ namespace C_PRL.Forms
             cbxTennv.Enabled = false;
             txtsdt.Enabled = false;
             dtpNgaymuon.Enabled = false;
-            datengaytra.Enabled = true;
+            
             txtTiencoc.Enabled = false;
             textBox2.Enabled = false;
-        }
-
-        private void datengaytra_ValueChanged_1(object sender, EventArgs e)
-        {
-            //datengaytra.Value > dtpNgaymuon.Value.AddDays(7);
         }
     }
 }

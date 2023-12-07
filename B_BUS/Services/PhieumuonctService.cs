@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using A_DAL.Models;
 using A_DAL.Repository;
 using B_BUS.Viewmoder;
+using BoldReports.Data;
 
 namespace B_BUS.Services
 {
@@ -17,12 +18,13 @@ namespace B_BUS.Services
         NgonnguRepos _nnrepos = new NgonnguRepos();
         NxbRepos _nxbrepos = new NxbRepos();
         PhieumuonService _pmrepos = new PhieumuonService();
+      PhieutractService _ptct = new PhieutractService();
         public PhieumuonctService()
         {
             
         }
 
-        public PhieumuonctService(PhieumuonctRepos repos, SachctRepos srepos, Sachrepos schrepos, NgonnguRepos nnrepos, NxbRepos nxbrepos, PhieumuonService pmrepos)
+        public PhieumuonctService(PhieumuonctRepos repos, SachctRepos srepos, Sachrepos schrepos, NgonnguRepos nnrepos, NxbRepos nxbrepos, PhieumuonService pmrepos, PhieutractService ptct)
         {
             _repos = repos;
             _srepos = srepos;
@@ -30,6 +32,7 @@ namespace B_BUS.Services
             _nnrepos = nnrepos;
             _nxbrepos = nxbrepos;
             _pmrepos = pmrepos;
+            _ptct = ptct;
         }
 
         public string add(Phieumuonct phieumuon)
@@ -61,14 +64,19 @@ namespace B_BUS.Services
         {
             return _repos.Update(id, phieumuon);
         }
+      //  var y = _ptct.GetAll().ToList();
         public List<SachctSachPmct> Getview()
         {
+            
             var joinData = from Sach in _schrepos.GetAllSach()
                            join Sachchitiet in _srepos.GetAll() on Sach.Id equals Sachchitiet.Idsach
                            join Ngonngu in _nnrepos.GetAllNgonngu() on Sachchitiet.Idngonngu equals Ngonngu.Id
                            join Nxb in _nxbrepos.GetAll() on Sachchitiet.Idnxb equals Nxb.Id
                            join Phieumuonct in _repos.GetAll() on Sachchitiet.Id equals Phieumuonct.Idsachct
+
                            join Phieumuon in _pmrepos.GetAll() on Phieumuonct.Idphieumuon equals Phieumuon.Id
+
+                           //where (Phieumuonct.Id != y.id)
 
                            select new SachctSachPmct
                            {
@@ -81,10 +89,12 @@ namespace B_BUS.Services
                                Sdt = Phieumuon.Sdt,
                                Tennn = Ngonngu.Tennn,
                                Tennxb = Nxb.Tennxb,
-                               Lantaiban = Sachchitiet.Lantaiban
+                               Lantaiban = Sachchitiet.Lantaiban,
+                              //Idphieutra = (b != null) ? b.Idphieutra 
                            };
             return joinData.ToList();
         }
+      
 
     }
 }

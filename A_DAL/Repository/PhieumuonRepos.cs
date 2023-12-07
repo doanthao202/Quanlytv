@@ -22,26 +22,13 @@ namespace A_DAL.Repository
             _dbContext = dbContext;
         }
 
-        public int Add(Phieumuon phieumuon)
+        public bool Add(Phieumuon phieumuon)
         {
-            try
-            {
-                if ( string.IsNullOrWhiteSpace(phieumuon.Idnhanvien.ToString()))
-                {
-                    return 1;
-                }
-                else
-                {
+          
                     _dbContext.Phieumuons.Add(phieumuon);
                     _dbContext.SaveChanges();
-                    return 2;
-                }
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
+            return true;
+               
             
         }
 

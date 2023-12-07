@@ -20,20 +20,9 @@ namespace B_BUS.Services
         {
             _repos = repos;
         }
-        public string add(Phieutra phieutra)
+        public bool add(Phieutra phieutra)
         {
-            if (_repos.Add(phieutra) == 2)
-            {
-                return "Thêm thành công";
-            }
-            else if (_repos.Add(phieutra) == 1)
-            {
-                return "Tên  không được để trống";
-            }
-            else
-            {
-                return "Thêm thất bại";
-            }
+            return _repos.Add(phieutra);
         }
         
         public IEnumerable<Phieutra> GetAll()

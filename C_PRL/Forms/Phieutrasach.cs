@@ -36,6 +36,7 @@ namespace C_PRL
 
         private void Phieutrasach_Load(object sender, EventArgs e)
         {
+            
             comboBox3.Items.Add("Khách lẻ");
             comboBox3.Items.Add("Thành viên");
             loatData1(_pm.GetAll());
@@ -50,7 +51,9 @@ namespace C_PRL
             {
                 comboBox1.Items.Add(x.Idphieumuon + " - " + x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
             }*/
-
+            textBox1.Enabled = false;
+            textBox7.Enabled = false;
+            txtsdt.Enabled = false;
         }
         public void loatData1(dynamic data)
         {
@@ -196,7 +199,7 @@ namespace C_PRL
             {
                 comboBox1.Items.Add(x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
             }
-      
+
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
@@ -270,85 +273,182 @@ namespace C_PRL
 
             if (string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox7.Text))
             {
-                phieutra.Iddocgia = null;
-                phieutra.Tendocgia = textBox7.Text;
-                phieutra.Sdt = txtsdt.Text;
-                phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
-
-
-                phieutra.Ngaytra = dtpNgaymuon.Value;
-                if (textBox4.Text=="")
+                if (cbxTennv.Text == "")
                 {
-                    phieutra.Tienphat = null;
+                    MessageBox.Show("Chưa chọn tên nhân viên");
+                    return;
                 }
                 else
                 {
-                    phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
+                    phieutra.Iddocgia = null;
+                    phieutra.Tendocgia = textBox7.Text;
+                    phieutra.Sdt = txtsdt.Text;
+                    phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+
+
+                    phieutra.Ngaytra = dtpNgaymuon.Value;
+                    if (textBox4.Text == "")
+                    {
+                        phieutra.Tienphat = 0;
+                    }
+                    else
+                    {
+                        phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
+                    }
+
+                    phieutra.Lydophat = textBox2.Text;
+                    if (txtTiencoc.Text == "")
+                    {
+                        phieutra.Hoancoc = 0;
+                    }
+                    else
+                    {
+                        phieutra.Hoancoc = Convert.ToDecimal(txtTiencoc.Text);
+                    }
+                    _ptservice.add(phieutra);
+                    x = phieutra.Id;
+                    if (listView1.Items.Count == 0)
+                    {
+                        MessageBox.Show("Phiếu trả chưa có thông tin sách trả");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < listView1.Items.Count; i++)
+                        {
+                            ListViewItem lv = listView1.Items[i];
+                            if (lv.SubItems[0].Text == "" || lv.SubItems[1].Text == "")
+                            {
+                                MessageBox.Show("Không được để trống tên sách");
+                                return;
+                            }
+                            else
+                            {
+                                //  ListViewItem lv = listView1.Items[i];
+                                int idpm = Convert.ToInt16(lv.SubItems[0].Text);
+                                string y = lv.SubItems[1].Text;
+
+
+
+                                foreach (var item in _pmct.Getview())
+                                {
+                                    if (item.Idphieumuon == idpm && (item.Tensach + " - " + item.Tennn + " - " + item.Tennxb + " - " + item.Lantaiban).ToString() == y)
+                                    {
+                                        var pt = new Phieutract();
+                                        pt.Idphieutra = x;
+                                        pt.Idphieumuonct = item.Id;
+                                        pt.Ghichu = lv.SubItems[2].Text;
+
+                                        _ptct.add(pt);
+
+                                    }
+                                }
+                                MessageBox.Show("Trả sách thành công");
+                                comboBox1.ResetText();
+                                textBox7.Text = "";
+                                txtsdt.Text = "";
+                                cbxTennv.ResetText();
+                                txtTiencoc.Text = "";
+                                textBox4.Text = "";
+                                listView1.Items.Clear();
+
+                            }
+                        }
+
+                    }
                 }
-               
-                phieutra.Lydophat = textBox2.Text;
-                if(txtTiencoc.Text == "")
-                {
-                    phieutra.Hoancoc= null;
-                }
-                else
-                {
-                    phieutra.Hoancoc = Convert.ToDecimal(txtTiencoc.Text);
-                }
-               
-               
+
             }
-            else if(!string.IsNullOrWhiteSpace(textBox1.Text) && string.IsNullOrWhiteSpace(textBox7.Text))
+            else if (!string.IsNullOrWhiteSpace(textBox1.Text) && string.IsNullOrWhiteSpace(textBox7.Text))
             {
-                phieutra.Iddocgia = null;
-                phieutra.Tendocgia = textBox7.Text;
-                phieutra.Sdt = txtsdt.Text;
-                phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                if (cbxTennv.Text == "")
+                {
+                    MessageBox.Show("Chưa chọn tên nhân viên");
+                    return;
+                }
+                else
+                {
+                    var IDclick = _pm.GetAll().Where(x => x.Tendocgia == textBox1.Text && x.Sdt == txtsdt.Text).ToList();
+                    phieutra.Iddocgia = IDclick.ElementAt(0).Id;
+                    phieutra.Tendocgia = textBox1.Text;
+                    phieutra.Sdt = txtsdt.Text;
+                    phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                    _ptservice.add(phieutra);
+                    x = phieutra.Id;
+                    if (listView1.Items.Count == 0)
+                    {
+                        MessageBox.Show("Phiếu trả chưa có thông tin sách trả");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < listView1.Items.Count; i++)
 
+                        {
+                            ListViewItem lv = listView1.Items[i];
+                            if (lv.SubItems[0].Text == "" || lv.SubItems[1].Text == "")
+                            {
+                                MessageBox.Show("Không được để trống tên sách");
+                                return;
+                            }
+                            else
+                            {
+                               
+                                int idpm = Convert.ToInt16(lv.SubItems[0].Text);
+                                string y = lv.SubItems[1].Text;
+                                foreach (var item in _pmct.Getview())
+                                {
+                                    if (lv.SubItems[0].Text == "" || lv.SubItems[1].Text == "")
+                                    {
+                                        MessageBox.Show("Không được để trống tên sách");
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        if (item.Idphieumuon == idpm && (item.Tensach + " - " + item.Tennn + " - " + item.Tennxb + " - " + item.Lantaiban).ToString() == y)
+                                        {
+                                            var pt = new Phieutract();
+                                            pt.Idphieutra = x;
+                                            pt.Idphieumuonct = item.Id;
+                                            pt.Ghichu = lv.SubItems[2].Text;
 
-                phieutra.Ngaytra = dtpNgaymuon.Value;
-                phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
-                phieutra.Lydophat = textBox2.Text;
-                phieutra.Hoancoc = null;
-                phieutra.Tinhtrangtra = 0;
+                                            _ptct.add(pt);
+
+                                        }
+                                        MessageBox.Show("Trả sách thành công");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    comboBox1.ResetText();
+                    textBox7.Text = "";
+                    txtsdt.Text = "";
+                    cbxTennv.ResetText();
+                    txtTiencoc.Text = "";
+                    textBox4.Text = "";
+                    listView1.Items.Clear();
+                    phieutra.Ngaytra = dtpNgaymuon.Value;
+                    phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
+                    phieutra.Lydophat = textBox2.Text;
+                    phieutra.Hoancoc = null;
+                    phieutra.Tinhtrangtra = 0;
+                }
+
             }
             else
             {
                 MessageBox.Show("Chưa nhập tên độc giả");
             }
 
-            
-                MessageBox.Show(_ptservice.add(phieutra));
-                x = phieutra.Id;
-
-                for (int i = 0; i < listView1.Items.Count; i++)
-                {
-                ListViewItem lv = listView1.Items[i];
-                int idpm = Convert.ToInt16(lv.SubItems[0].Text);
-                string y = lv.SubItems[1].Text;
-                foreach(var item in _pmct.Getview())
-                {
-                    if (item.Idphieumuon == idpm && (item.Tensach + " - " + item.Tennn + " - " + item.Tennxb + " - " + item.Lantaiban).ToString() == y)
-                    {
-                        var pt = new Phieutract();
-                        pt.Idphieutra = x;
-                        pt.Idphieumuonct = item.Id;
-                        pt.Ghichu = lv.SubItems[2].Text;
-
-                        _ptct.add(pt);
-
-                    }
-                }
-               
-            }
-                  
-               
-
-                
 
 
 
-            
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
+
