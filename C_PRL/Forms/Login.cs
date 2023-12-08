@@ -29,8 +29,9 @@ namespace C_PRL.Forms
             var loginM = loginSV.GetNhanvienByUsername(username);
             if (loginM == null)
             {
-                MessageBox.Show("Email hoặc SĐT không chính xác!");
+                MessageBox.Show("Email hoặc SĐT đang để trống.");
             }
+
             else if (loginM.Pass != password)
             {
                 MessageBox.Show("Mật khẩu không chính xác!");
@@ -41,14 +42,14 @@ namespace C_PRL.Forms
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Nhân viên")
             {
-               
+
                 Hienthi giaodienNV = new Hienthi();
                 giaodienNV.Show();
                 this.Hide();
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1)
             {
-                
+
                 Giaodien1 giaodien = new Giaodien1();
                 giaodien.Show();
                 this.Hide();
@@ -72,7 +73,16 @@ namespace C_PRL.Forms
 
         private void QMK_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Form f = new Login();
+            f.Show();
+        }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form f = new Quenmk();
+            f.Show();
         }
     }
 }

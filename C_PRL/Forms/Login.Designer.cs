@@ -29,27 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            QMK = new Label();
             btExit = new Button();
             btLogin = new Button();
             txtMK = new TextBox();
             txtTK = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
+            linkLabel1 = new LinkLabel();
             SuspendLayout();
-            // 
-            // QMK
-            // 
-            QMK.AutoSize = true;
-            QMK.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            QMK.ForeColor = Color.OrangeRed;
-            QMK.Location = new Point(534, 229);
-            QMK.Margin = new Padding(2, 0, 2, 0);
-            QMK.Name = "QMK";
-            QMK.Size = new Size(116, 20);
-            QMK.TabIndex = 23;
-            QMK.Text = "Quên mật khẩu?";
-            QMK.Click += QMK_Click;
             // 
             // btExit
             // 
@@ -125,19 +112,32 @@
             panel1.Size = new Size(351, 410);
             panel1.TabIndex = 24;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.LinkColor = Color.Red;
+            linkLabel1.Location = new Point(560, 226);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(94, 15);
+            linkLabel1.TabIndex = 25;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Quên mật khẩu?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(697, 410);
+            Controls.Add(linkLabel1);
             Controls.Add(panel1);
-            Controls.Add(QMK);
             Controls.Add(btExit);
             Controls.Add(btLogin);
             Controls.Add(txtMK);
             Controls.Add(txtTK);
             Controls.Add(label3);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Login_Load;
             ResumeLayout(false);
@@ -145,13 +145,12 @@
         }
 
         #endregion
-
-        private Label QMK;
         private Button btExit;
         private Button btLogin;
         private TextBox txtMK;
         private TextBox txtTK;
         private Label label3;
         private Panel panel1;
+        private LinkLabel linkLabel1;
     }
 }
