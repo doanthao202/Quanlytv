@@ -73,7 +73,6 @@ namespace B_BUS.Services
                            join Ngonngu in _nnrepos.GetAllNgonngu() on Sachchitiet.Idngonngu equals Ngonngu.Id
                            join Nxb in _nxbrepos.GetAll() on Sachchitiet.Idnxb equals Nxb.Id
                            join Phieumuonct in _repos.GetAll() on Sachchitiet.Id equals Phieumuonct.Idsachct
-
                            join Phieumuon in _pmrepos.GetAll() on Phieumuonct.Idphieumuon equals Phieumuon.Id
 
                            //where (Phieumuonct.Id != y.id)
@@ -94,7 +93,32 @@ namespace B_BUS.Services
                            };
             return joinData.ToList();
         }
-      
 
+        public List<PmPtPmct> Getview1()
+        {
+
+            var joinData = from Phieumuon in _pmrepos.GetAll()
+                           join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
+                           from Phieutract in _ptct.GetAll()
+
+                          where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon)
+
+
+                           select new PmPtPmct
+                           {
+                               Idphieumuon = Phieumuon.Id,
+                               Iddocgia = Phieumuon.Iddocgia ,
+                               Idnhanvien = Phieumuon.Idnhanvien,
+                               Tendocgia = Phieumuon.Tendocgia,
+                               Sdt = Phieumuon.Sdt,
+                               Ngaymuon = Phieumuon.Ngaymuon,
+                               Ngaytradukien = Phieumuon.Ngaytradukien,
+                               Tinhtrang = Phieumuon.Tinhtrang,
+                               Idphieumuonct =Phieumuonct.Id,
+                              Idphieutra= (Phieumuonct.Id==Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
+                              
+                           };
+            return joinData.ToList();
+        }
     }
 }
