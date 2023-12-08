@@ -198,6 +198,7 @@
             Controls.Add(txtTK);
             Controls.Add(label3);
             Name = "Quenmk";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Quenmk";
             Load += Quenmk_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();

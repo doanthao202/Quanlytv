@@ -33,7 +33,7 @@ namespace C_PRL.Forms
             dataGridView1.Rows.Clear();
             int stt = 1;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnCount = 10;
+            dataGridView1.ColumnCount = 8;
             dataGridView1.Columns[0].Name = "STT";
             dataGridView1.Columns[1].Name = "ID phiếu mượn";
             dataGridView1.Columns[2].Name = "Tên độc giả";
@@ -41,8 +41,7 @@ namespace C_PRL.Forms
             dataGridView1.Columns[4].Name = "Ngày mượn";
             dataGridView1.Columns[5].Name = "Ngày trả dự kiến";
             dataGridView1.Columns[6].Name = "Kiểu độc giả";
-            dataGridView1.Columns[7].Name = "ID mã phiếu mượn";
-            dataGridView1.Columns[8].Name = "ID mã phiếu trả";
+           
             dataGridView1.Columns[7].Name = "Số lượng sách chưa trả";
             var i = 0;
 
@@ -58,7 +57,7 @@ namespace C_PRL.Forms
                     y = "Thành viên";
                 }
 
-                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien, y, s.Idphieumuonct, s.Idphieutra, s.soluong);
+                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien, y,  s.soluong);
             }
 
         }
