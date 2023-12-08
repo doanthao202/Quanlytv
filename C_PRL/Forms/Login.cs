@@ -41,14 +41,14 @@ namespace C_PRL.Forms
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Nhân viên")
             {
-                MessageBox.Show("Đăng nhập thành công!");
+               
                 Hienthi giaodienNV = new Hienthi();
                 giaodienNV.Show();
                 this.Hide();
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1)
             {
-                MessageBox.Show("Đăng nhập thành công!");
+                
                 Giaodien1 giaodien = new Giaodien1();
                 giaodien.Show();
                 this.Hide();

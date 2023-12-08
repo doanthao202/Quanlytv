@@ -49,7 +49,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.LightSeaGreen;
-            label3.Location = new Point(437, 41);
+            label3.Location = new Point(400, 38);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(228, 40);
@@ -64,9 +64,10 @@
             txtTK.Margin = new Padding(2);
             txtTK.Name = "txtTK";
             txtTK.PlaceholderText = "Nhập email";
-            txtTK.Size = new Size(289, 29);
+            txtTK.Size = new Size(250, 29);
             txtTK.TabIndex = 26;
             txtTK.TextChanged += txtTK_TextChanged;
+            txtTK.KeyPress += txtTK_KeyPress;
             // 
             // txtMK
             // 
@@ -76,7 +77,7 @@
             txtMK.Location = new Point(416, 178);
             txtMK.Margin = new Padding(2);
             txtMK.Name = "txtMK";
-            txtMK.Size = new Size(110, 29);
+            txtMK.Size = new Size(135, 29);
             txtMK.TabIndex = 27;
             // 
             // btLogin
@@ -84,7 +85,7 @@
             btLogin.BackColor = Color.MintCream;
             btLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btLogin.ForeColor = SystemColors.HotTrack;
-            btLogin.Location = new Point(548, 178);
+            btLogin.Location = new Point(566, 178);
             btLogin.Margin = new Padding(2);
             btLogin.Name = "btLogin";
             btLogin.Size = new Size(100, 27);
@@ -126,7 +127,7 @@
             vButton1.FlatStyle = FlatStyle.Flat;
             vButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             vButton1.ForeColor = Color.White;
-            vButton1.Location = new Point(401, 259);
+            vButton1.Location = new Point(400, 278);
             vButton1.Name = "vButton1";
             vButton1.Size = new Size(100, 33);
             vButton1.TabIndex = 32;
@@ -146,13 +147,14 @@
             vButton3.FlatStyle = FlatStyle.Flat;
             vButton3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             vButton3.ForeColor = Color.White;
-            vButton3.Location = new Point(548, 259);
+            vButton3.Location = new Point(554, 278);
             vButton3.Name = "vButton3";
             vButton3.Size = new Size(100, 33);
             vButton3.TabIndex = 34;
             vButton3.Text = "Thoát";
             vButton3.TextColor = Color.White;
             vButton3.UseVisualStyleBackColor = false;
+            vButton3.Click += vButton3_Click;
             // 
             // label1
             // 

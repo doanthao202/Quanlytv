@@ -28,7 +28,7 @@ namespace C_PRL.Forms
         int check = 0;
         private void Quenmk_Load(object sender, EventArgs e)
         {
-            label2.Visible=false;
+            label2.Visible = false;
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -50,9 +50,12 @@ namespace C_PRL.Forms
             else
             {
                 otp = random.Next(100000, 1000000);
-                guimail("thaodt230@gmail.com", txtTK.Text, "OTP_THUVIENF4", otp.ToString());
+                
                 txtMK.Enabled = true;
-               
+
+                guimail("thaodt230@gmail.com", txtTK.Text, "OTP_THUVIENF4", otp.ToString());
+                
+
             }
 
         }
@@ -79,12 +82,29 @@ namespace C_PRL.Forms
         {
             if (txtMK.Text == otp.ToString())
             {
-                foreach (var i in _nv.GetAll().Where(c => c.Email == txtTK.Text)) {
-                    
+                foreach (var i in _nv.GetAll().Where(c => c.Email == txtTK.Text))
+                {
+
                     label2.Visible = true;
                     label2.Text = $"Mật khẩu của bạn là: {i.Pass}";
                 }
             }
+            else
+            {
+                errorProvider1.SetError(txtMK, "Sai mã OTP");
+            }
+        }
+
+        private void txtTK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            errorProvider1.Clear();
+        }
+
+        private void vButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Login();
+            f.Show();
         }
     }
 }
