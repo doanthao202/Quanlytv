@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class Theloai
     {

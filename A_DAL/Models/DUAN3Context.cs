@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class DUAN3Context : DbContext
     {
@@ -291,6 +291,16 @@ namespace A_DAL.Models1
                 entity.Property(e => e.Ngaytra)
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRA");
+
+                entity.Property(e => e.Sdt)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("SDT");
+
+                entity.Property(e => e.Tendocgia)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("TENDOCGIA");
 
                 entity.Property(e => e.Tienphat)
                     .HasColumnType("money")

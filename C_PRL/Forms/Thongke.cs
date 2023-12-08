@@ -26,6 +26,7 @@ namespace C_PRL.Forms
         {
             loatData(_phieumuonctService.Getview1());
         }
+
         public void loatData(dynamic data)
         {
 
@@ -42,12 +43,12 @@ namespace C_PRL.Forms
             dataGridView1.Columns[6].Name = "Kiểu độc giả";
             dataGridView1.Columns[7].Name = "ID mã phiếu mượn";
             dataGridView1.Columns[8].Name = "ID mã phiếu trả";
-            dataGridView1.Columns[9].Name = "Số lượng sách chưa trả";
+            dataGridView1.Columns[7].Name = "Số lượng sách chưa trả";
             var i = 0;
-            
+
             var y = "";
             foreach (var s in data)
-            { 
+            {
                 if (s.Iddocgia == null)
                 {
                     y = "Khách lẻ";
@@ -57,7 +58,7 @@ namespace C_PRL.Forms
                     y = "Thành viên";
                 }
 
-                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien,y, s.Idphieumuonct, s.Idphieutra,i);
+                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien, y, s.Idphieumuonct, s.Idphieutra, s.soluong);
             }
 
         }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models1;
+using A_DAL.Models;
 using B_BUS.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 

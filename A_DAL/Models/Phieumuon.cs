@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class Phieumuon
     {
@@ -13,7 +13,7 @@ namespace A_DAL.Models1
         public int Id { get; set; }
         public int? Iddocgia { get; set; }
         public int Idnhanvien { get; set; }
-        public string? Tendocgia { get; set; }
+        public string Tendocgia { get; set; } = null!;
         public string Sdt { get; set; } = null!;
         public DateTime? Ngaymuon { get; set; }
         public DateTime? Ngaytradukien { get; set; }

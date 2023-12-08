@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models1;
+using A_DAL.Models;
 using B_BUS.Services;
 using C_PRL.Forms;
 
@@ -281,10 +281,10 @@ namespace C_PRL
                 }
                 else
                 {
-                    phieutra.Iddocgia = null;
+                   /* phieutra.Iddocgia = null;
                     phieutra.Tendocgia = textBox7.Text;
                     phieutra.Sdt = txtsdt.Text;
-                    phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
+                    phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;*/
 
 
                     phieutra.Ngaytra = dtpNgaymuon.Value;
@@ -368,13 +368,13 @@ namespace C_PRL
                 }
                 else
                 {
-                    var IDclick = _pm.GetAll().Where(x => x.Tendocgia == textBox1.Text && x.Sdt == txtsdt.Text).ToList();
+                   /* var IDclick = _pm.GetAll().Where(x => x.Tendocgia == textBox1.Text && x.Sdt == txtsdt.Text).ToList();
                     phieutra.Iddocgia = IDclick.ElementAt(0).Id;
                     phieutra.Tendocgia = textBox1.Text;
                     phieutra.Sdt = txtsdt.Text;
                     phieutra.Idnhanvien = _nv.GetAll().ElementAt(cbxTennv.SelectedIndex).Id;
                     _ptservice.add(phieutra);
-                    x = phieutra.Id;
+                    x = phieutra.Id;*/
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu trả chưa có thông tin sách trả");

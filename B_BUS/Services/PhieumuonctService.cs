@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using A_DAL.Models1;
+using A_DAL.Models;
 using A_DAL.Repository;
 using B_BUS.Viewmoder;
 using BoldReports.Data;
@@ -101,22 +101,23 @@ namespace B_BUS.Services
                            join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
                            from Phieutract in _ptct.GetAll()
 
-                          where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon)
+                           where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Id != Phieutract.Idphieumuonct)
 
-
+                           group Phieumuon by Phieumuon.Id into a
                            select new PmPtPmct
                            {
-                               Idphieumuon = Phieumuon.Id,
-                               Iddocgia = Phieumuon.Iddocgia ,
-                               Idnhanvien = Phieumuon.Idnhanvien,
-                               Tendocgia = Phieumuon.Tendocgia,
-                               Sdt = Phieumuon.Sdt,
-                               Ngaymuon = Phieumuon.Ngaymuon,
-                               Ngaytradukien = Phieumuon.Ngaytradukien,
-                               Tinhtrang = Phieumuon.Tinhtrang,
-                               Idphieumuonct =Phieumuonct.Id,
-                              Idphieutra= (Phieumuonct.Id==Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
-                              
+                               Idphieumuon = a.FirstOrDefault().Id,
+                               Iddocgia = a.FirstOrDefault().Iddocgia,
+                               Idnhanvien = a.FirstOrDefault().Idnhanvien,
+                               Tendocgia = a.FirstOrDefault().Tendocgia,
+                               Sdt = a.FirstOrDefault().Sdt,
+                               Ngaymuon = a.FirstOrDefault().Ngaymuon,
+                               Ngaytradukien = a.FirstOrDefault().Ngaytradukien,
+                               //Tinhtrang = Phieumuon.Tinhtrang,
+                               //Idphieumuonct =Phieumuonct.Id,
+                               //Idphieutra= (Phieumuonct.Id==Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
+                               soluong = a.Count()
+
                            };
             return joinData.ToList();
         }
