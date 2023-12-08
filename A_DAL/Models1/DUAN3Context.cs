@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class DUAN3Context : DbContext
     {
@@ -46,6 +46,15 @@ namespace A_DAL.Models
             modelBuilder.Entity<Docgium>(entity =>
             {
                 entity.ToTable("DOCGIA");
+
+                entity.HasIndex(e => e.Email, "UQ__DOCGIA__161CF724D7766605")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Sdt, "UQ__DOCGIA__CA1930A5113EE8B8")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Cmnd, "UQ__DOCGIA__F67C8D0BCA8FC698")
+                    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -126,6 +135,12 @@ namespace A_DAL.Models
             modelBuilder.Entity<Nhanvien>(entity =>
             {
                 entity.ToTable("NHANVIEN");
+
+                entity.HasIndex(e => e.Email, "UQ__NHANVIEN__161CF7246806F97D")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Sdt, "UQ__NHANVIEN__CA1930A50A6857BD")
+                    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -277,24 +292,16 @@ namespace A_DAL.Models
                     .HasColumnType("datetime")
                     .HasColumnName("NGAYTRA");
 
-                entity.Property(e => e.Sdt)
-                    .HasMaxLength(20)
-                    .IsUnicode(false)
-                    .HasColumnName("SDT");
-
-                entity.Property(e => e.Tendocgia)
-                    .HasMaxLength(20)
-                    .HasColumnName("TENDOCGIA");
-
                 entity.Property(e => e.Tienphat)
                     .HasColumnType("money")
                     .HasColumnName("TIENPHAT");
 
-               // entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
+                entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
 
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)
                     .HasForeignKey(d => d.Iddocgia)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_PHIEUTRA");
 
                 entity.HasOne(d => d.IdnhanvienNavigation)

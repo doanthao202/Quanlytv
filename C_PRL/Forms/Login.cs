@@ -29,7 +29,7 @@ namespace C_PRL.Forms
             var loginM = loginSV.GetNhanvienByUsername(username);
             if (loginM == null)
             {
-                MessageBox.Show("Email hoặc SĐT đang để trống.");
+                MessageBox.Show("Email hoặc SĐT không chinhd xác!");
             }
 
             else if (loginM.Pass != password)
