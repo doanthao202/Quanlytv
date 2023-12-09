@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 namespace A_DAL.Repository
 {
-    public class Sachrepos: ISachrepos
+    public class Sachrepos : ISachrepos
     {
         DUAN3Context _dbContext = new DUAN3Context();
         public Sachrepos()
@@ -52,6 +52,27 @@ namespace A_DAL.Repository
 
                 _dbContext.Saches.Remove(exist);
                 _dbContext.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Saches.Where(c => c.Idtheloai == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Saches.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
                 return true;
 
             }

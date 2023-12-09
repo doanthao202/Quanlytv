@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 namespace A_DAL.Repository
 {
@@ -57,6 +57,32 @@ namespace A_DAL.Repository
             {
                 return false;
             }
+        }
+
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.SachTacgia.Where(c => c.Idtacgia == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.SachTacgia.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Deletesach(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<SachTacgium> GetAll()

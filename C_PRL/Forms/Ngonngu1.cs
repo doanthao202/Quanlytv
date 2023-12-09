@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 
 namespace C_PRL.Forms
@@ -90,25 +90,8 @@ namespace C_PRL.Forms
             idWhenClick = Convert.ToInt32(selectChild.Cells[1].Value);
             sua.Enabled = true;
             them.Enabled = false;
-            var x = 0;
-            foreach (var i in _sch.GetAll())
-            {
-                if (idWhenClick == i.Idnxb)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                xoa.Enabled = false;
-            }
-            else
-            {
-
-                xoa.Enabled = true;
-            }
+            xoa.Enabled = true;
+            
         }
 
         private void NgonNgu1_Load(object sender, EventArgs e)
@@ -156,16 +139,59 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
-            var result = _service.Delete(idWhenClick);
-            if (result)
+
+            var x = 0;
+            foreach (var i in _sch.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                LoadData(_service.GetAll());
+                if (idWhenClick == i.Idngonngu)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Đã có sách sử dụng ngôn ngũ này.Bạn có muốn xóa ngôn ngữ này không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _sch.Delete1(idWhenClick);
+                    var result = _service.Delete(idWhenClick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        LoadData(_service.GetAll());
+                    }
+                   
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
+                var result = _service.Delete(idWhenClick);
+                if (result)
+                    if (result)
+                {
+
+                    MessageBox.Show("Xóa thành công");
+                    LoadData(_service.GetAll());
+                }
+                else if (x == 1)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
+            
+
+           
 
             reset();
         }

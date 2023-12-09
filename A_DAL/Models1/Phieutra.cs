@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class Phieutra
     {
@@ -19,7 +19,6 @@ namespace A_DAL.Models
         public decimal? Tienphat { get; set; }
         public string? Lydophat { get; set; }
         public decimal? Hoancoc { get; set; }
-        public int? Tinhtrangtra { get; set; }
 
         public virtual Docgium IddocgiaNavigation { get; set; } = null!;
         public virtual Nhanvien IdnhanvienNavigation { get; set; } = null!;

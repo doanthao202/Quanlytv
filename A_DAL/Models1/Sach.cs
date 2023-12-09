@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class Sach
     {
@@ -16,6 +16,7 @@ namespace A_DAL.Models
         public DateTime? Ngaynhap { get; set; }
         public int? Namxuatban { get; set; }
         public int Idtheloai { get; set; }
+        public int? Tinhtrang { get; set; }
 
         public virtual Theloai IdtheloaiNavigation { get; set; } = null!;
         public virtual ICollection<SachTacgium> SachTacgia { get; set; }

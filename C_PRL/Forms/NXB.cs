@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 
 namespace C_PRL.Forms
@@ -70,31 +70,38 @@ namespace C_PRL.Forms
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
-            textBox4.Text = selectChild.Cells[3].Value.ToString();
-            textBox3.Text = selectChild.Cells[4].Value.ToString();
-            textBox2.Text = selectChild.Cells[5].Value.ToString();
-
-            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
-            them.Enabled = false;
-            var x = 0;
-            foreach (var i in _sch.GetAll())
+            if (selectChild.Cells[3].Value == null)
             {
-                if (idWhenclick == i.Idnxb)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                xoa.Enabled = false;
+                textBox4.Text = "";
             }
             else
             {
+                textBox4.Text = Convert.ToString(selectChild.Cells[3].Value);
+            }
+            if (selectChild.Cells[4].Value == null)
+            {
+                textBox3.Text = "";
+            }
+            else
+            {
+                textBox3.Text = Convert.ToString(selectChild.Cells[4].Value);
+            }
+            if (selectChild.Cells[5].Value == null)
+            {
+                textBox2.Text = "";
+            }
+            else
+            {
+                textBox2.Text = Convert.ToString(selectChild.Cells[5].Value);
+            }
+    
+
+            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
+            them.Enabled = false;
+            
 
                 xoa.Enabled = true;
-            }
+            
             sua.Enabled = true;
         }
 
@@ -109,25 +116,10 @@ namespace C_PRL.Forms
 
             idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
-            var x = 0;
-            foreach (var i in _sch.GetAll())
-            {
-                if (idWhenclick == i.Idnxb)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                xoa.Enabled = false;
-            }
-            else
-            {
+           
 
                 xoa.Enabled = true;
-            }
+            
             sua.Enabled = true;
         }
 
@@ -175,17 +167,49 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
-            var result = _service.Delete(idWhenclick);
-            if (result)
+            var x = 0;
+            foreach (var i in _sch.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                LoadData(_service.GetAll());
+                if (i.Idnxb == idWhenclick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Đã có sách từ NXB này. Bạn có muốn tiếp tục xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _sch.Delete1(idWhenclick);
+                    var result = _service.Delete(idWhenclick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        LoadData(_service.GetAll());
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
+                var result = _service.Delete(idWhenclick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadData(_service.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
-
             reset();
         }
 

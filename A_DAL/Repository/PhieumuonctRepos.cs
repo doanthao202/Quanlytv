@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
@@ -52,7 +52,28 @@ namespace A_DAL.Repository
             }
         }
 
-        public IEnumerable<Phieumuonct> GetAll()
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Phieumuoncts.Where(c => c.Idsachct == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Phieumuoncts.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+            public IEnumerable<Phieumuonct> GetAll()
         {
             return _dbContext.Phieumuoncts.ToList();
         }

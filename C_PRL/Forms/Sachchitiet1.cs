@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 using C_PRL.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -66,6 +66,7 @@ namespace C_PRL
 
             Sua.Enabled = false;
             xoa.Enabled = false;
+            
         }
         public void reset()
         {
@@ -318,18 +319,49 @@ namespace C_PRL
 
         private void xoa_Click(object sender, EventArgs e)
         {
-            _sachhangservie.Delete(idCellClick);
-            var result = _service.Delete(idCellClick);
-            if (result)
+            var x = 0;
+            foreach (var i in _pm.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                loatData(_service.Getview());
+                if (i.Idsachct == idCellClick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Sách đag được cho mượn, bạn có thực sự muốn xóa sách không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _pm.Delete1(idCellClick);
+                    _sachhangservie.Delete(idCellClick);
+                    var result = _service.Delete(idCellClick);
+                    if (result)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        loatData(_service.Getview());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
+                _sachhangservie.Delete(idCellClick);
+                var result = _service.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    loatData(_service.Getview());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
-
             reset();
         }
 

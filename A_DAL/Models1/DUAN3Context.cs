@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class DUAN3Context : DbContext
     {
@@ -47,13 +47,13 @@ namespace A_DAL.Models
             {
                 entity.ToTable("DOCGIA");
 
-                entity.HasIndex(e => e.Email, "UQ__DOCGIA__161CF724D7766605")
+                entity.HasIndex(e => e.Email, "UQ__DOCGIA__161CF724D6C47E72")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Sdt, "UQ__DOCGIA__CA1930A5113EE8B8")
+                entity.HasIndex(e => e.Sdt, "UQ__DOCGIA__CA1930A5F28257C9")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Cmnd, "UQ__DOCGIA__F67C8D0BCA8FC698")
+                entity.HasIndex(e => e.Cmnd, "UQ__DOCGIA__F67C8D0B682C4425")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -136,10 +136,10 @@ namespace A_DAL.Models
             {
                 entity.ToTable("NHANVIEN");
 
-                entity.HasIndex(e => e.Email, "UQ__NHANVIEN__161CF7246806F97D")
+                entity.HasIndex(e => e.Email, "UQ__NHANVIEN__161CF724C4AE92C4")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Sdt, "UQ__NHANVIEN__CA1930A50A6857BD")
+                entity.HasIndex(e => e.Sdt, "UQ__NHANVIEN__CA1930A535D883B3")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -293,7 +293,7 @@ namespace A_DAL.Models
                     .HasColumnName("NGAYTRA");
 
                 entity.Property(e => e.Sdt)
-                    .HasMaxLength(20)
+                    .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("SDT");
 
@@ -305,8 +305,6 @@ namespace A_DAL.Models
                 entity.Property(e => e.Tienphat)
                     .HasColumnType("money")
                     .HasColumnName("TIENPHAT");
-
-                entity.Property(e => e.Tinhtrangtra).HasColumnName("TINHTRANGTRA");
 
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)
@@ -366,6 +364,8 @@ namespace A_DAL.Models
                     .HasMaxLength(50)
                     .HasColumnName("TENSACH");
 
+                entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+
                 entity.HasOne(d => d.IdtheloaiNavigation)
                     .WithMany(p => p.Saches)
                     .HasForeignKey(d => d.Idtheloai)
@@ -378,10 +378,6 @@ namespace A_DAL.Models
                 entity.ToTable("SACH_TACGIA");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Ghichu)
-                    .HasMaxLength(50)
-                    .HasColumnName("GHICHU");
 
                 entity.Property(e => e.Idsach).HasColumnName("IDSACH");
 

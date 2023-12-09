@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 
 namespace C_PRL.Forms
@@ -59,63 +59,46 @@ namespace C_PRL.Forms
 
         private void luoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //luoi.AllowUserToAddRows = false;
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
-            txtVitri.Text = selectChild.Cells[3].Value.ToString();
-
-            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
-            them.Enabled = false;
-            var x = 0;
-            foreach (var i in _stgservice.GetAll())
+            if (Convert.ToString((selectChild.Cells[3].Value)) == null)
             {
-                if (idWhenclick == i.Idtacgia)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                xoa.Enabled = false;
+                txtVitri.Text = "";
             }
             else
             {
-
-                xoa.Enabled = true;
+                txtVitri.Text = Convert.ToString(selectChild.Cells[3].Value);
             }
+            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
+            them.Enabled = false;
+           
             sua.Enabled = true;
+            xoa.Enabled = true;
+
+
         }
 
         private void luoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+          
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
-            txtVitri.Text = selectChild.Cells[3].Value.ToString();
-
-            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
-            them.Enabled = false;
-            var x = 0;
-            foreach (var i in _stgservice.GetAll())
+            if (Convert.ToString(selectChild.Cells[3].Value )== null)
             {
-                if (idWhenclick == i.Idtacgia)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                xoa.Enabled = false;
+                txtVitri.Text = "";
             }
             else
             {
-
-                xoa.Enabled = true;
+                txtVitri.Text = Convert.ToString(selectChild.Cells[3].Value);
             }
+
+            idWhenclick = Convert.ToInt32(selectChild.Cells[1].Value);
+            them.Enabled = false;
+            
+            xoa.Enabled = true;
             sua.Enabled = true;
         }
 
@@ -164,18 +147,50 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
-
-            var result = _service.Delete(idWhenclick);
-            if (result)
+            var x = 0;
+            foreach (var i in _stgservice.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                LoadData(_service.GetAll());
+                if (i.Idtacgia==idWhenclick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Tác giả đã có sách, bạn có muốn xóa tác giả không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                   _stgservice.Delete1(idWhenclick);
+                    var result = _service.Delete(idWhenclick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        LoadData(_service.GetAll());
+                    }
+                   
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
-            }
 
+                var result = _service.Delete(idWhenclick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadData(_service.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
             reset();
 
         }

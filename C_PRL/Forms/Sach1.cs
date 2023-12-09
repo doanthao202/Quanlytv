@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 using B_BUS.Services;
 
@@ -61,31 +61,9 @@ namespace C_PRL.Forms
 
             Sua.Enabled = false;
             xoa.Enabled = false;
+            listView1.Items.Clear();
 
         }
-        /* public void loatData(dynamic data,dynamic data1)
-         {
-             //var theloai=  //_tlservice.GetById(cbxTheloai.Text).Id;
-             dgv.Rows.Clear();
-             int stt = 1;
-             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-             dgv.ColumnCount = 6;
-             dgv.Columns[0].Name = "Stt";
-             dgv.Columns[1].Name = "Mã sách";
-             dgv.Columns[2].Name = "Tên sách";
-             dgv.Columns[3].Name = "Ngày nhập";
-             dgv.Columns[4].Name = "Năm xuất bản";
-             dgv.Columns[5].Name = "Tên thể loại";
-             //dgv.Columns[6].Name = "Tên thể loại";
-
-             foreach (var s in data)
-             {
-                 int x = s.Idtheloai;
-                 string m = data1.GetTheloaiByName(x);
-                 dgv.Rows.Add(stt++, s.Id, s.Tensach, s.Ngaynhap, s.Namxuatban,m);
-             }
-
-         }*/
 
         public void loatData(dynamic data)
         {
@@ -131,41 +109,23 @@ namespace C_PRL.Forms
             var selectChild = dgv.Rows[index];//lấy data từ index được chọn
             txtTensach.Text = selectChild.Cells[2].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(selectChild.Cells[3].Value.ToString());
-            txtNam.Text = selectChild.Cells[4].Value.ToString();
+            if (selectChild.Cells[4].Value == null)
+            {
+                txtNam.Text = "";
+            }
+            else
+            {
+                txtNam.Text = Convert.ToString(selectChild.Cells[4].Value);
+            }
             cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
            
             loatData1(_sachtacgiaService.Getview(idCellClick));
-            var x = 0;
-            var y = 0;
-            foreach (var i in _sachtacgiaService.GetAll())
-            {
-                if (idCellClick == i.Idsach)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _sct.GetAll())
-            {
-                if (idCellClick == i.Idsach)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
+            
                 xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
+            
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -174,40 +134,22 @@ namespace C_PRL.Forms
             var selectChild = dgv.Rows[index];//lấy data từ index được chọn
             txtTensach.Text = selectChild.Cells[2].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(selectChild.Cells[3].Value.ToString());
-            txtNam.Text = selectChild.Cells[4].Value.ToString();
+            if (selectChild.Cells[4].Value == null)
+            {
+                txtNam.Text = "";
+            }
+            else
+            {
+                txtNam.Text = Convert.ToString(selectChild.Cells[4].Value);
+            }
             cbxTheloai.Text = selectChild.Cells[5].Value.ToString();
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             loatData1(_sachtacgiaService.Getview(idCellClick));
             them.Enabled = false;
             Sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _sachtacgiaService.GetAll())
-            {
-                if (idCellClick == i.Idsach)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _sct.GetAll())
-            {
-                if (idCellClick == i.Idsach)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
+          
+                xoa.Enabled =true;
+            
 
         }
 
@@ -217,14 +159,17 @@ namespace C_PRL.Forms
             var s1 = new Sach();
             s1.Tensach = txtTensach.Text;
             s1.Ngaynhap = dateTimePicker1.Value;
-            s1.Namxuatban = Convert.ToInt32(txtNam.Text);
-            //s1.Idtheloai = _tlservice.GetById(cbxTheloai.Text).Id;
+            
+                s1.Namxuatban = Convert.ToInt32(txtNam.Text); 
+            
+            
+           
             s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
          
 
             
                 MessageBox.Show(_service.add(s1));
-                //loatData(_service.GetAll(),_tlservice);
+                
                 loatData(_service.Getview());
                 /*if (listView1.Items.Count > 0)
                 {*/
@@ -292,18 +237,51 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
-            _sachtacgiaService.Delete(idCellClick);
-            var result = _service.Delete(idCellClick);
-            if (result)
+            var x = 0;
+            foreach (var i in _sct.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                loatData(_service.Getview());
+                if (i.Idsach == idCellClick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Sách đã tồn tại các sách chi tiết. Bạn có muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _sachtacgiaService.Delete(idCellClick);
+                    _sct.Delete2(idCellClick);
+                    var result = _service.Delete(idCellClick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        loatData(_service.GetAll());
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
+                _sachtacgiaService.Delete(idCellClick);
+                var result = _service.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    loatData(_service.Getview());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
-
             reset();
         }
 

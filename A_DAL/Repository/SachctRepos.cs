@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 namespace A_DAL.Repository
 {
-   public class SachctRepos:ISachctRepos
+    public class SachctRepos : ISachctRepos
     {
         DUAN3Context _dbContext = new DUAN3Context();
         public SachctRepos()
@@ -52,6 +52,68 @@ namespace A_DAL.Repository
 
                 _dbContext.Sachchitiets.Remove(exist);
                 _dbContext.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Sachchitiets.Where(c => c.Idngonngu == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Sachchitiets.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete2(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Sachchitiets.Where(c => c.Idsach == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Sachchitiets.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        } 
+        public bool Delete3(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Sachchitiets.Where(c => c.Idnxb == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Sachchitiets.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
                 return true;
 
             }

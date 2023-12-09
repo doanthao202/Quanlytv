@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 
 
@@ -48,24 +48,10 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            var x = 0;
-            foreach (var i in _sachservice.GetAll())
-            {
-                if (idCellClick == i.Idtheloai)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                Xoa.Enabled = false;
-            }
-            else
-            {
+          
+            
                 Xoa.Enabled = true;
-            }
+            
         }
         public void loatData(dynamic data)
         {
@@ -95,24 +81,9 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            var x = 0;
-            foreach (var i in _sachservice.GetAll())
-            {
-                if (idCellClick == i.Idtheloai)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            if (x == 1)
-            {
-                Xoa.Enabled = false;
-            }
-            else
-            {
+            
                 Xoa.Enabled = true;
-            }
+            
         }
         public void reset()
         {
@@ -172,18 +143,50 @@ namespace C_PRL.Forms
 
         private void Xoa_Click_1(object sender, EventArgs e)
         {
-
-            var result = _service.Delete(idCellClick);
-            if (result)
+            var x = 0;
+            foreach (var i in _sachservice.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                loatData(_service.GetAll());
+                if (i.Idtheloai==idCellClick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Đã có sách thuộc thể loại này.Bạn có muốn xóa thể loại này không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _sachservice.Delete1(idCellClick);
+                    var result = _service.Delete(idCellClick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        loatData(_service.GetAll());
+                    }
+                  
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
-            }
 
+                var result = _service.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    loatData(_service.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
             reset();
         }
 

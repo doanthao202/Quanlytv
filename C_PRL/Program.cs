@@ -1,4 +1,4 @@
-using A_DAL.Models;
+using A_DAL.Models1;
 
 using C_PRL.Forms;
 
@@ -15,7 +15,7 @@ namespace C_PRL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Thongke());
+            Application.Run(new Sachchitiet1());
         }
     }
 }
