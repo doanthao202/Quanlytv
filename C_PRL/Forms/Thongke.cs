@@ -68,9 +68,11 @@ namespace C_PRL.Forms
         {
 
         }
-
+        Random random = new Random();
+        int r;
         private void vButton1_Click(object sender, EventArgs e)
         {
+            r=random.Next(1,10000);
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
@@ -91,7 +93,7 @@ namespace C_PRL.Forms
                     }
                 }
               
-                Stream excelstream = File.Create(Path.GetFullPath(@"D:\MyExcelFile1.xlsx"));
+                Stream excelstream = File.Create(Path.GetFullPath(@"D:\MyExcelFile"+r+".xlsx"));
                 workbook.SaveAs(excelstream);
                 excelstream.Dispose();
             }

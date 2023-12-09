@@ -40,7 +40,7 @@ namespace C_PRL.Forms
             {
                 MessageBox.Show("Tài khoản không hoạt động!");
             }
-            else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Nhân viên")
+            else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Thủ thư")
             {
 
                 Hienthi giaodienNV = new Hienthi();
