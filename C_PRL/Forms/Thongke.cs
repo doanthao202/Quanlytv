@@ -72,6 +72,7 @@ namespace C_PRL.Forms
         int r;
         private void vButton1_Click(object sender, EventArgs e)
         {
+       
             try {
                 r = random.Next(1, 10000);
                 using (ExcelEngine excelEngine = new ExcelEngine())
