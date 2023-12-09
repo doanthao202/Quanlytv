@@ -54,7 +54,7 @@ namespace C_PRL.Forms
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(25, 42);
+            label5.Location = new Point(240, 110);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 16);
@@ -63,7 +63,7 @@ namespace C_PRL.Forms
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(98, 40);
+            textBox1.Location = new Point(313, 108);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên thể loại";
@@ -78,7 +78,7 @@ namespace C_PRL.Forms
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtVitri);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(18, 76);
+            groupBox1.Location = new Point(233, 144);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(485, 102);
             groupBox1.TabIndex = 31;
@@ -126,7 +126,7 @@ namespace C_PRL.Forms
             // thoat
             // 
             thoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            thoat.Location = new Point(408, 194);
+            thoat.Location = new Point(623, 262);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -138,7 +138,7 @@ namespace C_PRL.Forms
             // sua
             // 
             sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            sua.Location = new Point(146, 194);
+            sua.Location = new Point(361, 262);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
@@ -150,7 +150,7 @@ namespace C_PRL.Forms
             // them
             // 
             them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            them.Location = new Point(25, 194);
+            them.Location = new Point(240, 262);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -162,7 +162,7 @@ namespace C_PRL.Forms
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(18, 227);
+            dgv.Location = new Point(233, 295);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
@@ -174,7 +174,7 @@ namespace C_PRL.Forms
             // Xoa
             // 
             Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            Xoa.Location = new Point(273, 194);
+            Xoa.Location = new Point(488, 262);
             Xoa.Margin = new Padding(4, 3, 4, 3);
             Xoa.Name = "Xoa";
             Xoa.Size = new Size(88, 27);
@@ -191,7 +191,7 @@ namespace C_PRL.Forms
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(188, 9);
+            label1.Location = new Point(403, 77);
             label1.Name = "label1";
             label1.Size = new Size(81, 25);
             label1.TabIndex = 35;
@@ -201,7 +201,7 @@ namespace C_PRL.Forms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 450);
+            ClientSize = new Size(1068, 666);
             Controls.Add(label1);
             Controls.Add(Xoa);
             Controls.Add(label5);
@@ -212,6 +212,7 @@ namespace C_PRL.Forms
             Controls.Add(them);
             Controls.Add(dgv);
             Name = "Theloai1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Theloai";
             Load += Theloai_Load;
             groupBox1.ResumeLayout(false);

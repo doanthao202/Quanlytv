@@ -209,16 +209,59 @@ namespace C_PRL.Forms
 
         private void xoa_Click(object sender, EventArgs e)
         {
-            var result = _Hservice.Delete(idCellClick);
-            if (result)
+            var x = 0;
+            var y = 0;
+            foreach (var i in _shservice.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                LoadData(_Hservice.GetAll());
+                if (idCellClick == i.Idhang)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            foreach (var i in _docgiaservice.GetAll())
+            {
+                if (idCellClick == i.Idhang)
+                {
+                    y = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1 || y == 1)
+            {
+                var thongBao = MessageBox.Show("Hạng đang được sử dụng , bạn có muốn tiếp tục xóa", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _shservice.Delete1(idCellClick);
+                    _docgiaservice.Delete1(idCellClick);
+                    var result = _Hservice.Delete(idCellClick);
+                    if (result)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        LoadData(_Hservice.GetAll());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
+                var result = _Hservice.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadData(_Hservice.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
+          
             reset();
         }
 

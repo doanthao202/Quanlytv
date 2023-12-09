@@ -63,10 +63,10 @@
             // 
             // Sua
             // 
-            Sua.Location = new Point(167, 305);
-            Sua.Margin = new Padding(5, 4, 5, 4);
+            Sua.Location = new Point(243, 317);
+            Sua.Margin = new Padding(4, 3, 4, 3);
             Sua.Name = "Sua";
-            Sua.Size = new Size(101, 36);
+            Sua.Size = new Size(88, 27);
             Sua.TabIndex = 74;
             Sua.Text = "Sửa";
             Sua.UseVisualStyleBackColor = true;
@@ -81,21 +81,19 @@
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(textBox3);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(603, 93);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Location = new Point(625, 158);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(297, 195);
+            groupBox2.Size = new Size(260, 146);
             groupBox2.TabIndex = 73;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tác giả";
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(184, 136);
-            btnXoa.Margin = new Padding(5, 4, 5, 4);
+            btnXoa.Location = new Point(161, 102);
+            btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(93, 36);
+            btnXoa.Size = new Size(81, 27);
             btnXoa.TabIndex = 39;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -103,10 +101,10 @@
             // 
             // btnXacnhan
             // 
-            btnXacnhan.Location = new Point(46, 136);
-            btnXacnhan.Margin = new Padding(5, 4, 5, 4);
+            btnXacnhan.Location = new Point(40, 102);
+            btnXacnhan.Margin = new Padding(4, 3, 4, 3);
             btnXacnhan.Name = "btnXacnhan";
-            btnXacnhan.Size = new Size(88, 36);
+            btnXacnhan.Size = new Size(77, 27);
             btnXacnhan.TabIndex = 37;
             btnXacnhan.Text = "Xác nhận";
             btnXacnhan.UseVisualStyleBackColor = true;
@@ -115,20 +113,19 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(102, 44);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Location = new Point(89, 33);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(174, 28);
+            comboBox1.Size = new Size(153, 23);
             comboBox1.TabIndex = 17;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(8, 43);
-            label4.Margin = new Padding(5, 0, 5, 0);
+            label4.Location = new Point(7, 32);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(99, 21);
+            label4.Size = new Size(76, 16);
             label4.TabIndex = 13;
             label4.Text = "Tên tác giả:";
             // 
@@ -136,39 +133,39 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(11, 91);
-            label6.Margin = new Padding(5, 0, 5, 0);
+            label6.Location = new Point(10, 68);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(65, 21);
+            label6.Size = new Size(50, 16);
             label6.TabIndex = 15;
             label6.Text = "Vai trò:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(102, 83);
-            textBox3.Margin = new Padding(5, 4, 5, 4);
+            textBox3.Location = new Point(89, 62);
+            textBox3.Margin = new Padding(4, 3, 4, 3);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(174, 27);
+            textBox3.Size = new Size(153, 23);
             textBox3.TabIndex = 16;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(15, 48);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(110, 124);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(84, 21);
+            label5.Size = new Size(65, 16);
             label5.TabIndex = 72;
             label5.Text = "Tìm kiếm:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(103, 45);
-            textBox1.Margin = new Padding(5, 4, 5, 4);
+            textBox1.Location = new Point(187, 122);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên sách";
-            textBox1.Size = new Size(486, 27);
+            textBox1.Size = new Size(426, 23);
             textBox1.TabIndex = 71;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -185,11 +182,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(13, 80);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(108, 148);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(584, 217);
+            groupBox1.Size = new Size(511, 163);
             groupBox1.TabIndex = 70;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
@@ -198,10 +193,9 @@
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { lvtacgia, lvvaitro });
             listView1.FullRowSelect = true;
-            listView1.Location = new Point(341, 57);
-            listView1.Margin = new Padding(3, 4, 3, 4);
+            listView1.Location = new Point(298, 43);
             listView1.Name = "listView1";
-            listView1.Size = new Size(222, 128);
+            listView1.Size = new Size(195, 97);
             listView1.TabIndex = 24;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -220,30 +214,29 @@
             // txtNam
             // 
             txtNam.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNam.Location = new Point(130, 78);
-            txtNam.Margin = new Padding(5, 4, 5, 4);
+            txtNam.Location = new Point(114, 58);
+            txtNam.Margin = new Padding(4, 3, 4, 3);
             txtNam.Name = "txtNam";
-            txtNam.Size = new Size(143, 27);
+            txtNam.Size = new Size(126, 23);
             txtNam.TabIndex = 23;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(8, 135);
-            label9.Margin = new Padding(5, 0, 5, 0);
+            label9.Location = new Point(7, 101);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(114, 21);
+            label9.Size = new Size(88, 16);
             label9.TabIndex = 22;
             label9.Text = "Thể loại sách:";
             // 
             // cbxTheloai
             // 
             cbxTheloai.FormattingEnabled = true;
-            cbxTheloai.Location = new Point(130, 128);
-            cbxTheloai.Margin = new Padding(3, 4, 3, 4);
+            cbxTheloai.Location = new Point(114, 96);
             cbxTheloai.Name = "cbxTheloai";
-            cbxTheloai.Size = new Size(143, 28);
+            cbxTheloai.Size = new Size(126, 23);
             cbxTheloai.TabIndex = 21;
             cbxTheloai.SelectedIndexChanged += cbxTheloai_SelectedIndexChanged;
             // 
@@ -251,10 +244,10 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(272, 25);
-            label8.Margin = new Padding(5, 0, 5, 0);
+            label8.Location = new Point(238, 19);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(149, 21);
+            label8.Size = new Size(113, 16);
             label8.TabIndex = 20;
             label8.Text = "Danh sách tác giả:";
             // 
@@ -262,10 +255,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(8, 84);
-            label7.Margin = new Padding(5, 0, 5, 0);
+            label7.Location = new Point(7, 63);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(119, 21);
+            label7.Size = new Size(91, 16);
             label7.TabIndex = 17;
             label7.Text = "Năm xuất bản:";
             // 
@@ -274,29 +267,28 @@
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(130, 179);
-            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
+            dateTimePicker1.Location = new Point(114, 134);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(143, 27);
+            dateTimePicker1.Size = new Size(126, 23);
             dateTimePicker1.TabIndex = 16;
             // 
             // txtTensach
             // 
             txtTensach.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTensach.Location = new Point(112, 27);
-            txtTensach.Margin = new Padding(5, 4, 5, 4);
+            txtTensach.Location = new Point(98, 20);
+            txtTensach.Margin = new Padding(4, 3, 4, 3);
             txtTensach.Name = "txtTensach";
-            txtTensach.Size = new Size(143, 27);
+            txtTensach.Size = new Size(126, 23);
             txtTensach.TabIndex = 14;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(8, 33);
-            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Location = new Point(7, 25);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(83, 21);
+            label2.Size = new Size(64, 16);
             label2.TabIndex = 13;
             label2.Text = "Tên sách:";
             // 
@@ -304,19 +296,19 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(8, 185);
-            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Location = new Point(7, 139);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(94, 21);
+            label3.Size = new Size(72, 16);
             label3.TabIndex = 15;
             label3.Text = "Ngày nhập:";
             // 
             // thoat
             // 
-            thoat.Location = new Point(459, 305);
-            thoat.Margin = new Padding(5, 4, 5, 4);
+            thoat.Location = new Point(499, 317);
+            thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
-            thoat.Size = new Size(101, 36);
+            thoat.Size = new Size(88, 27);
             thoat.TabIndex = 69;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
@@ -324,10 +316,10 @@
             // 
             // xoa
             // 
-            xoa.Location = new Point(313, 305);
-            xoa.Margin = new Padding(5, 4, 5, 4);
+            xoa.Location = new Point(371, 317);
+            xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
-            xoa.Size = new Size(101, 36);
+            xoa.Size = new Size(88, 27);
             xoa.TabIndex = 68;
             xoa.Text = "Xóa";
             xoa.UseVisualStyleBackColor = true;
@@ -335,10 +327,10 @@
             // 
             // them
             // 
-            them.Location = new Point(21, 305);
-            them.Margin = new Padding(5, 4, 5, 4);
+            them.Location = new Point(115, 317);
+            them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
-            them.Size = new Size(101, 36);
+            them.Size = new Size(88, 27);
             them.TabIndex = 67;
             them.Text = "Thêm";
             them.UseVisualStyleBackColor = true;
@@ -348,30 +340,30 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(374, 7);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(424, 93);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(82, 31);
+            label1.Size = new Size(66, 26);
             label1.TabIndex = 66;
             label1.Text = "SÁCH";
             // 
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(21, 352);
-            dgv.Margin = new Padding(5, 4, 5, 4);
+            dgv.Location = new Point(115, 352);
+            dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
-            dgv.Size = new Size(887, 248);
+            dgv.Size = new Size(776, 186);
             dgv.TabIndex = 65;
             dgv.CellClick += dgv_CellClick;
             dgv.CellContentClick += dgv_CellContentClick;
             // 
             // Sach1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(1068, 666);
             Controls.Add(Sua);
             Controls.Add(groupBox2);
             Controls.Add(label5);
@@ -382,7 +374,6 @@
             Controls.Add(them);
             Controls.Add(label1);
             Controls.Add(dgv);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Sach1";
             Text = "df";
             Load += Sach1_Load;

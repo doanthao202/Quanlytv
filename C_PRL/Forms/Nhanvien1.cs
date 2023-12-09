@@ -109,16 +109,44 @@ namespace C_PRL.Forms
             }
             else
             {
-                var nv = new Nhanvien();
-                nv.Hoten = txtTen.Text; ;
-                nv.Sdt = txtSdt.Text;
-                nv.Vaitro = cbxVaitro.Text;
-                nv.Email = txtEmail.Text;
-                nv.Pass = txtPass.Text;
-                nv.Trangthai = 1;
-                MessageBox.Show(_service.add(nv));
-                loatData(_service.GetAll());
-                reset();
+                int x = 0;
+                int y= 0;
+                foreach(var i in _service.GetAll())
+                {
+                    if(i.Email == txtEmail.Text)
+                    {
+                        x = 1;
+                    }
+                    if (i.Sdt == txtSdt.Text)
+                    {
+                        y = 1;
+                    }
+                }
+                if(x==1)
+                {
+                    MessageBox.Show("Email đã tồn tại");
+                }else if (y == 1)
+                {
+                    MessageBox.Show("Sđt đã tồn tại");
+                }
+                else if(x==1&& y == 1)
+                {
+                    MessageBox.Show("Email và sđt đã tồn tại");
+                }
+                else
+                {
+                    var nv = new Nhanvien();
+                    nv.Hoten = txtTen.Text; ;
+                    nv.Sdt = txtSdt.Text;
+                    nv.Vaitro = cbxVaitro.Text;
+                    nv.Email = txtEmail.Text;
+                    nv.Pass = txtPass.Text;
+                    nv.Trangthai = 1;
+                    MessageBox.Show(_service.add(nv));
+                    loatData(_service.GetAll());
+                    reset();
+                }
+                
             }
 
         }
@@ -190,34 +218,11 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _pmservice.GetAll())
-            {
-                if (idCellClick == i.Idnhanvien)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _ptservice.GetAll())
-            {
-                if (idCellClick == i.Idnhanvien)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
+            
+          
+          
                 xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
+            
            // cxbTrangthai.ResetText();
             cxbTrangthai.Enabled = true;
         }
@@ -236,6 +241,15 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             Sua.Enabled = true;
+            
+                xoa.Enabled = true;
+           
+            //cxbTrangthai.ResetText();
+            cxbTrangthai.Enabled = true;
+        }
+
+        private void xoa_Click(object sender, EventArgs e)
+        {
             var x = 0;
             var y = 0;
             foreach (var i in _pmservice.GetAll())
@@ -256,30 +270,38 @@ namespace C_PRL.Forms
                 }
 
             }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
+            if(x== 1 || y == 1){
+                var thongBao = MessageBox.Show("Nhân viên đang hoạt động, bạn có muốn tiếp tục xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _pmservice.Delete1(idCellClick);
+                    _ptservice.Delete(idCellClick);
+                    var result = _service.Delete(idCellClick);
+                    if (result)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        loatData(_service.GetAll());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                xoa.Enabled = false;
+                var result = _service.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    loatData(_service.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
-            //cxbTrangthai.ResetText();
-            cxbTrangthai.Enabled = true;
-        }
-
-        private void xoa_Click(object sender, EventArgs e)
-        {
-            var result = _service.Delete(idCellClick);
-            if (result)
-            {
-                MessageBox.Show("Xóa thành công");
-                loatData(_service.GetAll());
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại");
-            }
+          
 
             reset();
         }

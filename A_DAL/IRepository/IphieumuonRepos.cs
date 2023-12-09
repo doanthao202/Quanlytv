@@ -16,6 +16,7 @@ namespace A_DAL.IRepository
 
         int Update(int id, Phieumuon phieumuon);
         bool Delete(int id);
+        bool Delete1(int id);
         List<Phieumuon> GetSearch(string searchText,string x);
     }
 }

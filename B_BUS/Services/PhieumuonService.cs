@@ -33,6 +33,9 @@ namespace B_BUS.Services
         public bool Delete(int id)
         {
             return _repos.Delete(id);
+        } public bool Delete1(int id)
+        {
+            return _repos.Delete1(id);
         }
         public IEnumerable<Phieumuon> GetAll()
         {

@@ -38,7 +38,10 @@ namespace B_BUS.Services
                 return "Thêm thất bại";
             }
         }
-        public bool Delete(int id)
+        public bool Delete1(int id)
+        {
+            return _repos.Delete1(id);
+        }   public bool Delete(int id)
         {
             return _repos.Delete(id);
         }

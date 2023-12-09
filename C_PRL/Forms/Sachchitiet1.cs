@@ -140,9 +140,33 @@ namespace C_PRL
             s1.Idsach = _sservice.GetAll().ElementAt(m).Id;
             s1.Idngonngu = _nnservice.GetAll().ElementAt(n).Id;
             s1.Idnxb = _nxbService.GetAll().ElementAt(g).Id;
-            s1.Lantaiban = Convert.ToInt32(txtlantaiban.Text);
-            s1.Giasach = Convert.ToDecimal(txtGia.Text);
-            s1.Dotuoidocsach = Convert.ToInt32(txtTuoi.Text);
+            if (txtlantaiban.Text=="")
+            {
+                s1.Lantaiban = null;
+            }
+            else
+            {
+                s1.Lantaiban = Convert.ToInt32(txtlantaiban.Text);
+            }
+            if (txtGia.Text == "")
+            {
+                s1.Giasach = null;
+            }
+            else
+            {
+                s1.Giasach = Convert.ToDecimal(txtGia.Text);
+            }
+            if (txtTuoi.Text == "")
+            {
+                s1.Dotuoidocsach = null;
+            }
+            else
+            {
+                s1.Dotuoidocsach = Convert.ToInt32(txtTuoi.Text);
+            }
+            
+            
+            
             if (cxbTinhtrang.Text == "Sách mới")
             {
                 s1.Tinhtrang = 1;
@@ -220,35 +244,9 @@ namespace C_PRL
             loatData1(_sachhangservie.Getview(idCellClick));
             them.Enabled = false;
             Sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _pm.GetAll())
-            {
-                if (idCellClick == i.Idsachct)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _sachhangservie.GetAll())
-            {
-                if (idCellClick == i.Idsachct)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
+            
                 xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
-
+         
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -258,9 +256,33 @@ namespace C_PRL
             cbxTensach.Text = selectChild.Cells[2].Value.ToString();
             cxbNgonngu.Text = selectChild.Cells[3].Value.ToString();
             cxbNXB.Text = selectChild.Cells[4].Value.ToString();
-            txtlantaiban.Text = selectChild.Cells[5].Value.ToString();
-            txtGia.Text = selectChild.Cells[6].Value.ToString();
-            txtTuoi.Text = selectChild.Cells[7].Value.ToString();
+            if (selectChild.Cells[5].Value==null)
+            {
+                txtlantaiban.Text = "";
+            }
+            else
+            {
+                txtlantaiban.Text = Convert.ToString(selectChild.Cells[5].Value);
+            }
+             if (selectChild.Cells[6].Value==null)
+            {
+                txtGia.Text = "";
+            }
+            else
+            {
+                txtGia.Text = Convert.ToString(selectChild.Cells[6].Value);
+            }
+             if (selectChild.Cells[7].Value==null)
+            {
+                txtTuoi.Text = "";
+            }
+            else
+            {
+                txtTuoi.Text =Convert.ToString(selectChild.Cells[7]);
+            }
+            
+           
+           
             if (selectChild.Cells[8].Value.ToString() == "0")
             {
                 cxbTinhtrang.Text = "Dừng hoạt động";
@@ -287,34 +309,9 @@ namespace C_PRL
 
             them.Enabled = false;
             Sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _pm.GetAll())
-            {
-                if (idCellClick == i.Idsachct)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _sachhangservie.GetAll())
-            {
-                if (idCellClick == i.Idsachct)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
+            
                 xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
+            
         }
 
         private void xoa_Click(object sender, EventArgs e)
@@ -331,7 +328,7 @@ namespace C_PRL
             }
             if (x == 1)
             {
-                var thongBao = MessageBox.Show("Sách đag được cho mượn, bạn có thực sự muốn xóa sách không?", "Xác nhận", MessageBoxButtons.YesNo);
+                var thongBao = MessageBox.Show("Sách đang được cho mượn, bạn có thực sự muốn xóa sách không?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (thongBao == DialogResult.Yes)
                 {
                     _pm.Delete1(idCellClick);

@@ -14,6 +14,6 @@ namespace A_DAL.IRepository
 
         bool Add(Phieutra phieutra);
 
-       
+        bool Delete(int id);
     }
 }

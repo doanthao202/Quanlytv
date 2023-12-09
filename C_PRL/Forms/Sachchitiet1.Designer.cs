@@ -67,7 +67,7 @@ namespace C_PRL
             // 
             // Sua
             // 
-            Sua.Location = new Point(125, 294);
+            Sua.Location = new Point(308, 352);
             Sua.Margin = new Padding(4, 3, 4, 3);
             Sua.Name = "Sua";
             Sua.Size = new Size(88, 27);
@@ -83,7 +83,7 @@ namespace C_PRL
             groupBox2.Controls.Add(cxbHang);
             groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(525, 103);
+            groupBox2.Location = new Point(708, 161);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(190, 146);
             groupBox2.TabIndex = 83;
@@ -135,7 +135,7 @@ namespace C_PRL
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(10, 40);
+            label5.Location = new Point(193, 98);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 16);
@@ -144,7 +144,7 @@ namespace C_PRL
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(87, 38);
+            textBox1.Location = new Point(270, 96);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên sách chi tiết";
@@ -171,7 +171,7 @@ namespace C_PRL
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(8, 64);
+            groupBox1.Location = new Point(191, 122);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(511, 224);
             groupBox1.TabIndex = 80;
@@ -345,7 +345,7 @@ namespace C_PRL
             // 
             // thoat
             // 
-            thoat.Location = new Point(383, 294);
+            thoat.Location = new Point(566, 352);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -356,7 +356,7 @@ namespace C_PRL
             // 
             // xoa
             // 
-            xoa.Location = new Point(246, 294);
+            xoa.Location = new Point(429, 352);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
@@ -367,7 +367,7 @@ namespace C_PRL
             // 
             // them
             // 
-            them.Location = new Point(8, 294);
+            them.Location = new Point(191, 352);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -381,7 +381,7 @@ namespace C_PRL
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(324, 9);
+            label1.Location = new Point(507, 67);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(130, 26);
@@ -391,7 +391,7 @@ namespace C_PRL
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(8, 327);
+            dgv.Location = new Point(191, 385);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
@@ -404,7 +404,7 @@ namespace C_PRL
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 538);
+            ClientSize = new Size(1068, 666);
             Controls.Add(Sua);
             Controls.Add(groupBox2);
             Controls.Add(label5);

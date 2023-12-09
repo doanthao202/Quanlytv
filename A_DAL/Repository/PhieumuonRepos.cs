@@ -122,5 +122,26 @@ namespace A_DAL.Repository
             }
            // return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(searchText)).ToList();
         }
+
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Phieumuons.Where(c => c.Idnhanvien == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Phieumuons.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

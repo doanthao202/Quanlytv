@@ -30,6 +30,27 @@ namespace A_DAL.Repository
           
         }
 
+        public bool Delete(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Phieutras.Where(c => c.Idnhanvien== id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.Phieutras.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public IEnumerable<Phieutra> GetAll()
         {
             return _dbContext.Phieutras.ToList();

@@ -23,6 +23,9 @@ namespace B_BUS.Services
         public bool add(Phieutra phieutra)
         {
             return _repos.Add(phieutra);
+        }public bool Delete(int id)
+        {
+            return _repos.Delete(id);
         }
         
         public IEnumerable<Phieutra> GetAll()

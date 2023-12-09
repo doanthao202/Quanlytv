@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
 using A_DAL.Models1;
+using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
 {
@@ -43,6 +44,27 @@ namespace A_DAL.Repository
             try
             {
                 var exist = _dbContext.SachctHangs.Where(c => c.Idsachct == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbContext.SachctHangs.Remove(item);
+
+                }
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.SachctHangs.Where(c => c.Idhang == id).ToList();
                 foreach (var item in exist)
                 {
                     _dbContext.SachctHangs.Remove(item);

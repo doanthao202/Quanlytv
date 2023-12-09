@@ -63,6 +63,27 @@ namespace A_DAL.Repository
             }
         }
 
+        public bool Delete1(int id)
+        {
+            try
+            {
+                var exist = _dbcontext.Docgia.Where(c => c.Idhang == id).ToList();
+                foreach (var item in exist)
+                {
+                    _dbcontext.Docgia.Remove(item);
+
+                }
+                _dbcontext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public IEnumerable<Docgium> GetAll()
         {
             return _dbcontext.Docgia.ToList();

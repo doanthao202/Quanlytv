@@ -13,5 +13,6 @@ namespace A_DAL.IRepository
 
         bool Add(SachctHang sachctHang);
         bool Delete(int id);
+        bool Delete1(int id);
     }
 }
