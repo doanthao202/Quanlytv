@@ -84,41 +84,32 @@ namespace C_PRL.Forms
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
-            textBox2.Text = selectChild.Cells[3].Value.ToString();
-            textBox3.Text = selectChild.Cells[4].Value.ToString();
+            if (selectChild.Cells[3].Value == null)
+            {
+                textBox2.Text = "";
+            }
+            else
+            {
+                textBox2.Text = selectChild.Cells[3].Value.ToString();
+            }
+            if (selectChild.Cells[4].Value == null)
+            {
+                textBox3.Text = "";
+            }
+            else
+            {
+                textBox3.Text = Convert.ToString(selectChild.Cells[4].Value);
+            }
+            
+            
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);
             them.Enabled = false;
             sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _shservice.GetAll())
-            {
-                if (idCellClick == i.Idhang)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _docgiaservice.GetAll())
-            {
-                if (idCellClick == i.Idhang)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
-            }
-            else
-            {
-
-                xoa.Enabled = false;
-            }
+           
+          
+            xoa.Enabled = true;
+            
         }
 
         private void luoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,41 +117,28 @@ namespace C_PRL.Forms
             int index = e.RowIndex;
             var selectChild = luoi.Rows[index];
             txtTentl.Text = selectChild.Cells[2].Value.ToString();
-            textBox2.Text = selectChild.Cells[3].Value.ToString();
-            textBox3.Text = selectChild.Cells[4].Value.ToString();
-
-            idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);
-            them.Enabled = false;
-            sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _shservice.GetAll())
+            if (selectChild.Cells[3].Value == null)
             {
-                if (idCellClick == i.Idhang)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _docgiaservice.GetAll())
-            {
-                if (idCellClick == i.Idhang)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
+                textBox2.Text = "";
             }
             else
             {
-
-                xoa.Enabled = false;
+                textBox2.Text = selectChild.Cells[3].Value.ToString();
             }
+            if (selectChild.Cells[4].Value == null)
+            {
+                textBox3.Text = "";
+            }
+            else
+            {
+                textBox3.Text = Convert.ToString(selectChild.Cells[4].Value);
+            }
+            idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);
+            them.Enabled = false;
+            sua.Enabled = true;
+            
+                xoa.Enabled = true;
+           
         }
 
         private void sua_Click(object sender, EventArgs e)

@@ -40,6 +40,8 @@ namespace C_PRL.Forms
             loatData(_service.Getview());
             sua.Enabled = false;
             xoa.Enabled = false;
+            cbxtrangthai.Text = "Hoạt động";
+            cbxtrangthai.Enabled = false;
         }
         public void reset()
         {
@@ -53,7 +55,8 @@ namespace C_PRL.Forms
             dtpNgaycapthe.Value = DateTime.Now;
             Hanthe.Value = DateTime.Now;
             cbxHang.ResetText();
-            cbxtrangthai.ResetText();
+            cbxtrangthai.Text = "Hoạt động";
+            cbxtrangthai.Enabled = false;
             them.Enabled = true;
             sua.Enabled = false;
             xoa.Enabled = false;
@@ -95,7 +98,37 @@ namespace C_PRL.Forms
 
         private void them_Click(object sender, EventArgs e)
         {
-            if (!IsValidateMail(txtEmail.Text))
+            int x = 0;
+            int y = 0;
+            int z = 0;
+            foreach(var i in _service.GetAll())
+            {
+                if(i.Email== txtEmail.Text)
+                {
+                    x = 1;
+                }
+                else if (i.Sdt == txtSdt.Text)
+                {
+                    y = 1;
+                }
+                else if(i.Cmnd==txtCCCD.Text)
+                {
+                    z = 1;
+                }
+            }
+            if (x == 1)
+            {
+                MessageBox.Show("Mail đã tồn tại trong hệ thống!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(y== 1)
+            {
+                MessageBox.Show("Sđt đã tồn tại trong hệ thống!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(z==1)
+            {
+                MessageBox.Show("Cccd đã tồn tại trong hệ thống!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (!IsValidateMail(txtEmail.Text))
             {
                 MessageBox.Show("Mail không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -112,17 +145,9 @@ namespace C_PRL.Forms
                 s1.Ngaysinh = dtpNgaysinh.Value;
                 s1.Ngaycapthe = dtpNgaycapthe.Value;
                 s1.Hanthe = Hanthe.Value;
-                if (cbxtrangthai.Text == "Hoạt động")
-                {
-                    s1.Trangthai = 1;
-                }
-                else
-                {
-                    if (cbxtrangthai.Text == "Dừng hoạt động")
-                    {
-                        s1.Trangthai = 0;
-                    }
-                }
+                s1.Trangthai = 1;
+                 
+                
                 s1.Idhang = _hserviec.GetAll().ElementAt(cbxHang.SelectedIndex).Id;
 
                 MessageBox.Show(_service.add(s1));
@@ -219,35 +244,9 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _pm.GetAll())
-            {
-                if (idCellClick == i.Iddocgia)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _ph.GetAll())
-            {
-                if (idCellClick == i.Iddocgia)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
-
+            xoa.Enabled = true;
+            cbxtrangthai.Text = "Hoạt động";
+            cbxtrangthai.Enabled = true;
 
         }
 
@@ -279,34 +278,9 @@ namespace C_PRL.Forms
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
             sua.Enabled = true;
-            var x = 0;
-            var y = 0;
-            foreach (var i in _pm.GetAll())
-            {
-                if (idCellClick == i.Iddocgia)
-                {
-                    x = 1;
-                    continue;
-                }
-
-            }
-            foreach (var i in _ph.GetAll())
-            {
-                if (idCellClick == i.Iddocgia)
-                {
-                    y = 1;
-                    continue;
-                }
-
-            }
-            if (x != 1 && y != 1)
-            {
-                xoa.Enabled = true;
-            }
-            else
-            {
-                xoa.Enabled = false;
-            }
+            xoa.Enabled = true;
+            cbxtrangthai.Text = "Hoạt động";
+            cbxtrangthai.Enabled = true;
         }
 
         private void xoa_Click(object sender, EventArgs e)
@@ -336,6 +310,7 @@ namespace C_PRL.Forms
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             loatData(_service.Getview1(textBox1.Text));
+            reset();
         }
 
         private void txtDocgia_TextChanged(object sender, EventArgs e)
@@ -387,6 +362,11 @@ namespace C_PRL.Forms
                 errorProvider1.SetError(txtCCCD, "Số CCCD không được nhập chữ");
                 e.Handled = true;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

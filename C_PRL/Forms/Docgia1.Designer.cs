@@ -75,9 +75,10 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(646, 105);
+            groupBox2.ForeColor = Color.LightSeaGreen;
+            groupBox2.Location = new Point(210, 92);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(249, 78);
+            groupBox2.Size = new Size(570, 64);
             groupBox2.TabIndex = 51;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tìm kiếm";
@@ -94,11 +95,11 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(5, 30);
+            textBox1.Location = new Point(13, 22);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên hoặc số điện thoại";
-            textBox1.Size = new Size(243, 23);
+            textBox1.Size = new Size(425, 23);
             textBox1.TabIndex = 41;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -145,7 +146,8 @@
             groupBox1.Controls.Add(txtDocgia);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(76, 100);
+            groupBox1.ForeColor = Color.LightSeaGreen;
+            groupBox1.Location = new Point(210, 163);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(570, 212);
             groupBox1.TabIndex = 50;
@@ -252,10 +254,10 @@
             // 
             // txtCCCD
             // 
-            txtCCCD.Location = new Point(85, 82);
+            txtCCCD.Location = new Point(110, 82);
             txtCCCD.Margin = new Padding(4, 3, 4, 3);
             txtCCCD.Name = "txtCCCD";
-            txtCCCD.Size = new Size(153, 23);
+            txtCCCD.Size = new Size(128, 23);
             txtCCCD.TabIndex = 24;
             txtCCCD.KeyPress += txtCCCD_KeyPress;
             // 
@@ -300,10 +302,10 @@
             // 
             // txtSdt
             // 
-            txtSdt.Location = new Point(85, 51);
+            txtSdt.Location = new Point(110, 51);
             txtSdt.Margin = new Padding(4, 3, 4, 3);
             txtSdt.Name = "txtSdt";
-            txtSdt.Size = new Size(153, 23);
+            txtSdt.Size = new Size(128, 23);
             txtSdt.TabIndex = 19;
             txtSdt.KeyPress += txtSdt_KeyPress;
             // 
@@ -331,10 +333,10 @@
             // 
             // txtDocgia
             // 
-            txtDocgia.Location = new Point(122, 22);
+            txtDocgia.Location = new Point(109, 22);
             txtDocgia.Margin = new Padding(4, 3, 4, 3);
             txtDocgia.Name = "txtDocgia";
-            txtDocgia.Size = new Size(126, 23);
+            txtDocgia.Size = new Size(129, 23);
             txtDocgia.TabIndex = 14;
             txtDocgia.TextChanged += txtDocgia_TextChanged;
             txtDocgia.KeyPress += txtDocgia_KeyPress;
@@ -352,67 +354,81 @@
             // 
             // thoat
             // 
-            thoat.Location = new Point(502, 318);
+            thoat.BackColor = Color.Peru;
+            thoat.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            thoat.ForeColor = SystemColors.ControlLightLight;
+            thoat.Location = new Point(636, 381);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
             thoat.TabIndex = 49;
             thoat.Text = "Thoát";
-            thoat.UseVisualStyleBackColor = true;
+            thoat.UseVisualStyleBackColor = false;
             thoat.Click += thoat_Click;
             // 
             // xoa
             // 
-            xoa.Location = new Point(370, 318);
+            xoa.BackColor = Color.Peru;
+            xoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            xoa.ForeColor = SystemColors.ControlLightLight;
+            xoa.Location = new Point(504, 381);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
             xoa.TabIndex = 48;
             xoa.Text = "Xóa";
-            xoa.UseVisualStyleBackColor = true;
+            xoa.UseVisualStyleBackColor = false;
             xoa.Click += xoa_Click;
             // 
             // sua
             // 
-            sua.Location = new Point(234, 318);
+            sua.BackColor = Color.Peru;
+            sua.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            sua.ForeColor = SystemColors.ControlLightLight;
+            sua.Location = new Point(368, 381);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
             sua.TabIndex = 47;
             sua.Text = "Sửa";
-            sua.UseVisualStyleBackColor = true;
+            sua.UseVisualStyleBackColor = false;
             sua.Click += sua_Click;
             // 
             // them
             // 
-            them.Location = new Point(113, 318);
+            them.BackColor = Color.Peru;
+            them.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            them.ForeColor = SystemColors.ControlLightLight;
+            them.Location = new Point(247, 381);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
             them.TabIndex = 46;
             them.Text = "Thêm";
-            them.UseVisualStyleBackColor = true;
+            them.UseVisualStyleBackColor = false;
             them.Click += them_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(367, 71);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSeaGreen;
+            label1.Location = new Point(390, 38);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(139, 26);
+            label1.Size = new Size(217, 36);
             label1.TabIndex = 45;
             label1.Text = "THÀNH VIÊN";
+            label1.Click += label1_Click;
             // 
             // luoi
             // 
             luoi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            luoi.Location = new Point(76, 361);
+            luoi.Location = new Point(155, 414);
             luoi.Margin = new Padding(4, 3, 4, 3);
             luoi.Name = "luoi";
             luoi.RowHeadersWidth = 51;
-            luoi.Size = new Size(819, 197);
+            luoi.Size = new Size(674, 240);
             luoi.TabIndex = 44;
             luoi.CellClick += luoi_CellClick;
             luoi.CellContentClick += luoi_CellContentClick;

@@ -56,7 +56,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSeaGreen;
-            label5.Location = new Point(259, 121);
+            label5.Location = new Point(275, 154);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 16);
@@ -65,7 +65,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(332, 114);
+            textBox1.Location = new Point(348, 147);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên hạng";
@@ -87,7 +87,7 @@
             groupBox2.Controls.Add(label3);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.LightSeaGreen;
-            groupBox2.Location = new Point(259, 160);
+            groupBox2.Location = new Point(275, 193);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(379, 115);
             groupBox2.TabIndex = 58;
@@ -198,7 +198,7 @@
             thoat.BackColor = Color.Peru;
             thoat.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             thoat.ForeColor = Color.GhostWhite;
-            thoat.Location = new Point(645, 248);
+            thoat.Location = new Point(661, 281);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
@@ -212,7 +212,7 @@
             xoa.BackColor = Color.Peru;
             xoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             xoa.ForeColor = Color.GhostWhite;
-            xoa.Location = new Point(645, 215);
+            xoa.Location = new Point(661, 248);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
@@ -226,7 +226,7 @@
             sua.BackColor = Color.Peru;
             sua.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             sua.ForeColor = Color.GhostWhite;
-            sua.Location = new Point(645, 182);
+            sua.Location = new Point(661, 215);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
@@ -240,7 +240,7 @@
             them.BackColor = Color.Peru;
             them.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             them.ForeColor = Color.GhostWhite;
-            them.Location = new Point(645, 149);
+            them.Location = new Point(661, 182);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
@@ -252,22 +252,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(417, 75);
+            label1.Location = new Point(411, 80);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(143, 22);
+            label1.Size = new Size(181, 26);
             label1.TabIndex = 53;
             label1.Text = "Hạng thành viên";
             // 
             // luoi
             // 
             luoi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            luoi.Location = new Point(259, 286);
+            luoi.Location = new Point(275, 319);
             luoi.Margin = new Padding(4, 3, 4, 3);
             luoi.Name = "luoi";
-            luoi.Size = new Size(485, 192);
+            luoi.Size = new Size(474, 192);
             luoi.TabIndex = 52;
             luoi.CellClick += luoi_CellClick;
             luoi.CellContentClick += luoi_CellContentClick;

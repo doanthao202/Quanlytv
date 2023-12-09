@@ -47,12 +47,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.LightSeaGreen;
-            label3.Location = new Point(400, 38);
+            label3.Location = new Point(400, 34);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(228, 40);
+            label3.Size = new Size(204, 32);
             label3.TabIndex = 25;
             label3.Text = "Quên mật khẩu";
             // 
@@ -97,12 +97,12 @@
             // QMK
             // 
             QMK.AutoSize = true;
-            QMK.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            QMK.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             QMK.ForeColor = Color.LightSeaGreen;
             QMK.Location = new Point(320, 187);
             QMK.Margin = new Padding(2, 0, 2, 0);
             QMK.Name = "QMK";
-            QMK.Size = new Size(67, 20);
+            QMK.Size = new Size(70, 17);
             QMK.TabIndex = 30;
             QMK.Text = "Mã OTP:";
             // 
@@ -127,7 +127,7 @@
             vButton1.FlatStyle = FlatStyle.Flat;
             vButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             vButton1.ForeColor = Color.White;
-            vButton1.Location = new Point(400, 278);
+            vButton1.Location = new Point(391, 278);
             vButton1.Name = "vButton1";
             vButton1.Size = new Size(100, 33);
             vButton1.TabIndex = 32;
@@ -147,7 +147,7 @@
             vButton3.FlatStyle = FlatStyle.Flat;
             vButton3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             vButton3.ForeColor = Color.White;
-            vButton3.Location = new Point(554, 278);
+            vButton3.Location = new Point(566, 278);
             vButton3.Name = "vButton3";
             vButton3.Size = new Size(100, 33);
             vButton3.TabIndex = 34;
@@ -159,12 +159,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
             label1.Location = new Point(319, 119);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(93, 20);
+            label1.Size = new Size(86, 17);
             label1.TabIndex = 35;
             label1.Text = "Nhập email:";
             // 

@@ -90,14 +90,14 @@
             // đăngXiToolStripMenuItem
             // 
             đăngXiToolStripMenuItem.Name = "đăngXiToolStripMenuItem";
-            đăngXiToolStripMenuItem.Size = new Size(145, 22);
+            đăngXiToolStripMenuItem.Size = new Size(168, 24);
             đăngXiToolStripMenuItem.Text = "Đăng xuất";
             đăngXiToolStripMenuItem.Click += đăngXiToolStripMenuItem_Click;
             // 
             // đôiMâtKhâuToolStripMenuItem
             // 
             đôiMâtKhâuToolStripMenuItem.Name = "đôiMâtKhâuToolStripMenuItem";
-            đôiMâtKhâuToolStripMenuItem.Size = new Size(145, 22);
+            đôiMâtKhâuToolStripMenuItem.Size = new Size(168, 24);
             đôiMâtKhâuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // sachToolStripMenuItem
@@ -112,42 +112,42 @@
             // sachChiTiêtToolStripMenuItem
             // 
             sachChiTiêtToolStripMenuItem.Name = "sachChiTiêtToolStripMenuItem";
-            sachChiTiêtToolStripMenuItem.Size = new Size(145, 22);
+            sachChiTiêtToolStripMenuItem.Size = new Size(167, 24);
             sachChiTiêtToolStripMenuItem.Text = "Đầu sách";
             sachChiTiêtToolStripMenuItem.Click += sachChiTiêtToolStripMenuItem_Click;
             // 
             // tacGiaToolStripMenuItem
             // 
             tacGiaToolStripMenuItem.Name = "tacGiaToolStripMenuItem";
-            tacGiaToolStripMenuItem.Size = new Size(145, 22);
+            tacGiaToolStripMenuItem.Size = new Size(167, 24);
             tacGiaToolStripMenuItem.Text = "Tác giả";
             tacGiaToolStripMenuItem.Click += tacGiaToolStripMenuItem_Click;
             // 
             // ngônNgưToolStripMenuItem
             // 
             ngônNgưToolStripMenuItem.Name = "ngônNgưToolStripMenuItem";
-            ngônNgưToolStripMenuItem.Size = new Size(145, 22);
+            ngônNgưToolStripMenuItem.Size = new Size(167, 24);
             ngônNgưToolStripMenuItem.Text = "Ngôn ngữ";
             ngônNgưToolStripMenuItem.Click += ngônNgưToolStripMenuItem_Click;
             // 
             // nXBToolStripMenuItem
             // 
             nXBToolStripMenuItem.Name = "nXBToolStripMenuItem";
-            nXBToolStripMenuItem.Size = new Size(145, 22);
+            nXBToolStripMenuItem.Size = new Size(167, 24);
             nXBToolStripMenuItem.Text = "Nhà xuất bản";
             nXBToolStripMenuItem.Click += nXBToolStripMenuItem_Click;
             // 
             // thEEToolStripMenuItem
             // 
             thEEToolStripMenuItem.Name = "thEEToolStripMenuItem";
-            thEEToolStripMenuItem.Size = new Size(145, 22);
+            thEEToolStripMenuItem.Size = new Size(167, 24);
             thEEToolStripMenuItem.Text = "Thể loại";
             thEEToolStripMenuItem.Click += thEEToolStripMenuItem_Click;
             // 
             // sachChiTiêtToolStripMenuItem1
             // 
             sachChiTiêtToolStripMenuItem1.Name = "sachChiTiêtToolStripMenuItem1";
-            sachChiTiêtToolStripMenuItem1.Size = new Size(145, 22);
+            sachChiTiêtToolStripMenuItem1.Size = new Size(167, 24);
             sachChiTiêtToolStripMenuItem1.Text = "Sách chi tiết";
             sachChiTiêtToolStripMenuItem1.Click += sachChiTiêtToolStripMenuItem1_Click;
             // 
@@ -163,14 +163,14 @@
             // phiêuMươnToolStripMenuItem
             // 
             phiêuMươnToolStripMenuItem.Name = "phiêuMươnToolStripMenuItem";
-            phiêuMươnToolStripMenuItem.Size = new Size(139, 22);
+            phiêuMươnToolStripMenuItem.Size = new Size(158, 24);
             phiêuMươnToolStripMenuItem.Text = "Phiếu mượn";
             phiêuMươnToolStripMenuItem.Click += phiêuMươnToolStripMenuItem_Click;
             // 
             // phiêuTraToolStripMenuItem
             // 
             phiêuTraToolStripMenuItem.Name = "phiêuTraToolStripMenuItem";
-            phiêuTraToolStripMenuItem.Size = new Size(139, 22);
+            phiêuTraToolStripMenuItem.Size = new Size(158, 24);
             phiêuTraToolStripMenuItem.Text = "Phiếu trả";
             phiêuTraToolStripMenuItem.Click += phiêuTraToolStripMenuItem_Click;
             // 
@@ -186,14 +186,14 @@
             // thôngToolStripMenuItem
             // 
             thôngToolStripMenuItem.Name = "thôngToolStripMenuItem";
-            thôngToolStripMenuItem.Size = new Size(197, 22);
+            thôngToolStripMenuItem.Size = new Size(231, 24);
             thôngToolStripMenuItem.Text = "Phiếu mượn trễ hạn";
             thôngToolStripMenuItem.Click += thôngToolStripMenuItem_Click;
             // 
             // sachĐươcMươnNhiêuToolStripMenuItem
             // 
             sachĐươcMươnNhiêuToolStripMenuItem.Name = "sachĐươcMươnNhiêuToolStripMenuItem";
-            sachĐươcMươnNhiêuToolStripMenuItem.Size = new Size(197, 22);
+            sachĐươcMươnNhiêuToolStripMenuItem.Size = new Size(231, 24);
             sachĐươcMươnNhiêuToolStripMenuItem.Text = "Sách được mượn nhiều";
             sachĐươcMươnNhiêuToolStripMenuItem.Click += sachĐươcMươnNhiêuToolStripMenuItem_Click;
             // 
@@ -209,14 +209,14 @@
             // hangToolStripMenuItem
             // 
             hangToolStripMenuItem.Name = "hangToolStripMenuItem";
-            hangToolStripMenuItem.Size = new Size(132, 22);
+            hangToolStripMenuItem.Size = new Size(152, 24);
             hangToolStripMenuItem.Text = "Hạng";
             hangToolStripMenuItem.Click += hangToolStripMenuItem_Click;
             // 
             // thanhViênToolStripMenuItem
             // 
             thanhViênToolStripMenuItem.Name = "thanhViênToolStripMenuItem";
-            thanhViênToolStripMenuItem.Size = new Size(132, 22);
+            thanhViênToolStripMenuItem.Size = new Size(152, 24);
             thanhViênToolStripMenuItem.Text = "Thành viên";
             thanhViênToolStripMenuItem.Click += thanhViênToolStripMenuItem_Click;
             // 
@@ -246,6 +246,7 @@
             Controls.Add(panel1);
             MainMenuStrip = menuStrip1;
             Name = "Giaodien1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Giaodien1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
