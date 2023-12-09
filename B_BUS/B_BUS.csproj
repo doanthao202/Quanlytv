@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BoldReports.AspNet.Core" Version="5.3.13" />
     <PackageReference Include="BoldReports.Net.Core" Version="5.3.13" />
   </ItemGroup>
 

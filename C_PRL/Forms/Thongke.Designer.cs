@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            vButton1 = new VButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -52,13 +53,32 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(776, 332);
             dataGridView1.TabIndex = 2;
-            //dataGridView1.CellContentClick += this.dataGridView1_CellContentClick;
+            // 
+            // vButton1
+            // 
+            vButton1.BackColor = Color.MediumSlateBlue;
+            vButton1.BackgroundColor = Color.MediumSlateBlue;
+            vButton1.BorderColor = Color.PaleVioletRed;
+            vButton1.BorderRadius = 20;
+            vButton1.BorderSize = 0;
+            vButton1.FlatAppearance.BorderSize = 0;
+            vButton1.FlatStyle = FlatStyle.Flat;
+            vButton1.ForeColor = Color.White;
+            vButton1.Location = new Point(615, 29);
+            vButton1.Name = "vButton1";
+            vButton1.Size = new Size(150, 40);
+            vButton1.TabIndex = 4;
+            vButton1.Text = "Xuất file";
+            vButton1.TextColor = Color.White;
+            vButton1.UseVisualStyleBackColor = false;
+            vButton1.Click += vButton1_Click;
             // 
             // Thongke
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(vButton1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Thongke";
@@ -73,5 +93,6 @@
 
         private Label label1;
         private DataGridView dataGridView1;
+        private VButton vButton1;
     }
 }

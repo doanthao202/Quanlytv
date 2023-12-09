@@ -101,7 +101,7 @@ namespace B_BUS.Services
                            join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
                            from Phieutract in _ptct.GetAll()
 
-                           where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Id != Phieutract.Idphieumuonct)
+                           where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Id != Phieutract.Idphieumuonct && DateTime.Now>Phieumuon.Ngaytradukien)
 
                            group Phieumuon by Phieumuon.Id into a
                            select new PmPtPmct
