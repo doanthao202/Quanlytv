@@ -72,31 +72,39 @@ namespace C_PRL.Forms
         int r;
         private void vButton1_Click(object sender, EventArgs e)
         {
-            r=random.Next(1,10000);
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Excel2016;
-                IWorkbook workbook = application.Workbooks.Create(1);
-                IWorksheet worksheet = workbook.Worksheets[0];
-                //Adding text to a cell
-                for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+            try {
+                r = random.Next(1, 10000);
+                using (ExcelEngine excelEngine = new ExcelEngine())
                 {
-                    worksheet.Range[1, i].Text = dataGridView1.Columns[i - 1].HeaderText;
-                }
-
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-                {
-                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    IApplication application = excelEngine.Excel;
+                    application.DefaultVersion = ExcelVersion.Excel2016;
+                    IWorkbook workbook = application.Workbooks.Create(1);
+                    IWorksheet worksheet = workbook.Worksheets[0];
+                    //Adding text to a cell
+                    for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                     {
-                        worksheet.Range[i + 2, j + 1].Text = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Range[1, i].Text = dataGridView1.Columns[i - 1].HeaderText;
                     }
+
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        {
+                            worksheet.Range[i + 2, j + 1].Text = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                   
+                    Stream excelstream = File.Create(Path.GetFullPath(@"D:\MyExcelFile (" + r + ").xlsx"));
+                    workbook.SaveAs(excelstream);
+                    excelstream.Dispose();
+                    MessageBox.Show("Xuất file thành công");
                 }
-              
-                Stream excelstream = File.Create(Path.GetFullPath(@"D:\MyExcelFile"+r+".xlsx"));
-                workbook.SaveAs(excelstream);
-                excelstream.Dispose();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Xuất file thất bại");
+            }
+            
             //export2Execl(dataGridView1,@"D:\", "xuatfileExcel");
         }
         /*private void export2Execl(DataGridView g, string duongDan, string tentep)
