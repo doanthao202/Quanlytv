@@ -16,7 +16,9 @@ namespace B_BUS.Viewmoder
         public string Sdt { get; set; }
         public DateTime? Ngaymuon { get; set; }
         public DateTime? Ngaytradukien { get; set; }
-
+        public int? Tinhtrang { get; set; }
+        public int Idphieumuonct { get; set; }
+        public int Idphieutract { get; set; }
 
         public int soluong { get; set; }
     }

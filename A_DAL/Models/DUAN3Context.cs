@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models1
+namespace A_DAL.Models
 {
     public partial class DUAN3Context : DbContext
     {
@@ -309,7 +309,6 @@ namespace A_DAL.Models1
                 entity.HasOne(d => d.IddocgiaNavigation)
                     .WithMany(p => p.Phieutras)
                     .HasForeignKey(d => d.Iddocgia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DOCGIA_PHIEUTRA");
 
                 entity.HasOne(d => d.IdnhanvienNavigation)
@@ -337,7 +336,7 @@ namespace A_DAL.Models1
                     .WithMany(p => p.Phieutracts)
                     .HasForeignKey(d => d.Idphieumuonct)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PHIEUMUONCT_PHIEUTRACT");
+                    .HasConstraintName("FK_PHIEUTRACT_PHIEUMUONCT");
 
                 entity.HasOne(d => d.IdphieutraNavigation)
                     .WithMany(p => p.Phieutracts)

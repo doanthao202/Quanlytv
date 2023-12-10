@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models1;
+using A_DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
@@ -24,7 +24,7 @@ namespace A_DAL.Repository
 
         public int Add(Nhanvien nhanvien)
         {
-            try
+               try
             {
                 if (string.IsNullOrWhiteSpace(nhanvien.Hoten)|| string.IsNullOrWhiteSpace(nhanvien.Sdt)|| string.IsNullOrWhiteSpace(nhanvien.Vaitro)|| string.IsNullOrWhiteSpace(nhanvien.Email)|| string.IsNullOrWhiteSpace(nhanvien.Hoten)|| string.IsNullOrWhiteSpace(nhanvien.Pass)|| string.IsNullOrWhiteSpace(Convert.ToString(nhanvien.Trangthai)))
                 {
@@ -41,7 +41,7 @@ namespace A_DAL.Repository
             catch (Exception)
             {
 
-                return 0;
+             return 0;
             }
         }
 

@@ -39,11 +39,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(229, 74);
+            label1.Location = new Point(273, 101);
             label1.Name = "label1";
-            label1.Size = new Size(453, 36);
+            label1.Size = new Size(584, 36);
             label1.TabIndex = 3;
-            label1.Text = "Danh sách phiếu mượn quá hạn";
+            label1.Text = "DANH SÁCH PHIẾU MƯỢN QUÁ HẠN";
             label1.Click += label1_Click;
             // 
             // dataGridView1

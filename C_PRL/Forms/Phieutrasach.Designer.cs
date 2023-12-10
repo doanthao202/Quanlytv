@@ -130,7 +130,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(189, 23);
             comboBox2.TabIndex = 40;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged_1;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // listView1
             // 
@@ -179,7 +179,7 @@
             btnXacnhan.BackColor = Color.Peru;
             btnXacnhan.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnXacnhan.ForeColor = Color.White;
-            btnXacnhan.Location = new Point(220, 85);
+            btnXacnhan.Location = new Point(220, 90);
             btnXacnhan.Margin = new Padding(4, 3, 4, 3);
             btnXacnhan.Name = "btnXacnhan";
             btnXacnhan.Size = new Size(80, 27);

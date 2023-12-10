@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models1;
+using A_DAL.Models;
 
 namespace A_DAL.Repository
 {
