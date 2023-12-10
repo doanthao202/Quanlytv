@@ -37,10 +37,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Cascadia Mono", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(215, 29);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSeaGreen;
+            label1.Location = new Point(229, 74);
             label1.Name = "label1";
-            label1.Size = new Size(320, 25);
+            label1.Size = new Size(453, 36);
             label1.TabIndex = 3;
             label1.Text = "Danh sách phiếu mượn quá hạn";
             label1.Click += label1_Click;
@@ -48,27 +49,28 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 89);
+            dataGridView1.Location = new Point(52, 204);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 332);
+            dataGridView1.Size = new Size(934, 332);
             dataGridView1.TabIndex = 2;
             // 
             // vButton1
             // 
-            vButton1.BackColor = Color.MediumSlateBlue;
-            vButton1.BackgroundColor = Color.MediumSlateBlue;
+            vButton1.BackColor = Color.Peru;
+            vButton1.BackgroundColor = Color.Peru;
             vButton1.BorderColor = Color.PaleVioletRed;
             vButton1.BorderRadius = 20;
             vButton1.BorderSize = 0;
             vButton1.FlatAppearance.BorderSize = 0;
             vButton1.FlatStyle = FlatStyle.Flat;
+            vButton1.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             vButton1.ForeColor = Color.White;
-            vButton1.Location = new Point(615, 29);
+            vButton1.Location = new Point(882, 593);
             vButton1.Name = "vButton1";
             vButton1.Size = new Size(150, 40);
             vButton1.TabIndex = 4;
-            vButton1.Text = "Xuất file";
+            vButton1.Text = "Xuất file Excel";
             vButton1.TextColor = Color.White;
             vButton1.UseVisualStyleBackColor = false;
             vButton1.Click += vButton1_Click;
@@ -77,7 +79,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1068, 666);
             Controls.Add(vButton1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);

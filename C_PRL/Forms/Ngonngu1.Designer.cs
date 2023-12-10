@@ -48,18 +48,18 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = Color.LightSeaGreen;
-            label5.Location = new Point(261, 154);
+            label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(268, 154);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 16);
+            label5.Size = new Size(57, 15);
             label5.TabIndex = 69;
             label5.Text = "Tìm kiếm:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(349, 147);
+            textBox1.Location = new Point(342, 151);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên ngôn ngữ";
@@ -103,11 +103,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(7, 44);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 16);
+            label2.Size = new Size(86, 15);
             label2.TabIndex = 13;
             label2.Text = "Tên ngôn ngữ:";
             // 
@@ -125,6 +126,7 @@
             // 
             thoat.BackColor = Color.Peru;
             thoat.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            thoat.ForeColor = Color.White;
             thoat.Location = new Point(647, 276);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
@@ -138,6 +140,7 @@
             // 
             xoa.BackColor = Color.Peru;
             xoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            xoa.ForeColor = Color.White;
             xoa.Location = new Point(647, 243);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
@@ -151,6 +154,7 @@
             // 
             sua.BackColor = Color.Peru;
             sua.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            sua.ForeColor = Color.White;
             sua.Location = new Point(647, 210);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
@@ -164,6 +168,7 @@
             // 
             them.BackColor = Color.Peru;
             them.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            them.ForeColor = Color.White;
             them.Location = new Point(647, 177);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
@@ -211,6 +216,7 @@
             Controls.Add(them);
             Controls.Add(label1);
             Controls.Add(luoi);
+            ForeColor = Color.Black;
             Name = "NgonNgu1";
             Text = "NgonNgu1";
             Load += NgonNgu1_Load;

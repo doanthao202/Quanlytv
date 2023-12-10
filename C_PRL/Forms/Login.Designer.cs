@@ -41,7 +41,7 @@
             // btExit
             // 
             btExit.BackColor = Color.OrangeRed;
-            btExit.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btExit.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btExit.ForeColor = SystemColors.ButtonHighlight;
             btExit.Location = new Point(550, 262);
             btExit.Margin = new Padding(2);
@@ -55,7 +55,7 @@
             // btLogin
             // 
             btLogin.BackColor = Color.LightSeaGreen;
-            btLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btLogin.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btLogin.ForeColor = SystemColors.ButtonHighlight;
             btLogin.Location = new Point(392, 262);
             btLogin.Margin = new Padding(2);
@@ -92,12 +92,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.LightSeaGreen;
             label3.Location = new Point(424, 73);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(201, 47);
+            label3.Size = new Size(181, 40);
             label3.TabIndex = 18;
             label3.Text = "Đăng nhập";
             label3.Click += label3_Click;

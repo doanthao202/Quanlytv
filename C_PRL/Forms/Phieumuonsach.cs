@@ -197,8 +197,7 @@ namespace C_PRL.Forms
 
 
                     phieumuon1.Tinhtrang = 1;
-                    _service.add(phieumuon1);
-                    x = phieumuon1.Id;
+                   
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu mượn chưa có sách");
@@ -216,6 +215,8 @@ namespace C_PRL.Forms
                             }
                             else
                             {
+                                _service.add(phieumuon1);
+                                x = phieumuon1.Id;
                                 int idsach = Convert.ToInt16(lv.SubItems[0].Text);
 
                                 var phieumuonchitiet = new Phieumuonct();
@@ -337,22 +338,7 @@ namespace C_PRL.Forms
 
         }
 
-        /*  private void button3_Click(object sender, EventArgs e)
-          {
-
-                  groupBox2.Enabled = false;
-                  cbxDocgia.Enabled = false;
-                  cbxTenthanhvien.Enabled = false;
-                  txtTenkhachle.Enabled = false;
-                  cbxTennv.Enabled = false;
-                  txtsdt.Enabled = false;
-                  dtpNgaymuon.Enabled = false;
-                  datengaytra.Enabled = true;
-                  txtTiencoc.Enabled = false;
-                  textBox2.Enabled = false;
-
-          }*/
-
+        
         private void datengaytra_ValueChanged_1(object sender, EventArgs e)
         {
             //datengaytra.Value > dtpNgaymuon.Value.AddDays(7);
@@ -401,23 +387,12 @@ namespace C_PRL.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             datengaytra.Enabled = true;
-            groupBox2.Enabled = false;
-            cbxDocgia.Enabled = false;
-            cbxTenthanhvien.Enabled = false;
-            txtTenkhachle.Enabled = false;
-            cbxTennv.Enabled = false;
-            txtsdt.Enabled = false;
-            dtpNgaymuon.Enabled = false;
-
-            txtTiencoc.Enabled = false;
-            textBox2.Enabled = false;
         }
 
         private void thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form f = new Giaodien1();
-            f.Show();
+           
         }
     }
 }

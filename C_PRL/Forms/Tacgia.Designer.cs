@@ -52,11 +52,12 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.ActiveCaptionText;
             label5.Location = new Point(304, 152);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 16);
+            label5.Size = new Size(57, 15);
             label5.TabIndex = 42;
             label5.Text = "Tìm kiếm:";
             // 
@@ -66,7 +67,7 @@
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên tác giả";
-            textBox1.Size = new Size(271, 23);
+            textBox1.Size = new Size(271, 22);
             textBox1.TabIndex = 41;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -78,6 +79,7 @@
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(txtVitri);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.ForeColor = Color.LightSeaGreen;
             groupBox2.Location = new Point(297, 186);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(377, 102);
@@ -107,22 +109,24 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ActiveCaptionText;
             label2.Location = new Point(7, 32);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(76, 16);
+            label2.Size = new Size(69, 15);
             label2.TabIndex = 13;
             label2.Text = "Tên tác giả:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ActiveCaptionText;
             label3.Location = new Point(10, 68);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(54, 16);
+            label3.Size = new Size(51, 15);
             label3.TabIndex = 15;
             label3.Text = "Ghi chú:";
             // 
@@ -136,56 +140,69 @@
             // 
             // thoat
             // 
+            thoat.BackColor = Color.Peru;
+            thoat.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            thoat.ForeColor = SystemColors.ControlLightLight;
             thoat.Location = new Point(681, 274);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
             thoat.TabIndex = 39;
             thoat.Text = "Thoát";
-            thoat.UseVisualStyleBackColor = true;
+            thoat.UseVisualStyleBackColor = false;
             thoat.Click += thoat_Click;
             // 
             // xoa
             // 
+            xoa.BackColor = Color.Peru;
+            xoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            xoa.ForeColor = SystemColors.ControlLightLight;
             xoa.Location = new Point(681, 241);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
             xoa.TabIndex = 38;
             xoa.Text = "Xóa";
-            xoa.UseVisualStyleBackColor = true;
+            xoa.UseVisualStyleBackColor = false;
             xoa.Click += xoa_Click;
             // 
             // sua
             // 
+            sua.BackColor = Color.Peru;
+            sua.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            sua.ForeColor = SystemColors.ControlLightLight;
             sua.Location = new Point(681, 208);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
             sua.TabIndex = 37;
             sua.Text = "Sửa";
-            sua.UseVisualStyleBackColor = true;
+            sua.UseVisualStyleBackColor = false;
             sua.Click += sua_Click;
             // 
             // them
             // 
+            them.BackColor = Color.Peru;
+            them.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            them.ForeColor = SystemColors.ControlLightLight;
             them.Location = new Point(681, 175);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
             them.TabIndex = 36;
             them.Text = "Thêm";
-            them.UseVisualStyleBackColor = true;
+            them.UseVisualStyleBackColor = false;
             them.Click += them_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSeaGreen;
             label1.Location = new Point(463, 101);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(92, 26);
+            label1.Size = new Size(148, 36);
             label1.TabIndex = 35;
             label1.Text = "TÁC GIẢ";
             // 
@@ -218,6 +235,8 @@
             Controls.Add(them);
             Controls.Add(label1);
             Controls.Add(luoi);
+            Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ForeColor = SystemColors.ControlLightLight;
             Name = "Tacgia";
             Text = "Tacgia";
             Load += Tacgia_Load;

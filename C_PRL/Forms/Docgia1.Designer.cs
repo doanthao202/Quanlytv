@@ -165,11 +165,12 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = Color.Black;
             label14.Location = new Point(395, 87);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(71, 16);
+            label14.Size = new Size(65, 15);
             label14.TabIndex = 31;
             label14.Text = "Trạng thái:";
             // 
@@ -184,11 +185,12 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.ForeColor = Color.Black;
             label13.Location = new Point(259, 87);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(41, 16);
+            label13.Size = new Size(39, 15);
             label13.TabIndex = 29;
             label13.Text = "Hạng:";
             // 
@@ -204,11 +206,12 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
             label12.Location = new Point(7, 183);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(56, 16);
+            label12.Size = new Size(52, 15);
             label12.TabIndex = 27;
             label12.Text = "Hạn thẻ:";
             // 
@@ -225,22 +228,24 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.ForeColor = Color.Black;
             label11.Location = new Point(7, 151);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(86, 16);
+            label11.Size = new Size(81, 15);
             label11.TabIndex = 25;
             label11.Text = "Ngày cấp thẻ:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(259, 54);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(43, 16);
+            label3.Size = new Size(38, 15);
             label3.TabIndex = 15;
             label3.Text = "Email:";
             // 
@@ -273,22 +278,24 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
             label10.Location = new Point(7, 118);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(67, 16);
+            label10.Size = new Size(65, 15);
             label10.TabIndex = 22;
             label10.Text = "Ngày sinh:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
             label9.Location = new Point(7, 87);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(63, 16);
+            label9.Size = new Size(60, 15);
             label9.TabIndex = 21;
             label9.Text = "Số CCCD:";
             // 
@@ -312,22 +319,24 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(259, 24);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(51, 16);
+            label8.Size = new Size(47, 15);
             label8.TabIndex = 18;
             label8.Text = "Địa chỉ:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
             label7.Location = new Point(7, 54);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(37, 16);
+            label7.Size = new Size(33, 15);
             label7.TabIndex = 17;
             label7.Text = "SĐT:";
             // 
@@ -344,11 +353,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(7, 24);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(97, 16);
+            label2.Size = new Size(91, 15);
             label2.TabIndex = 13;
             label2.Text = "Tên thành viên:";
             // 

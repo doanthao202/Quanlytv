@@ -47,12 +47,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.LightSeaGreen;
             label3.Location = new Point(400, 34);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(204, 32);
+            label3.Size = new Size(229, 36);
             label3.TabIndex = 25;
             label3.Text = "Quên mật khẩu";
             // 
@@ -60,7 +60,7 @@
             // 
             txtTK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtTK.ForeColor = Color.Black;
-            txtTK.Location = new Point(416, 110);
+            txtTK.Location = new Point(400, 111);
             txtTK.Margin = new Padding(2);
             txtTK.Name = "txtTK";
             txtTK.PlaceholderText = "Nhập email";
@@ -74,7 +74,7 @@
             txtMK.Enabled = false;
             txtMK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMK.ForeColor = Color.Black;
-            txtMK.Location = new Point(416, 178);
+            txtMK.Location = new Point(400, 173);
             txtMK.Margin = new Padding(2);
             txtMK.Name = "txtMK";
             txtMK.Size = new Size(135, 29);
@@ -85,7 +85,7 @@
             btLogin.BackColor = Color.MintCream;
             btLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btLogin.ForeColor = SystemColors.HotTrack;
-            btLogin.Location = new Point(566, 178);
+            btLogin.Location = new Point(550, 175);
             btLogin.Margin = new Padding(2);
             btLogin.Name = "btLogin";
             btLogin.Size = new Size(100, 27);
@@ -97,12 +97,12 @@
             // QMK
             // 
             QMK.AutoSize = true;
-            QMK.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            QMK.ForeColor = Color.LightSeaGreen;
+            QMK.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            QMK.ForeColor = Color.Black;
             QMK.Location = new Point(320, 187);
             QMK.Margin = new Padding(2, 0, 2, 0);
             QMK.Name = "QMK";
-            QMK.Size = new Size(70, 17);
+            QMK.Size = new Size(55, 15);
             QMK.TabIndex = 30;
             QMK.Text = "Mã OTP:";
             // 
@@ -159,12 +159,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.LightSeaGreen;
+            label1.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(319, 119);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(86, 17);
+            label1.Size = new Size(69, 15);
             label1.TabIndex = 35;
             label1.Text = "Nhập email:";
             // 

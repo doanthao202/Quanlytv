@@ -67,13 +67,16 @@ namespace C_PRL
             // 
             // Sua
             // 
-            Sua.Location = new Point(308, 352);
+            Sua.BackColor = Color.Peru;
+            Sua.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Sua.ForeColor = Color.White;
+            Sua.Location = new Point(316, 352);
             Sua.Margin = new Padding(4, 3, 4, 3);
             Sua.Name = "Sua";
             Sua.Size = new Size(88, 27);
             Sua.TabIndex = 84;
             Sua.Text = "Sửa";
-            Sua.UseVisualStyleBackColor = true;
+            Sua.UseVisualStyleBackColor = false;
             Sua.Click += Sua_Click;
             // 
             // groupBox2
@@ -83,6 +86,7 @@ namespace C_PRL
             groupBox2.Controls.Add(cxbHang);
             groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.ForeColor = Color.LightSeaGreen;
             groupBox2.Location = new Point(708, 161);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(190, 146);
@@ -92,6 +96,7 @@ namespace C_PRL
             // 
             // btnXoa
             // 
+            btnXoa.ForeColor = Color.White;
             btnXoa.Location = new Point(102, 94);
             btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
@@ -103,6 +108,7 @@ namespace C_PRL
             // 
             // btnXacnhan
             // 
+            btnXacnhan.ForeColor = Color.White;
             btnXacnhan.Location = new Point(7, 94);
             btnXacnhan.Margin = new Padding(4, 3, 4, 3);
             btnXacnhan.Name = "btnXacnhan";
@@ -123,22 +129,24 @@ namespace C_PRL
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(7, 22);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(76, 16);
+            label4.Size = new Size(69, 15);
             label4.TabIndex = 13;
             label4.Text = "Tên tác giả:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(193, 98);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 16);
+            label5.Size = new Size(57, 15);
             label5.TabIndex = 82;
             label5.Text = "Tìm kiếm:";
             // 
@@ -171,6 +179,7 @@ namespace C_PRL
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.ForeColor = Color.LightSeaGreen;
             groupBox1.Location = new Point(191, 122);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(511, 224);
@@ -190,22 +199,24 @@ namespace C_PRL
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.ForeColor = Color.Black;
             label11.Location = new Point(257, 61);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(71, 16);
+            label11.Size = new Size(66, 15);
             label11.TabIndex = 30;
             label11.Text = "Tình trạng:";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
             label10.Location = new Point(257, 24);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(107, 16);
+            label10.Size = new Size(101, 15);
             label10.TabIndex = 29;
             label10.Text = "Độ tuội đọc sách:";
             // 
@@ -220,11 +231,12 @@ namespace C_PRL
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(7, 186);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(60, 16);
+            label6.Size = new Size(55, 15);
             label6.TabIndex = 28;
             label6.Text = "Giá sách:";
             // 
@@ -273,11 +285,12 @@ namespace C_PRL
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
             label9.Location = new Point(7, 104);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(35, 16);
+            label9.Size = new Size(36, 15);
             label9.TabIndex = 22;
             label9.Text = "NXB:";
             // 
@@ -292,11 +305,12 @@ namespace C_PRL
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(257, 98);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(113, 16);
+            label8.Size = new Size(105, 15);
             label8.TabIndex = 20;
             label8.Text = "Danh sách tác giả:";
             label8.Click += label8_Click;
@@ -304,11 +318,12 @@ namespace C_PRL
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
             label7.Location = new Point(7, 63);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(67, 16);
+            label7.Size = new Size(64, 15);
             label7.TabIndex = 17;
             label7.Text = "Ngôn ngữ:";
             // 
@@ -324,67 +339,79 @@ namespace C_PRL
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(7, 22);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(64, 16);
+            label2.Size = new Size(59, 15);
             label2.TabIndex = 13;
             label2.Text = "Tên sách:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(7, 145);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(75, 16);
+            label3.Size = new Size(69, 15);
             label3.TabIndex = 15;
             label3.Text = "Lần tái bản:";
             // 
             // thoat
             // 
+            thoat.BackColor = Color.Peru;
+            thoat.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            thoat.ForeColor = Color.White;
             thoat.Location = new Point(566, 352);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
             thoat.TabIndex = 79;
             thoat.Text = "Thoát";
-            thoat.UseVisualStyleBackColor = true;
+            thoat.UseVisualStyleBackColor = false;
             thoat.Click += thoat_Click;
             // 
             // xoa
             // 
-            xoa.Location = new Point(429, 352);
+            xoa.BackColor = Color.Peru;
+            xoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            xoa.ForeColor = Color.White;
+            xoa.Location = new Point(441, 352);
             xoa.Margin = new Padding(4, 3, 4, 3);
             xoa.Name = "xoa";
             xoa.Size = new Size(88, 27);
             xoa.TabIndex = 78;
             xoa.Text = "Xóa";
-            xoa.UseVisualStyleBackColor = true;
+            xoa.UseVisualStyleBackColor = false;
             xoa.Click += xoa_Click;
             // 
             // them
             // 
+            them.BackColor = Color.Peru;
+            them.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            them.ForeColor = Color.White;
             them.Location = new Point(191, 352);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
             them.TabIndex = 77;
             them.Text = "Thêm";
-            them.UseVisualStyleBackColor = true;
+            them.UseVisualStyleBackColor = false;
             them.Click += them_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSeaGreen;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(507, 67);
+            label1.Location = new Point(471, 26);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(130, 26);
+            label1.Size = new Size(183, 36);
             label1.TabIndex = 76;
             label1.Text = "Sách chi tiết";
             // 
@@ -415,6 +442,7 @@ namespace C_PRL
             Controls.Add(them);
             Controls.Add(label1);
             Controls.Add(dgv);
+            ForeColor = Color.White;
             Name = "Sachchitiet1";
             Text = "Sachchitiet1";
             Load += Sachchitiet1_Load;
