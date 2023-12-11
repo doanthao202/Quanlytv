@@ -141,6 +141,16 @@ namespace C_PRL
 
             if (listView2.SelectedItems.Count > 0)
             {
+                comboBox2.ResetText();
+                comboBox1.ResetText();
+                textBox7.Text = "";
+                txtsdt.Text = "";
+                cbxTennv.ResetText();
+                txtTiencoc.Text = "";
+                textBox4.Text = "";
+                listView1.Items.Clear();
+                textBox1.Text = "";
+                //listView2.Enabled = true;
                 txtTiencoc.Enabled = true;
                 ListViewItem lv = listView2.SelectedItems[0];
                 string tendocgia = lv.SubItems[0].Text;
@@ -154,6 +164,7 @@ namespace C_PRL
                     txtsdt.Enabled = false;
                     textBox7.Text = tendocgia;
                     txtsdt.Text = sdt;
+                    listView1.Items.Clear();
                     comboBox2.Items.Clear();
                     foreach (var x in _pm.GetAll().Where(c => c.Tendocgia == tendocgia && c.Sdt == sdt && c.Iddocgia == null&&c.Tinhtrang==1).ToList())
                     {
@@ -256,34 +267,38 @@ namespace C_PRL
                 textBox3.Text = ghichu;
 
 
-                btnXacnhan.Enabled = false;
-                btnXoa.Enabled = true;
+                listView2.Enabled = false;
+            }
+            else
+            {
+                listView2.Enabled = true;
             }
 
 
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
+            
+            listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
                 comboBox1.ResetText();
                 comboBox2.ResetText();
                 textBox3.Text = "";
-                listView2.Enabled = false;
-
-                //comboBox1.Items.Add(sachctclick);
-
-
-            }
-            /*else
+            if (listView1.Items.Count == 0)
             {
+
+
                 listView2.Enabled = true;
-            }*/
-            btnXacnhan.Enabled = true;
-            btnXoa.Enabled = false;
+            }
+            else
+            {
+                listView2.Enabled = false;
+            }
+
+
+
+
         }
-        int x = 0;
+            int x = 0;
         private void them_Click_1(object sender, EventArgs e)
         {
             var phieutra = new Phieutra();
