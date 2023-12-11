@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Giaodien1));
             panel1 = new Panel();
+            label1 = new Label();
+            label2 = new Label();
             menuStrip1 = new MenuStrip();
             hêThôngToolStripMenuItem = new ToolStripMenuItem();
             đăngXiToolStripMenuItem = new ToolStripMenuItem();
@@ -57,6 +60,9 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Peru;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(menuStrip1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -64,10 +70,32 @@
             panel1.Size = new Size(1084, 75);
             panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(944, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 26);
+            label1.TabIndex = 2;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(944, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 21);
+            label2.TabIndex = 4;
+            label2.Text = "label2";
+            // 
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.Peru;
-            menuStrip1.Dock = DockStyle.Fill;
+            menuStrip1.Dock = DockStyle.Left;
             menuStrip1.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { hêThôngToolStripMenuItem, sachToolStripMenuItem, mươntraToolStripMenuItem, thôngKêToolStripMenuItem, đôcGiaToolStripMenuItem, nhânViênToolStripMenuItem });
@@ -75,7 +103,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.System;
-            menuStrip1.Size = new Size(1084, 75);
+            menuStrip1.Size = new Size(550, 75);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -99,6 +127,7 @@
             đôiMâtKhâuToolStripMenuItem.Name = "đôiMâtKhâuToolStripMenuItem";
             đôiMâtKhâuToolStripMenuItem.Size = new Size(175, 24);
             đôiMâtKhâuToolStripMenuItem.Text = "Đổi mật khẩu";
+            đôiMâtKhâuToolStripMenuItem.Click += đôiMâtKhâuToolStripMenuItem_Click;
             // 
             // sachToolStripMenuItem
             // 
@@ -230,6 +259,8 @@
             // 
             // panel2
             // 
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Center;
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 75);
             panel2.Name = "panel2";
@@ -280,5 +311,7 @@
         private ToolStripMenuItem thanhViênToolStripMenuItem;
         private ToolStripMenuItem thEEToolStripMenuItem;
         private ToolStripMenuItem sachChiTiêtToolStripMenuItem1;
+        private Label label1;
+        private Label label2;
     }
 }

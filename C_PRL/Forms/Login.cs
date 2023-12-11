@@ -15,8 +15,10 @@ namespace C_PRL.Forms
     public partial class Login : Form
     {
         private readonly LoginService loginSV;
+        Nhanvienservice _nv = new Nhanvienservice();
         public Login()
         {
+             _nv=new Nhanvienservice();
             loginSV = new LoginService(new LoginRepos());
             InitializeComponent();
         }
@@ -42,13 +44,36 @@ namespace C_PRL.Forms
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1 && loginM.Vaitro == "Thủ thư")
             {
-
+              foreach(var item in _nv.GetAll())
+               {
+                    if ((username == item.Email || username == item.Sdt) && password == item.Pass)
+                    {
+                        Properties.Settings.Default.user = username;
+                        Properties.Settings.Default.password=password;
+                        Properties.Settings.Default.Tennhanvien = item.Hoten;
+                        Properties.Settings.Default.Vaitro = "Thủ thư";
+                        Properties.Settings.Default.Save();
+                    }
+                   
+                }
                 Hienthi giaodienNV = new Hienthi();
                 giaodienNV.Show();
                 this.Hide();
             }
             else if (loginM != null && loginM.Pass == password && loginM.Trangthai == 1)
             {
+                foreach (var item in _nv.GetAll())
+                {
+                    if ((username == item.Email || username == item.Sdt) && password == item.Pass)
+                    {
+                        Properties.Settings.Default.user = username;
+                        Properties.Settings.Default.password = password;
+                        Properties.Settings.Default.Tennhanvien = item.Hoten;
+                        Properties.Settings.Default.Vaitro = "Quản lý";
+                        Properties.Settings.Default.Save();
+                    }
+
+                }
 
                 Giaodien1 giaodien = new Giaodien1();
                 giaodien.Show();

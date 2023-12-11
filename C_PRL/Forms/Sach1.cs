@@ -58,7 +58,8 @@ namespace C_PRL.Forms
             dateTimePicker1.Value = DateTime.Now;
             cbxTheloai.ResetText();
             them.Enabled = true;
-
+            btnXacnhan.Enabled= true;
+            btnXoa.Enabled = true;
             Sua.Enabled = false;
             xoa.Enabled = false;
             listView1.Items.Clear();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,9 +28,9 @@ namespace A_DAL.Repository
                try
             {
                 if (string.IsNullOrWhiteSpace(nhanvien.Hoten)|| string.IsNullOrWhiteSpace(nhanvien.Sdt)|| string.IsNullOrWhiteSpace(nhanvien.Vaitro)|| string.IsNullOrWhiteSpace(nhanvien.Email)|| string.IsNullOrWhiteSpace(nhanvien.Hoten)|| string.IsNullOrWhiteSpace(nhanvien.Pass)|| string.IsNullOrWhiteSpace(Convert.ToString(nhanvien.Trangthai)))
-                {
+                 {
                     return 1;
-                }
+                 }
                 
                 else
                 {
@@ -107,6 +108,31 @@ namespace A_DAL.Repository
             catch
             {
                 return 1;
+            }
+        }
+
+        public bool Update1(int id, string passmoi)
+        {
+            try
+            {
+                
+                
+                    var exit = _context.Nhanviens.Find(id);
+                    if (exit!=null)
+                    {
+                        exit.Pass=passmoi;
+                        _context.Nhanviens.Update(exit);
+                        _context.SaveChanges();
+                       
+                        
+                    }
+                
+                return true;
+
+            }
+            catch
+            {
+                return false;
             }
         }
     }

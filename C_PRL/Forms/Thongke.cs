@@ -29,7 +29,7 @@ namespace C_PRL.Forms
 
         private void Thongke_Load(object sender, EventArgs e)
         {
-            loatData(_phieutractService.Getview1());
+            loatData(_phieumuonctService.Getview1());
         }
 
         public void loatData(dynamic data)

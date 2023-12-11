@@ -138,8 +138,7 @@ namespace C_PRL.Forms
         {
             this.Hide();
             Form f = new Login();
-            /*f.TopLevel = false;
-            panel2.Controls.Add(f);*/
+
             f.Show();
         }
 
@@ -190,7 +189,18 @@ namespace C_PRL.Forms
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+            label1.Text = Properties.Settings.Default.Tennhanvien;
+            label2.Text = Properties.Settings.Default.Vaitro;
+        }
 
+        private void đôiMâtKhâuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            Form f = new Doimatkhau();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panel2.Controls.Add(f);
+            f.Show();
         }
     }
 }

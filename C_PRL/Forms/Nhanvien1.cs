@@ -42,7 +42,7 @@ namespace C_PRL.Forms
             cxbTrangthai.Text = "Hoạt động";
             cxbTrangthai.Enabled = false;
 
-
+           
         }
         public void loatData(dynamic data)
         {

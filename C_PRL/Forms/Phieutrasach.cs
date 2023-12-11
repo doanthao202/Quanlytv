@@ -421,7 +421,7 @@ namespace C_PRL
                         listView1.Items.Clear();
                         listView2.Enabled = true;
                         comboBox2.ResetText();
-
+                        comboBox3.ResetText();
                         loatData1(_pm.GetAll());
 
                     }

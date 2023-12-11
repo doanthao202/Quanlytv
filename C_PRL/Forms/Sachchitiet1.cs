@@ -47,10 +47,7 @@ namespace C_PRL
             {
                 cxbNgonngu.Items.Add(item.Tennn);
             }
-            foreach (var item in _nnservice.GetAll())
-            {
-                cxbNgonngu.Items.Add(item.Tennn);
-            }
+            
             foreach (var item in _nxbService.GetAll())
             {
                 cxbNXB.Items.Add(item.Tennxb);

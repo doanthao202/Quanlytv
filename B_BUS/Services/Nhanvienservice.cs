@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,10 @@ namespace B_BUS.Services
         {
             return _repos.Update(id, nhanvien);
         }
-       
+        public bool Update1(int id, string passmoi)
+        {
+            return _repos.Update1(id, passmoi);
+        }
+
     }
 }
