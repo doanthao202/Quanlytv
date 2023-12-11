@@ -59,10 +59,10 @@ namespace C_PRL
             xoa = new Button();
             them = new Button();
             label1 = new Label();
-            dgv = new DataGridView();
+            dgv1 = new DataGridView();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             SuspendLayout();
             // 
             // Sua
@@ -134,9 +134,9 @@ namespace C_PRL
             label4.Location = new Point(7, 22);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(69, 15);
+            label4.Size = new Size(61, 15);
             label4.TabIndex = 13;
-            label4.Text = "Tên tác giả:";
+            label4.Text = "Tên hạng:";
             // 
             // label5
             // 
@@ -415,23 +415,24 @@ namespace C_PRL
             label1.TabIndex = 76;
             label1.Text = "Sách chi tiết";
             // 
-            // dgv
+            // dgv1
             // 
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(191, 415);
-            dgv.Margin = new Padding(4, 3, 4, 3);
-            dgv.Name = "dgv";
-            dgv.RowHeadersWidth = 51;
-            dgv.Size = new Size(721, 186);
-            dgv.TabIndex = 75;
-            dgv.CellClick += dgv_CellClick;
-            dgv.CellContentClick += dgv_CellContentClick;
+            dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv1.Location = new Point(191, 416);
+            dgv1.Margin = new Padding(4, 3, 4, 3);
+            dgv1.Name = "dgv1";
+            dgv1.RowHeadersWidth = 51;
+            dgv1.Size = new Size(721, 186);
+            dgv1.TabIndex = 85;
+            dgv1.CellClick += dgv1_CellClick;
+            dgv1.CellContentClick += dgv1_CellContentClick;
             // 
             // Sachchitiet1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1068, 666);
+            Controls.Add(dgv1);
             Controls.Add(Sua);
             Controls.Add(groupBox2);
             Controls.Add(label5);
@@ -441,8 +442,7 @@ namespace C_PRL
             Controls.Add(xoa);
             Controls.Add(them);
             Controls.Add(label1);
-            Controls.Add(dgv);
-            ForeColor = Color.White;
+            ForeColor = Color.Black;
             Name = "Sachchitiet1";
             Text = "Sachchitiet1";
             Load += Sachchitiet1_Load;
@@ -450,7 +450,7 @@ namespace C_PRL
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -482,7 +482,6 @@ namespace C_PRL
         private Button xoa;
         private Button them;
         private Label label1;
-        private DataGridView dgv;
         private ComboBox cxbTinhtrang;
         private ComboBox cxbNXB;
         private ComboBox cxbNgonngu;
@@ -490,5 +489,6 @@ namespace C_PRL
         private Label label11;
         private Label label10;
         private Label label6;
+        private DataGridView dgv1;
     }
 }

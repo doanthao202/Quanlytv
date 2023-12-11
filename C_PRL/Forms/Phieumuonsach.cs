@@ -36,7 +36,7 @@ namespace C_PRL.Forms
         {
             cbxKieudocgia.Items.Add("Khách lẻ");
             cbxKieudocgia.Items.Add("Thành viên");
-            foreach (var i in _sachservice.Getview())
+            foreach (var i in _sachservice.Getview().Where(c=>c.Tinhtrang==1||c.Tinhtrang==2))
             {
                 comboBox1.Items.Add(i.Tensach + " - " + i.Tennn + " - " + i.Tennxb + " - " + i.Lantaiban);
             }
@@ -63,13 +63,29 @@ namespace C_PRL.Forms
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-            ListViewItem lv1 = new ListViewItem((_sachservice.Getview().ElementAt(comboBox1.SelectedIndex).Id).ToString());
-            //THÊM CÁC Ô TIẾP THEo
-            lv1.SubItems.Add(comboBox1.Text);
-            lv1.SubItems.Add(textBox3.Text);
-            listView1.Items.Add(lv1);
-            comboBox1.ResetText();
-            textBox3.Text = "";
+            int a = 0;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                ListViewItem lv = listView1.Items[i];
+                if (lv.SubItems[0].Text == _sachservice.Getview().ElementAt(comboBox1.SelectedIndex).Id.ToString() &&lv.SubItems[1].Text == comboBox1.Text  )
+                {
+                    a = 1;
+                }
+            }
+            if (a == 1)
+            {
+                MessageBox.Show("Đã có sách trong phiếu mượn");
+            }
+            else
+            {
+                ListViewItem lv1 = new ListViewItem((_sachservice.Getview().ElementAt(comboBox1.SelectedIndex).Id).ToString());
+                //THÊM CÁC Ô TIẾP THEo
+                lv1.SubItems.Add(comboBox1.Text);
+                lv1.SubItems.Add(textBox3.Text);
+                listView1.Items.Add(lv1);
+                comboBox1.ResetText();
+                textBox3.Text = "";
+            }
         }
 
 
@@ -83,6 +99,7 @@ namespace C_PRL.Forms
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             if (listView1.SelectedItems.Count > 0)
             {
 

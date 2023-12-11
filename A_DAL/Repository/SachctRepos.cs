@@ -25,7 +25,7 @@ namespace A_DAL.Repository
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idsach))|| string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idngonngu))||string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idnxb)))
+                if (Convert.ToString(sachct.Idsach)==""|| Convert.ToString(sachct.Idsach) == "" || Convert.ToString(sachct.Idsach) == "")
                 {
                     return 1;
                 }
@@ -148,7 +148,7 @@ namespace A_DAL.Repository
                 {
                     return 1;
                 }
-                else if (string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idsach)) || string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idngonngu)) || string.IsNullOrWhiteSpace(Convert.ToString(sachct.Idnxb)))
+                else if (Convert.ToString(sachct.Idsach) == "" || Convert.ToString(sachct.Idsach) == "" || Convert.ToString(sachct.Idsach) == "")
                 {
                     return 2;
                 }
