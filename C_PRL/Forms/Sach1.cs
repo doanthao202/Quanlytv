@@ -159,12 +159,26 @@ namespace C_PRL.Forms
             var s1 = new Sach();
             s1.Tensach = txtTensach.Text;
             s1.Ngaynhap = dateTimePicker1.Value;
-            
-                s1.Namxuatban = Convert.ToInt32(txtNam.Text); 
-            
+            if (txtNam.Text == "")
+            {
+                s1.Namxuatban = 0;
+            }
+            else
+            {
+                s1.Namxuatban = Convert.ToInt32(txtNam.Text);
+            }
+
+            if (cbxTheloai.Text == "")
+            {
+                MessageBox.Show("Sách chưa có thể loại");
+            }
+            else
+            {
+                s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
+            }
             
            
-            s1.Idtheloai = _tlservice.GetAll().ElementAt(m).Id;
+            
          
 
             
@@ -339,6 +353,7 @@ namespace C_PRL.Forms
                 textBox3.Text = "";
                 
             }
+            btnXacnhan.Enabled = true;
         }
     }
 }

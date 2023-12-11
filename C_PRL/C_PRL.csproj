@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\Tacgia.cs" />
+    <Compile Remove="Forms\Tacgia.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\Tacgia.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BoldReports.Net.Core" Version="5.3.13" />
     <PackageReference Include="Bunifu.UI.WinForms" Version="6.0.2" />
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
