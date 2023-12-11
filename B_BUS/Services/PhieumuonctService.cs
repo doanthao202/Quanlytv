@@ -102,37 +102,57 @@ namespace B_BUS.Services
                            };
             return joinData.ToList();
         }
+        public List<Soluongsachmuon> Getview3()
+        {
+
+            var joinData =
+                           from Phieumuon in _pmrepos.GetAll()
+                           join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
+                           join Sachchitiet in _srepos.GetAll() on Phieumuonct.Idsachct equals Sachchitiet.Id
+                           where ( Phieumuonct.Idsachct == Sachchitiet.Id)
+                           group Sachchitiet by Sachchitiet.Id into b
+                           select new Soluongsachmuon
+                           {
+                               Id=b.First().Id,
+                               Idsach = b.First().Idsach,
+                               Idnn = b.First().Idngonngu,
+                               Idnxb=b.First().Idnxb,
+                               Lantaiban = b.First().Lantaiban,
+                               soluon=b.Count()
+                           };
+            return joinData.ToList();
+        }
         public List<PmPtPmct> Getview1()
         {
 
-            var joinData = from Phieumuon in _pmrepos.GetAll()
-                           join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
-                           //from Phieutract in _repos.GetAll()
-                           where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Tinhtrang==1 && DateTime.Now > Phieumuon.Ngaytradukien)
+            var joinData = (from Phieumuon in _pmrepos.GetAll()
+                            join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
+                            //from Phieutract in _repos.GetAll()
+                            where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Tinhtrang == 1 && DateTime.Now > Phieumuon.Ngaytradukien)
 
-                           group Phieumuon by Phieumuon.Id into a
-                           select new PmPtPmct
-                           {
-                               Idphieumuon = a.First().Id,
-                               Iddocgia = a.First().Iddocgia,
-                               Idnhanvien = a.First().Idnhanvien,
-                               Tendocgia = a.First().Tendocgia,
-                               Sdt = a.First().Sdt,
-                               Ngaymuon = a.First().Ngaymuon,
-                               Ngaytradukien = a.First().Ngaytradukien,
-                               /* Idphieumuon = Phieumuon.Id,
-                                Iddocgia = Phieumuon.Iddocgia,
-                                Idnhanvien = Phieumuon.Idnhanvien,
-                                Tendocgia = Phieumuon.Tendocgia,
-                                Sdt = Phieumuon.Sdt,
-                                Ngaymuon = Phieumuon.Ngaymuon,
-                                Ngaytradukien = Phieumuon.Ngaytradukien,
-                                Tinhtrang = Phieumuon.Tinhtrang,
-                                Idphieumuonct = Phieumuonct.Id,
-                                Idphieutract = (Phieumuonct.Id == Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,*/
-                               soluong = a.Count()
+                            group Phieumuon by Phieumuon.Id into a
+                            select new PmPtPmct
+                            {
+                                Idphieumuon = a.First().Id,
+                                Iddocgia = a.First().Iddocgia,
+                                Idnhanvien = a.First().Idnhanvien,
+                                Tendocgia = a.First().Tendocgia,
+                                Sdt = a.First().Sdt,
+                                Ngaymuon = a.First().Ngaymuon,
+                                Ngaytradukien = a.First().Ngaytradukien,
+                                /* Idphieumuon = Phieumuon.Id,
+                                 Iddocgia = Phieumuon.Iddocgia,
+                                 Idnhanvien = Phieumuon.Idnhanvien,
+                                 Tendocgia = Phieumuon.Tendocgia,
+                                 Sdt = Phieumuon.Sdt,
+                                 Ngaymuon = Phieumuon.Ngaymuon,
+                                 Ngaytradukien = Phieumuon.Ngaytradukien,
+                                 Tinhtrang = Phieumuon.Tinhtrang,
+                                 Idphieumuonct = Phieumuonct.Id,
+                                 Idphieutract = (Phieumuonct.Id == Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,*/
+                                soluong = a.Count()
 
-                           };
+                            }).OrderByDescending(a => a.soluong);
             return joinData.ToList();
         }
 

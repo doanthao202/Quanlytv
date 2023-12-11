@@ -18,7 +18,7 @@ namespace C_PRL.Forms
     {
         PhieumuonService _pm = new PhieumuonService();
         PhieumuonctService _phieumuonctService = new PhieumuonctService();
-        PhieutractService _phieutractService= new PhieutractService();
+        PhieutractService _phieutractService = new PhieutractService();
         public Thongke()
         {
             _phieutractService = new PhieutractService();
@@ -29,6 +29,7 @@ namespace C_PRL.Forms
 
         private void Thongke_Load(object sender, EventArgs e)
         {
+            
             loatData(_phieumuonctService.Getview1());
         }
 
@@ -38,7 +39,7 @@ namespace C_PRL.Forms
             dataGridView1.Rows.Clear();
             int stt = 1;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnCount = 10;
+            dataGridView1.ColumnCount = 8;
             dataGridView1.Columns[0].Name = "STT";
             dataGridView1.Columns[1].Name = "ID phiếu mượn";
             dataGridView1.Columns[2].Name = "Tên độc giả";
@@ -46,11 +47,9 @@ namespace C_PRL.Forms
             dataGridView1.Columns[4].Name = "Ngày mượn";
             dataGridView1.Columns[5].Name = "Ngày trả dự kiến";
             dataGridView1.Columns[6].Name = "Kiểu độc giả";
-           /* dataGridView1.Columns[7].Name = "Tình trạng";
-            dataGridView1.Columns[8].Name = "Id phiếu mượnct";
-            dataGridView1.Columns[9].Name = "id phiếu trả ct";*/
 
-           dataGridView1.Columns[7].Name = "Số lượng sách chưa trả";
+
+            dataGridView1.Columns[7].Name = "Số lượng sách chưa trả";
             //var i = 0;
 
             var y = "";
@@ -65,7 +64,7 @@ namespace C_PRL.Forms
                     y = "Thành viên";
                 }
 
-                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien,y/*, s.Tinhtrang, s.Idphieumuonct, s.Idphieutract*/, s.soluong);
+                dataGridView1.Rows.Add(stt++, s.Idphieumuon, s.Tendocgia, s.Sdt, s.Ngaymuon, s.Ngaytradukien, y/*, s.Tinhtrang, s.Idphieumuonct, s.Idphieutract*/, s.soluong);
             }
 
         }
@@ -77,8 +76,9 @@ namespace C_PRL.Forms
         int r;
         private void vButton1_Click(object sender, EventArgs e)
         {
-       
-            try {
+
+            try
+            {
                 r = random.Next(1, 10000);
                 using (ExcelEngine excelEngine = new ExcelEngine())
                 {
@@ -99,8 +99,8 @@ namespace C_PRL.Forms
                             worksheet.Range[i + 2, j + 1].Text = dataGridView1.Rows[i].Cells[j].Value.ToString();
                         }
                     }
-                   
-                    Stream excelstream = File.Create(Path.GetFullPath(@"D:\MyExcelFile (" + r + ").xlsx"));
+
+                    Stream excelstream = File.Create(Path.GetFullPath(@"D:\New folder\Xuatfile(" + r + ").xlsx"));
                     workbook.SaveAs(excelstream);
                     excelstream.Dispose();
                     MessageBox.Show("Xuất file thành công");
@@ -110,30 +110,11 @@ namespace C_PRL.Forms
             {
                 MessageBox.Show("Xuất file thất bại");
             }
-            
-            //export2Execl(dataGridView1,@"D:\", "xuatfileExcel");
+
+           
         }
-        /*private void export2Execl(DataGridView g, string duongDan, string tentep)
-        {
-            as1 obj = new as1();
-            obj.Application.Workbooks.Add(Type.Missing);
-            obj.Columns.ColumnWidth = 25;
-            for(int i = 1;i<g.Columns.Count+1;i++)
-            {
-                obj.Cells[1,i]= g.Columns[i-1].HeaderText;
-            }
-            for(int i =0; i<g.Rows.Count;i++)
-            {
-                for(int j=0; j<g.Columns.Count;j++)
-                {
-                    if (g.Rows[i].Cells[j].Value != null)
-                    {
-                        obj.Cells[i + 2, j + 1] = g.Rows[i].Cells[j].Value.ToString();
-                    }
-                }
-            }
-            obj.ActiveWorkbook.SaveCopyAs(duongDan + tentep + ".xlsx");
-            obj.ActiveWorkbook.Saved= true;
-        }*/
+
+        
+        
     }
 }

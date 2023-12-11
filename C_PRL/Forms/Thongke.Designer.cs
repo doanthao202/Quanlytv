@@ -39,20 +39,22 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(273, 101);
+            label1.Location = new Point(236, 127);
             label1.Name = "label1";
-            label1.Size = new Size(584, 36);
+            label1.Size = new Size(793, 45);
             label1.TabIndex = 3;
-            label1.Text = "DANH SÁCH PHIẾU MƯỢN QUÁ HẠN";
+            label1.Text = "DANH SÁCH SÁCH ĐƯỢC MƯỢN NHIỀU";
             label1.Click += label1_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(52, 204);
+            dataGridView1.Location = new Point(59, 272);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(934, 332);
+            dataGridView1.Size = new Size(1067, 443);
             dataGridView1.TabIndex = 2;
             // 
             // vButton1
@@ -66,9 +68,10 @@
             vButton1.FlatStyle = FlatStyle.Flat;
             vButton1.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             vButton1.ForeColor = Color.White;
-            vButton1.Location = new Point(882, 593);
+            vButton1.Location = new Point(1008, 791);
+            vButton1.Margin = new Padding(3, 4, 3, 4);
             vButton1.Name = "vButton1";
-            vButton1.Size = new Size(150, 40);
+            vButton1.Size = new Size(171, 53);
             vButton1.TabIndex = 4;
             vButton1.Text = "Xuất file Excel";
             vButton1.TextColor = Color.White;
@@ -77,12 +80,13 @@
             // 
             // Thongke
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 666);
+            ClientSize = new Size(1221, 872);
             Controls.Add(vButton1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Thongke";
             Text = "Thongke";
             Load += Thongke_Load;

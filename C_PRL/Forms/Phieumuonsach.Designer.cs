@@ -82,9 +82,11 @@
             groupBox2.Controls.Add(textBox3);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.LightSeaGreen;
-            groupBox2.Location = new Point(154, 270);
+            groupBox2.Location = new Point(176, 360);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(732, 271);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(837, 361);
             groupBox2.TabIndex = 83;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin sách mượn";
@@ -94,9 +96,10 @@
             listView1.Columns.AddRange(new ColumnHeader[] { lvid, lvSach, lvghichu });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Location = new Point(86, 92);
+            listView1.Location = new Point(98, 123);
+            listView1.Margin = new Padding(3, 4, 3, 4);
             listView1.Name = "listView1";
-            listView1.Size = new Size(585, 172);
+            listView1.Size = new Size(668, 228);
             listView1.TabIndex = 33;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -122,10 +125,10 @@
             btnXoa.BackColor = Color.Peru;
             btnXoa.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnXoa.ForeColor = Color.Transparent;
-            btnXoa.Location = new Point(440, 59);
-            btnXoa.Margin = new Padding(4, 3, 4, 3);
+            btnXoa.Location = new Point(503, 79);
+            btnXoa.Margin = new Padding(5, 4, 5, 4);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(81, 27);
+            btnXoa.Size = new Size(93, 36);
             btnXoa.TabIndex = 39;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
@@ -136,10 +139,10 @@
             btnXacnhan.BackColor = Color.Peru;
             btnXacnhan.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnXacnhan.ForeColor = Color.Transparent;
-            btnXacnhan.Location = new Point(198, 59);
-            btnXacnhan.Margin = new Padding(4, 3, 4, 3);
+            btnXacnhan.Location = new Point(226, 79);
+            btnXacnhan.Margin = new Padding(5, 4, 5, 4);
             btnXacnhan.Name = "btnXacnhan";
-            btnXacnhan.Size = new Size(126, 27);
+            btnXacnhan.Size = new Size(144, 36);
             btnXacnhan.TabIndex = 37;
             btnXacnhan.Text = "Thêm sách mượn";
             btnXacnhan.UseVisualStyleBackColor = false;
@@ -148,9 +151,10 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(95, 21);
+            comboBox1.Location = new Point(109, 28);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(283, 23);
+            comboBox1.Size = new Size(323, 28);
             comboBox1.TabIndex = 17;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -159,10 +163,10 @@
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(29, 29);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(33, 39);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(36, 15);
+            label4.Size = new Size(46, 19);
             label4.TabIndex = 13;
             label4.Text = "Sách:";
             // 
@@ -171,20 +175,20 @@
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(458, 29);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(523, 39);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(51, 15);
+            label6.Size = new Size(67, 19);
             label6.TabIndex = 15;
             label6.Text = "Ghi chú:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(517, 26);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
+            textBox3.Location = new Point(591, 35);
+            textBox3.Margin = new Padding(5, 4, 5, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(174, 23);
+            textBox3.Size = new Size(198, 29);
             textBox3.TabIndex = 16;
             // 
             // cbxDocgia
@@ -209,9 +213,11 @@
             cbxDocgia.Controls.Add(label3);
             cbxDocgia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             cbxDocgia.ForeColor = Color.LightSeaGreen;
-            cbxDocgia.Location = new Point(154, 81);
+            cbxDocgia.Location = new Point(176, 108);
+            cbxDocgia.Margin = new Padding(3, 4, 3, 4);
             cbxDocgia.Name = "cbxDocgia";
-            cbxDocgia.Size = new Size(732, 183);
+            cbxDocgia.Padding = new Padding(3, 4, 3, 4);
+            cbxDocgia.Size = new Size(837, 244);
             cbxDocgia.TabIndex = 80;
             cbxDocgia.TabStop = false;
             cbxDocgia.Text = "Thông tin phiếu mượn";
@@ -219,10 +225,10 @@
             // txtsdt
             // 
             txtsdt.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtsdt.Location = new Point(589, 63);
-            txtsdt.Margin = new Padding(4, 3, 4, 3);
+            txtsdt.Location = new Point(684, 89);
+            txtsdt.Margin = new Padding(5, 4, 5, 4);
             txtsdt.Name = "txtsdt";
-            txtsdt.Size = new Size(126, 23);
+            txtsdt.Size = new Size(143, 27);
             txtsdt.TabIndex = 34;
             txtsdt.TextChanged += txtsdt_TextChanged;
             txtsdt.KeyPress += txtsdt_KeyPress;
@@ -232,20 +238,20 @@
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(484, 70);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(553, 93);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(28, 15);
+            label7.Size = new Size(36, 19);
             label7.TabIndex = 33;
             label7.Text = "Sdt:";
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(589, 147);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
+            textBox2.Location = new Point(686, 196);
+            textBox2.Margin = new Padding(5, 4, 5, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(126, 23);
+            textBox2.Size = new Size(143, 27);
             textBox2.TabIndex = 32;
             // 
             // label12
@@ -253,19 +259,20 @@
             label12.AutoSize = true;
             label12.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label12.ForeColor = Color.Black;
-            label12.Location = new Point(481, 150);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(550, 200);
+            label12.Margin = new Padding(5, 0, 5, 0);
             label12.Name = "label12";
-            label12.Size = new Size(88, 15);
+            label12.Size = new Size(114, 19);
             label12.TabIndex = 30;
             label12.Text = "Phí mượn sách:";
             // 
             // cbxTennv
             // 
             cbxTennv.FormattingEnabled = true;
-            cbxTennv.Location = new Point(98, 62);
+            cbxTennv.Location = new Point(112, 83);
+            cbxTennv.Margin = new Padding(3, 4, 3, 4);
             cbxTennv.Name = "cbxTennv";
-            cbxTennv.Size = new Size(109, 23);
+            cbxTennv.Size = new Size(124, 28);
             cbxTennv.TabIndex = 28;
             // 
             // label10
@@ -273,10 +280,10 @@
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(484, 105);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(553, 138);
+            label10.Margin = new Padding(5, 0, 5, 0);
             label10.Name = "label10";
-            label10.Size = new Size(98, 15);
+            label10.Size = new Size(125, 19);
             label10.TabIndex = 27;
             label10.Text = "Ngày trả dự kiến:";
             label10.Click += label10_Click;
@@ -286,18 +293,20 @@
             datengaytra.CustomFormat = "dd/MM/yyyy";
             datengaytra.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             datengaytra.Format = DateTimePickerFormat.Custom;
-            datengaytra.Location = new Point(589, 99);
+            datengaytra.Location = new Point(686, 133);
+            datengaytra.Margin = new Padding(3, 4, 3, 4);
             datengaytra.Name = "datengaytra";
-            datengaytra.Size = new Size(124, 23);
+            datengaytra.Size = new Size(141, 27);
             datengaytra.TabIndex = 26;
             datengaytra.ValueChanged += datengaytra_ValueChanged_1;
             // 
             // cbxTenthanhvien
             // 
             cbxTenthanhvien.FormattingEnabled = true;
-            cbxTenthanhvien.Location = new Point(336, 25);
+            cbxTenthanhvien.Location = new Point(384, 33);
+            cbxTenthanhvien.Margin = new Padding(3, 4, 3, 4);
             cbxTenthanhvien.Name = "cbxTenthanhvien";
-            cbxTenthanhvien.Size = new Size(128, 23);
+            cbxTenthanhvien.Size = new Size(146, 28);
             cbxTenthanhvien.TabIndex = 25;
             cbxTenthanhvien.SelectedIndexChanged += cbxTenthanhvien_SelectedIndexChanged;
             // 
@@ -306,20 +315,20 @@
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(231, 33);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(264, 44);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(91, 15);
+            label5.Size = new Size(111, 19);
             label5.TabIndex = 24;
             label5.Text = "Tên thành viên:";
             // 
             // txtTenkhachle
             // 
             txtTenkhachle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenkhachle.Location = new Point(589, 20);
-            txtTenkhachle.Margin = new Padding(4, 3, 4, 3);
+            txtTenkhachle.Location = new Point(686, 32);
+            txtTenkhachle.Margin = new Padding(5, 4, 5, 4);
             txtTenkhachle.Name = "txtTenkhachle";
-            txtTenkhachle.Size = new Size(126, 23);
+            txtTenkhachle.Size = new Size(143, 27);
             txtTenkhachle.TabIndex = 23;
             txtTenkhachle.KeyPress += txtTenkhachle_KeyPress;
             // 
@@ -328,19 +337,20 @@
             label9.AutoSize = true;
             label9.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(10, 65);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(11, 87);
+            label9.Margin = new Padding(5, 0, 5, 0);
             label9.Name = "label9";
-            label9.Size = new Size(87, 15);
+            label9.Size = new Size(106, 19);
             label9.TabIndex = 22;
             label9.Text = "Tên nhân viên:";
             // 
             // cbxKieudocgia
             // 
             cbxKieudocgia.FormattingEnabled = true;
-            cbxKieudocgia.Location = new Point(98, 20);
+            cbxKieudocgia.Location = new Point(112, 27);
+            cbxKieudocgia.Margin = new Padding(3, 4, 3, 4);
             cbxKieudocgia.Name = "cbxKieudocgia";
-            cbxKieudocgia.Size = new Size(109, 23);
+            cbxKieudocgia.Size = new Size(124, 28);
             cbxKieudocgia.TabIndex = 21;
             cbxKieudocgia.SelectedIndexChanged += cbxKieudocgia_SelectedIndexChanged;
             // 
@@ -349,10 +359,10 @@
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(10, 147);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(11, 196);
+            label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(56, 15);
+            label8.Size = new Size(72, 19);
             label8.TabIndex = 20;
             label8.Text = "Tiền cọc:";
             // 
@@ -361,10 +371,10 @@
             txtDocgia.AutoSize = true;
             txtDocgia.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtDocgia.ForeColor = Color.Black;
-            txtDocgia.Location = new Point(481, 28);
-            txtDocgia.Margin = new Padding(4, 0, 4, 0);
+            txtDocgia.Location = new Point(550, 37);
+            txtDocgia.Margin = new Padding(5, 0, 5, 0);
             txtDocgia.Name = "txtDocgia";
-            txtDocgia.Size = new Size(73, 15);
+            txtDocgia.Size = new Size(93, 19);
             txtDocgia.TabIndex = 17;
             txtDocgia.Text = "Tên độc giả:";
             // 
@@ -373,19 +383,20 @@
             dtpNgaymuon.CustomFormat = "dd/MM/yyyy";
             dtpNgaymuon.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dtpNgaymuon.Format = DateTimePickerFormat.Custom;
-            dtpNgaymuon.Location = new Point(95, 100);
+            dtpNgaymuon.Location = new Point(109, 133);
+            dtpNgaymuon.Margin = new Padding(3, 4, 3, 4);
             dtpNgaymuon.Name = "dtpNgaymuon";
-            dtpNgaymuon.Size = new Size(112, 23);
+            dtpNgaymuon.Size = new Size(127, 27);
             dtpNgaymuon.TabIndex = 16;
             dtpNgaymuon.ValueChanged += dtpNgaymuon_ValueChanged;
             // 
             // txtTiencoc
             // 
             txtTiencoc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTiencoc.Location = new Point(95, 139);
-            txtTiencoc.Margin = new Padding(4, 3, 4, 3);
+            txtTiencoc.Location = new Point(109, 185);
+            txtTiencoc.Margin = new Padding(5, 4, 5, 4);
             txtTiencoc.Name = "txtTiencoc";
-            txtTiencoc.Size = new Size(112, 23);
+            txtTiencoc.Size = new Size(127, 27);
             txtTiencoc.TabIndex = 14;
             // 
             // label2
@@ -393,10 +404,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(10, 24);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(11, 32);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(77, 15);
+            label2.Size = new Size(101, 19);
             label2.TabIndex = 13;
             label2.Text = "Kiểu độc giả:";
             // 
@@ -405,10 +416,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(10, 106);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(11, 141);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(72, 15);
+            label3.Size = new Size(92, 19);
             label3.TabIndex = 15;
             label3.Text = "Ngày mượn:";
             // 
@@ -416,10 +427,10 @@
             // 
             thoat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             thoat.ForeColor = Color.Red;
-            thoat.Location = new Point(558, 560);
-            thoat.Margin = new Padding(4, 3, 4, 3);
+            thoat.Location = new Point(638, 747);
+            thoat.Margin = new Padding(5, 4, 5, 4);
             thoat.Name = "thoat";
-            thoat.Size = new Size(60, 27);
+            thoat.Size = new Size(69, 36);
             thoat.TabIndex = 79;
             thoat.Text = "Thoát";
             thoat.UseVisualStyleBackColor = true;
@@ -429,10 +440,10 @@
             // 
             them.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             them.ForeColor = Color.Red;
-            them.Location = new Point(154, 560);
-            them.Margin = new Padding(4, 3, 4, 3);
+            them.Location = new Point(176, 747);
+            them.Margin = new Padding(5, 4, 5, 4);
             them.Name = "them";
-            them.Size = new Size(143, 27);
+            them.Size = new Size(163, 36);
             them.TabIndex = 77;
             them.Text = "Thêm phiếu mượn";
             them.UseVisualStyleBackColor = true;
@@ -443,10 +454,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(368, 21);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(421, 28);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(227, 36);
+            label1.Size = new Size(288, 45);
             label1.TabIndex = 76;
             label1.Text = "PHIẾU MƯỢN";
             // 
@@ -454,10 +465,10 @@
             // 
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.Red;
-            button2.Location = new Point(324, 560);
-            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Location = new Point(370, 747);
+            button2.Margin = new Padding(5, 4, 5, 4);
             button2.Name = "button2";
-            button2.Size = new Size(104, 27);
+            button2.Size = new Size(119, 36);
             button2.TabIndex = 85;
             button2.Text = "Xuất phiếu mượn";
             button2.UseVisualStyleBackColor = true;
@@ -466,10 +477,10 @@
             // 
             button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.Red;
-            button3.Location = new Point(455, 560);
-            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Location = new Point(520, 747);
+            button3.Margin = new Padding(5, 4, 5, 4);
             button3.Name = "button3";
-            button3.Size = new Size(76, 27);
+            button3.Size = new Size(87, 36);
             button3.TabIndex = 86;
             button3.Text = "Gia hạn";
             button3.UseVisualStyleBackColor = true;
@@ -480,10 +491,10 @@
             button1.BackColor = SystemColors.ActiveCaption;
             button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(687, 560);
-            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Location = new Point(785, 747);
+            button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(199, 27);
+            button1.Size = new Size(227, 36);
             button1.TabIndex = 87;
             button1.Text = "Xem danh sách phiếu mượn";
             button1.UseVisualStyleBackColor = false;
@@ -494,9 +505,9 @@
             // 
             // Phieumuonsach
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 666);
+            ClientSize = new Size(1221, 888);
             Controls.Add(button1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -506,6 +517,7 @@
             Controls.Add(them);
             Controls.Add(label1);
             ForeColor = Color.Black;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Phieumuonsach";
             Text = "Phieumuonsach";
             Load += Phieumuonsach_Load;
