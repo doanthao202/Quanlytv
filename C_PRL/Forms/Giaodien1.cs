@@ -97,7 +97,7 @@ namespace C_PRL.Forms
         private void tacGiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            Form f = new Tacgia();
+            Form f = new Tacgia1();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             panel2.Controls.Add(f);

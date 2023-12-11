@@ -96,7 +96,7 @@ namespace C_PRL
             // 
             // btnXoa
             // 
-            btnXoa.ForeColor = Color.White;
+            btnXoa.ForeColor = Color.Red;
             btnXoa.Location = new Point(102, 94);
             btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
@@ -108,7 +108,7 @@ namespace C_PRL
             // 
             // btnXacnhan
             // 
-            btnXacnhan.ForeColor = Color.White;
+            btnXacnhan.ForeColor = Color.Red;
             btnXacnhan.Location = new Point(7, 94);
             btnXacnhan.Margin = new Padding(4, 3, 4, 3);
             btnXacnhan.Name = "btnXacnhan";
@@ -218,7 +218,7 @@ namespace C_PRL
             label10.Name = "label10";
             label10.Size = new Size(101, 15);
             label10.TabIndex = 29;
-            label10.Text = "Độ tuội đọc sách:";
+            label10.Text = "Độ tuổi đọc sách:";
             // 
             // cxbTinhtrang
             // 
@@ -260,7 +260,7 @@ namespace C_PRL
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { lvhang });
             listView1.FullRowSelect = true;
-            listView1.Location = new Point(377, 98);
+            listView1.Location = new Point(361, 91);
             listView1.Name = "listView1";
             listView1.Size = new Size(122, 114);
             listView1.TabIndex = 24;
@@ -310,9 +310,9 @@ namespace C_PRL
             label8.Location = new Point(257, 98);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(105, 15);
+            label8.Size = new Size(97, 15);
             label8.TabIndex = 20;
-            label8.Text = "Danh sách tác giả:";
+            label8.Text = "Danh sách hạng:";
             label8.Click += label8_Click;
             // 
             // label7
@@ -418,7 +418,7 @@ namespace C_PRL
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(191, 385);
+            dgv.Location = new Point(191, 415);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
