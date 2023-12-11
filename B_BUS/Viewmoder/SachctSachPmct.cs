@@ -19,6 +19,6 @@ namespace B_BUS.Viewmoder
         public string Tennxb { get; set; }
         public int? Lantaiban { get; set; }
         public int Idphieutract { get; set; }
-
+        public int? Tinhtrangpmct { get; set; }
     }
 }

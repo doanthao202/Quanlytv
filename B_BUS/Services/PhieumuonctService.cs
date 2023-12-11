@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using A_DAL.Models;
+using A_DAL.Models1;
 using A_DAL.Repository;
 using B_BUS.Viewmoder;
 using BoldReports.Data;
@@ -11,20 +11,21 @@ using BoldReports.Data;
 namespace B_BUS.Services
 {
     public class PhieumuonctService
-    { 
+    {
+       
         PhieumuonctRepos _repos = new PhieumuonctRepos();
         SachctRepos _srepos = new SachctRepos();
         Sachrepos _schrepos = new Sachrepos();
         NgonnguRepos _nnrepos = new NgonnguRepos();
         NxbRepos _nxbrepos = new NxbRepos();
-        PhieumuonService _pmrepos = new PhieumuonService();
-      PhieutractService _ptct = new PhieutractService();
+    PhieumuonRepos _pmrepos = new PhieumuonRepos();
+      Phieutrachitietrepos _ptct = new Phieutrachitietrepos();
         public PhieumuonctService()
         {
             
         }
 
-        public PhieumuonctService(PhieumuonctRepos repos, SachctRepos srepos, Sachrepos schrepos, NgonnguRepos nnrepos, NxbRepos nxbrepos, PhieumuonService pmrepos, PhieutractService ptct)
+        public PhieumuonctService(PhieumuonctRepos repos, SachctRepos srepos, Sachrepos schrepos, NgonnguRepos nnrepos, NxbRepos nxbrepos, PhieumuonRepos pmrepos, Phieutrachitietrepos ptct)
         {
             _repos = repos;
             _srepos = srepos;
@@ -67,7 +68,11 @@ namespace B_BUS.Services
         {
             return _repos.Update(id, phieumuon);
         }
-      //  var y = _ptct.GetAll().ToList();
+        //  var y = _ptct.GetAll().ToList();
+        public bool Update1(int id)
+        {
+            return _repos.Update1(id);
+        }
         public List<SachctSachPmct> Getview()
         {
             
@@ -77,9 +82,8 @@ namespace B_BUS.Services
                            join Nxb in _nxbrepos.GetAll() on Sachchitiet.Idnxb equals Nxb.Id
                            join Phieumuonct in _repos.GetAll() on Sachchitiet.Id equals Phieumuonct.Idsachct
                            join Phieumuon in _pmrepos.GetAll() on Phieumuonct.Idphieumuon equals Phieumuon.Id
-                           from Phieutract in _ptct.GetAll()
-                           
-                           where (Phieumuonct.Id != Phieutract.Idphieumuonct&& Phieumuon.Tinhtrang==1)
+                         
+                           where (Phieumuon.Tinhtrang==1 )
 
                            select new SachctSachPmct
                            {
@@ -93,43 +97,13 @@ namespace B_BUS.Services
                                Tennn = Ngonngu.Tennn,
                                Tennxb = Nxb.Tennxb,
                                Lantaiban = Sachchitiet.Lantaiban,
-                               Idphieutract = (Phieumuonct.Id == Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
+                               Tinhtrangpmct = Phieumuonct.Tinhtrang
+                               //Idphieutract = (Phieumuonct.Id == Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
                            };
             return joinData.ToList();
         }
+      
 
-        public List<PmPtPmct> Getview1()
-        {
-
-            var joinData = from Phieumuon in _pmrepos.GetAll()
-                           join Phieumuonct in _repos.GetAll() on Phieumuon.Id equals Phieumuonct.Idphieumuon
-                           from Phieutract in _ptct.GetAll()                                                                                                                            
-                           where (Phieumuon.Tinhtrang == 1 && Phieumuon.Id == Phieumuonct.Idphieumuon && Phieumuonct.Id != Phieutract.Idphieumuonct && DateTime.Now > Phieumuon.Ngaytradukien)
-
-                          // group Phieumuon by Phieumuon.Id into a
-                           select new PmPtPmct
-                           {
-                               /* Idphieumuon = a.FirstOrDefault().Id,
-                                Iddocgia = a.FirstOrDefault().Iddocgia,
-                                Idnhanvien = a.FirstOrDefault().Idnhanvien,
-                                Tendocgia = a.FirstOrDefault().Tendocgia,
-                                Sdt = a.FirstOrDefault().Sdt,
-                                Ngaymuon = a.FirstOrDefault().Ngaymuon,
-                                Ngaytradukien = a.FirstOrDefault().Ngaytradukien,*/
-                               Idphieumuon = Phieumuon.Id,
-                               Iddocgia = Phieumuon.Iddocgia,
-                               Idnhanvien = Phieumuon.Idnhanvien,
-                               Tendocgia = Phieumuon.Tendocgia,
-                               Sdt = Phieumuon.Sdt,
-                               Ngaymuon = Phieumuon.Ngaymuon,
-                               Ngaytradukien = Phieumuon.Ngaytradukien,
-                               Tinhtrang = Phieumuon.Tinhtrang,
-                               Idphieumuonct = Phieumuonct.Id,
-                               Idphieutract = (Phieumuonct.Id == Phieutract.Idphieumuonct) ? Phieutract.Idphieumuonct : 0,
-                               //soluong = Phieumuonct.Id.Count()
-
-                           };
-            return joinData.ToList();
-        }
+        
     }
 }

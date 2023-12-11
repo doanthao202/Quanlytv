@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class Phieumuonct
     {
@@ -14,7 +14,7 @@ namespace A_DAL.Models
         public int Idsachct { get; set; }
         public int Idphieumuon { get; set; }
         public string? Ghichu { get; set; }
-
+        public int? Tinhtrang { get; set; }
         public virtual Phieumuon IdphieumuonNavigation { get; set; } = null!;
         public virtual Sachchitiet IdsachctNavigation { get; set; } = null!;
         public virtual ICollection<Phieutract> Phieutracts { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 using Microsoft.EntityFrameworkCore;
 
 namespace A_DAL.Repository
@@ -105,6 +105,29 @@ namespace A_DAL.Repository
             catch
             {
                 return 1;
+            }
+        }
+
+        public bool Update1(int id)
+        {
+            try
+            {
+                var exist = _dbContext.Phieumuoncts.Find(id);
+
+
+
+                   exist.Tinhtrang = 0;
+                    
+
+                    _dbContext.Phieumuoncts.Update(exist);
+                    _dbContext.SaveChanges();
+                    return true;
+                
+
+            }
+            catch
+            {
+                return false;
             }
         }
     }

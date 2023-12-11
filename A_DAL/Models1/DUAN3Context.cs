@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace A_DAL.Models
+namespace A_DAL.Models1
 {
     public partial class DUAN3Context : DbContext
     {
@@ -256,12 +256,14 @@ namespace A_DAL.Models
                 entity.Property(e => e.Idphieumuon).HasColumnName("IDPHIEUMUON");
 
                 entity.Property(e => e.Idsachct).HasColumnName("IDSACHCT");
+                entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
 
                 entity.HasOne(d => d.IdphieumuonNavigation)
                     .WithMany(p => p.Phieumuoncts)
                     .HasForeignKey(d => d.Idphieumuon)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PHIEUMUON_PHIEUMUONCT");
+
 
                 entity.HasOne(d => d.IdsachctNavigation)
                     .WithMany(p => p.Phieumuoncts)
@@ -299,7 +301,6 @@ namespace A_DAL.Models
 
                 entity.Property(e => e.Tendocgia)
                     .HasMaxLength(30)
-                    .IsUnicode(false)
                     .HasColumnName("TENDOCGIA");
 
                 entity.Property(e => e.Tienphat)

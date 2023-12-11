@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 using C_PRL.Forms;
 
@@ -93,7 +93,7 @@ namespace C_PRL
 
                 foreach (var s in _pm.GetAll())
                 {
-                    if (s.Tinhtrang == 1 && s.Iddocgia == null)
+                    if (s.Tinhtrang == 1 && s.Iddocgia == null && s.Tinhtrang == 1)
                     {
 
                         ListViewItem lv1 = new ListViewItem(s.Tendocgia);
@@ -108,13 +108,13 @@ namespace C_PRL
 
                 }
             }
-            if (comboBox3.SelectedIndex == 1)
+           else if (comboBox3.SelectedIndex == 1)
             {
                 listView2.Items.Clear();
 
                 foreach (var s in _pm.GetAll())
                 {
-                    if (s.Tinhtrang == 1 && s.Iddocgia != null)
+                    if (s.Tinhtrang == 1 && s.Iddocgia != null && s.Tinhtrang == 1)
                     {
 
                         ListViewItem lv1 = new ListViewItem(s.Tendocgia);
@@ -155,15 +155,10 @@ namespace C_PRL
                     textBox7.Text = tendocgia;
                     txtsdt.Text = sdt;
                     comboBox2.Items.Clear();
-                    foreach (var x in _pm.GetAll().Where(c => c.Tendocgia == tendocgia && c.Sdt == sdt && c.Iddocgia == null))
+                    foreach (var x in _pm.GetAll().Where(c => c.Tendocgia == tendocgia && c.Sdt == sdt && c.Iddocgia == null&&c.Tinhtrang==1).ToList())
                     {
                         comboBox2.Items.Add(x.Id);
-                        //comboBox1.Items.Add(x.Idphieumuon + " - " + x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
-                    }/*foreach (var x in _pmct.Getview().Where(c => c.Tendocgia==tendocgia&&c.Sdt==sdt&& c.Iddocgia==null))
-                    {
-                        comboBox2.Items.Add(x.Idphieumuon);
-                        //comboBox1.Items.Add(x.Idphieumuon + " - " + x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
-                    }*/
+                    }
                 }
                 else
                 {
@@ -181,7 +176,7 @@ namespace C_PRL
                         comboBox2.Items.Add(x.Idphieumuon);
                         // comboBox1.Items.Add(x.Idphieumuon + " - " + x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
                     }*/
-                    foreach (var x in _pm.GetAll().Where(c => c.Tendocgia == tendocgia && c.Sdt == sdt && c.Iddocgia != null))
+                    foreach (var x in _pm.GetAll().Where(c => c.Tendocgia == tendocgia && c.Sdt == sdt && c.Iddocgia != null&& c.Tinhtrang == 1).ToList())
                     {
                         comboBox2.Items.Add(x.Id);
                         // comboBox1.Items.Add(x.Idphieumuon + " - " + x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
@@ -199,15 +194,28 @@ namespace C_PRL
         {
 
             var i = Convert.ToInt32(comboBox2.Text);
+            var m = 0;
             comboBox1.Items.Clear();
-            foreach (var x in _pmct.Getview()/*.Where(c => c.Idphieumuon == i)*/)
+
+            foreach (var x in _pmct.Getview())
             {
-                if (x.Idphieumuon == i)
+                if (x.Idphieumuon == i && x.Tinhtrangpmct==1)
                 {
-                    comboBox1.Items.Add(x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
-                }
-                
+
+                   
+
+                    
+                        comboBox1.Items.Add(x.Tensach + " - " + x.Tennn + " - " + x.Tennxb + " - " + x.Lantaiban);
+                    }
+
+
+
+
             }
+
+
+
+
 
         }
 
@@ -222,7 +230,7 @@ namespace C_PRL
             listView1.Items.Add(lv1);
             comboBox1.ResetText();
             //comboBox1.Items.RemoveAt(m);
-            comboBox1.ResetText();
+            comboBox2.ResetText();
             //comboBox2.ResetText();
             //comboBox2.Items.Clear();
 
@@ -315,14 +323,15 @@ namespace C_PRL
                     {
                         phieutra.Hoancoc = Convert.ToDecimal(txtTiencoc.Text);
                     }
-                    _ptservice.add(phieutra);
-                    x = phieutra.Id;
+                  
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu trả chưa có thông tin sách trả");
                     }
                     else
                     {
+                        _ptservice.add(phieutra);
+                        x = phieutra.Id;
                         for (int i = 0; i < listView1.Items.Count; i++)
                         {
                             ListViewItem lv = listView1.Items[i];
@@ -348,24 +357,40 @@ namespace C_PRL
                                         pt.Idphieumuonct = item.Id;
                                         pt.Ghichu = lv.SubItems[2].Text;
 
-                                        
                                         _ptct.add(pt);
-                                        
+
+                                        _pmct.Update1(pt.Idphieumuonct);
+                                        var op = _pmct.Getview().Where(x => x.Idphieumuon == idpm && x.Tinhtrangpmct == 1).Count();
+
+                                        if (op <1)
+                                        {
+                                            _pm.Update(idpm);
+                                        }
                                     }
-                                    break;
+                                    
                                 }
-                                MessageBox.Show("Trả sách thành công");
-                                comboBox1.ResetText();
-                                textBox7.Text = "";
-                                txtsdt.Text = "";
-                                cbxTennv.ResetText();
-                                txtTiencoc.Text = "";
-                                textBox4.Text = "";
-                                listView1.Items.Clear();
-                                listView2.Enabled = true;
-                                comboBox2.ResetText();
+
+                              
+
                             }
+
                         }
+                      
+
+
+                        MessageBox.Show("Trả sách thành công");
+
+                        comboBox1.ResetText();
+                        textBox7.Text = "";
+                        txtsdt.Text = "";
+                        cbxTennv.ResetText();
+                        txtTiencoc.Text = "";
+                        textBox4.Text = "";
+                        listView1.Items.Clear();
+                        listView2.Enabled = true;
+                        comboBox2.ResetText();
+
+                        loatData1(_pm.GetAll());
 
                     }
                 }
@@ -395,18 +420,17 @@ namespace C_PRL
                     {
                         phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
                     }
-                    if (textBox2.Text == "")
+
+                    phieutra.Lydophat = textBox2.Text;
+                    if (txtTiencoc.Text == "")
                     {
-                        phieutra.Lydophat = null;
+                        phieutra.Hoancoc = 0;
                     }
                     else
                     {
-                        phieutra.Lydophat = textBox2.Text;
+                        phieutra.Hoancoc = Convert.ToDecimal(txtTiencoc.Text);
                     }
-                    
-                    phieutra.Hoancoc = 0;
-                    _ptservice.add(phieutra);
-                    x = phieutra.Id;
+
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu trả chưa có thông tin sách trả");
@@ -440,29 +464,38 @@ namespace C_PRL
                                             pt.Ghichu = lv.SubItems[2].Text;
 
                                             _ptct.add(pt);
-                                            
+                                        _pmct.Update1(pt.Idphieumuonct);
+                                        var op1 = _pmct.Getview().Where(x => x.Idphieumuon == idpm && x.Tinhtrangpmct == 1).Count();
+
+                                        if (op1 < 1)
+                                        {
+                                            _pm.Update(idpm);
                                         }
-                                    break;
+                                    }
+                                   // break;
 
                                 }
-                                MessageBox.Show("Trả sách thành công");
+                               
                             }
                         }
+                        MessageBox.Show("Trả sách thành công");
+                        comboBox2.ResetText();
+                        comboBox1.ResetText();
+                        textBox7.Text = "";
+                        txtsdt.Text = "";
+                        cbxTennv.ResetText();
+                        txtTiencoc.Text = "";
+                        textBox4.Text = "";
+                        listView1.Items.Clear();
+                        textBox1.Text = "";
+                        listView2.Enabled = true;
+                        loatData1(_pm.GetAll());
                     }
-                    comboBox2.ResetText();
-                    comboBox1.ResetText();
-                    textBox7.Text = "";
-                    txtsdt.Text = "";
-                    cbxTennv.ResetText();
-                    txtTiencoc.Text = "";
-                    textBox4.Text = "";
-                    listView1.Items.Clear();
-                    textBox1.Text = "";
-                    listView2.Enabled = true;
-                  /*  phieutra.Ngaytra = dtpNgaymuon.Value;
-                    phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
-                    phieutra.Lydophat = textBox2.Text;
-                    phieutra.Hoancoc = 0;*/
+                    
+                    /*  phieutra.Ngaytra = dtpNgaymuon.Value;
+                      phieutra.Tienphat = Convert.ToDecimal(textBox4.Text);
+                      phieutra.Lydophat = textBox2.Text;
+                      phieutra.Hoancoc = 0;*/
 
                     // phieutra.Tinhtrangtra = 0;
                 }

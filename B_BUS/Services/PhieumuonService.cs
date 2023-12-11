@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using A_DAL.Models;
+using A_DAL.Models1;
 using A_DAL.Repository;
 using B_BUS.Viewmoder;
 using Microsoft.EntityFrameworkCore;
@@ -43,9 +43,9 @@ namespace B_BUS.Services
         }
        
       
-        public int Update(int id, Phieumuon phieumuon)
+        public bool Update(int id)
         {
-            return _repos.Update(id, phieumuon);
+            return _repos.Update(id);
         }
         public List<Phieumuon> GetSearch(string searchText, string x)
         {

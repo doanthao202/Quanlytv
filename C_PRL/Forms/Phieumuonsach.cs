@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
 
 namespace C_PRL.Forms
@@ -222,8 +222,9 @@ namespace C_PRL.Forms
                                 var phieumuonchitiet = new Phieumuonct();
                                 phieumuonchitiet.Idsachct = idsach;
                                 phieumuonchitiet.Idphieumuon = x;
-                                phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
 
+                                phieumuonchitiet.Ghichu = lv.SubItems[2].Text;
+                                phieumuonchitiet.Tinhtrang = 1;
                                 _pmctservice.add(phieumuonchitiet);
                                 MessageBox.Show("Thêm phiếu thành công");
                                 comboBox1.Enabled = true;

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 namespace A_DAL.Repository
 {
@@ -55,40 +55,22 @@ namespace A_DAL.Repository
             return _dbContext.Phieumuons.ToList();
         }
 
-        public int Update(int id, Phieumuon phieumuon)
+        public bool Update(int id)
         {
             try
             {
                 var exist = _dbContext.Phieumuons.Find(id);
-                if (exist == null)
-                {
-                    return 1;
-                }
-                else if (string.IsNullOrWhiteSpace(phieumuon.Idnhanvien.ToString()))
-                {
-                    return 2;
-                }
-                else
-                {
-                    
-                    exist.Iddocgia = phieumuon.Iddocgia;
-                    exist.Tendocgia = phieumuon.Tendocgia;
-                    exist.Sdt=phieumuon.Sdt;
-                    exist.Idnhanvien = phieumuon.Idnhanvien;
-                    exist.Ngaymuon = phieumuon.Ngaymuon;
-                    exist.Ngaytradukien = phieumuon.Ngaytradukien;
-                    exist.Tiencoc = phieumuon.Tiencoc;
-                    exist.Phimuon = phieumuon.Phimuon;
-                    exist.Tinhtrang = phieumuon.Tinhtrang;
+                
+                    exist.Tinhtrang = 0;
                     _dbContext.Phieumuons.Update(exist);
                     _dbContext.SaveChanges();
-                    return 3;
-                }
+                    return true;
+                
 
             }
             catch
             {
-                return 1;
+                return false;
             }
         }
         public List<Phieumuon> GetSearch(string searchText,string x)

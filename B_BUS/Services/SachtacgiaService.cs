@@ -4,7 +4,7 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using A_DAL.Models;
+using A_DAL.Models1;
 using A_DAL.Repository;
 using B_BUS.Viewmoder;
 using Microsoft.EntityFrameworkCore;
