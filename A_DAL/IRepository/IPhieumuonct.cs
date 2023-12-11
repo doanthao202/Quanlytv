@@ -13,7 +13,7 @@ namespace A_DAL.IRepository
 
         int Add(Phieumuonct phieumuonct);
         int Update(int id, Phieumuonct phieumuonct);
-        bool Update1(int id);
+        bool Update1(int id,int trangthai);
         bool Delete(int id);
         bool Delete1(int id);
     }

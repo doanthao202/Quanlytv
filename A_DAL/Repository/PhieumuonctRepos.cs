@@ -108,7 +108,7 @@ namespace A_DAL.Repository
             }
         }
 
-        public bool Update1(int id)
+        public bool Update1(int id, int trangthai)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace A_DAL.Repository
 
 
 
-                   exist.Tinhtrang = 0;
+                   exist.Tinhtrang = trangthai;
                     
 
                     _dbContext.Phieumuoncts.Update(exist);

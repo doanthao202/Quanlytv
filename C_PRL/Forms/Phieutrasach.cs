@@ -231,22 +231,39 @@ namespace C_PRL
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
-        {
-            var m = comboBox2.SelectedIndex;
-            ListViewItem lv1 = new ListViewItem(comboBox2.Text);
-            //THÊM CÁC Ô TIẾP THEo
+        { int a = 0;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                ListViewItem lv = listView1.Items[i];
+                if(lv.SubItems[0].Text== comboBox2.Text&& lv.SubItems[1].Text== comboBox1.Text)
+                {
+                    a = 1;
+                }
+            }
+            if (a == 1)
+            {
+                MessageBox.Show("Đã có sách trong phiếu trả");
+            }
+            else
+            {
+                var m = comboBox2.SelectedIndex;
+                ListViewItem lv1 = new ListViewItem(comboBox2.Text);
+                //THÊM CÁC Ô TIẾP THEo
 
-            lv1.SubItems.Add(comboBox1.Text);
-            lv1.SubItems.Add(textBox3.Text);
-            listView1.Items.Add(lv1);
-            comboBox1.ResetText();
-            //comboBox1.Items.RemoveAt(m);
-            comboBox2.ResetText();
-            //comboBox2.ResetText();
-            //comboBox2.Items.Clear();
+                lv1.SubItems.Add(comboBox1.Text);
+                lv1.SubItems.Add(textBox3.Text);
+                listView1.Items.Add(lv1);
+                comboBox1.ResetText();
+                //comboBox1.Items.RemoveAt(m);
+                comboBox2.ResetText();
+                //comboBox2.ResetText();
+                //comboBox2.Items.Clear();
 
-            textBox3.Text = "";
-            listView2.Enabled = false;
+                textBox3.Text = "";
+
+                listView2.Enabled = false;
+            }
+               
 
         }
 
@@ -374,7 +391,7 @@ namespace C_PRL
 
                                         _ptct.add(pt);
 
-                                        _pmct.Update1(pt.Idphieumuonct);
+                                        _pmct.Update1(pt.Idphieumuonct,0);
                                         var op = _pmct.Getview().Where(x => x.Idphieumuon == idpm && x.Tinhtrangpmct == 1).Count();
 
                                         if (op <1)
@@ -479,7 +496,7 @@ namespace C_PRL
                                             pt.Ghichu = lv.SubItems[2].Text;
 
                                             _ptct.add(pt);
-                                        _pmct.Update1(pt.Idphieumuonct);
+                                        _pmct.Update1(pt.Idphieumuonct, 0);
                                         var op1 = _pmct.Getview().Where(x => x.Idphieumuon == idpm && x.Tinhtrangpmct == 1).Count();
 
                                         if (op1 < 1)

@@ -69,9 +69,9 @@ namespace B_BUS.Services
             return _repos.Update(id, phieumuon);
         }
         //  var y = _ptct.GetAll().ToList();
-        public bool Update1(int id)
+        public bool Update1(int id, int trangthai)
         {
-            return _repos.Update1(id);
+            return _repos.Update1(id,trangthai);
         }
         public List<SachctSachPmct> Getview()
         {
