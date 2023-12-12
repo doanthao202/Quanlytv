@@ -22,6 +22,9 @@ namespace C_PRL.Forms
         int idCellClick = -1;
         public Phieumuonsach()
         {
+            _sachservice = new SachctService();
+            _dgservice = new Docgiaservice();
+            _nvservice = new Nhanvienservice();
             _pmctservice = new PhieumuonctService();
             _service = new PhieumuonService();
             InitializeComponent();
@@ -236,7 +239,7 @@ namespace C_PRL.Forms
                                 x = phieumuon1.Id;
                                 int idsach = Convert.ToInt16(lv.SubItems[0].Text);
 
-                                var phieumuonchitiet = new Phieumuonct();
+                                Phieumuonct phieumuonchitiet = new Phieumuonct();
                                 phieumuonchitiet.Idsachct = idsach;
                                 phieumuonchitiet.Idphieumuon = x;
 
@@ -290,8 +293,8 @@ namespace C_PRL.Forms
                     else
                     { phieumuon1.Phimuon = Convert.ToDecimal(textBox2.Text); }
                     phieumuon1.Tinhtrang = 1;
-                    phieumuon1.Tinhtrang = 1;
-                    x = phieumuon1.Id;
+                    //phieumuon1.Tinhtrang = 1;
+                    
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu mượn chưa có sách");
@@ -309,9 +312,11 @@ namespace C_PRL.Forms
                             }
                             else
                             {
+                                _service.add(phieumuon1);
+                                x = phieumuon1.Id;
                                 int idsach = Convert.ToInt16(lv.SubItems[0].Text);
 
-                                var phieumuonchitiet = new Phieumuonct();
+                                Phieumuonct phieumuonchitiet = new Phieumuonct();
                                 phieumuonchitiet.Idsachct = idsach;
                                 phieumuonchitiet.Idphieumuon = x;
                                 phieumuonchitiet.Ghichu = lv.SubItems[2].Text;

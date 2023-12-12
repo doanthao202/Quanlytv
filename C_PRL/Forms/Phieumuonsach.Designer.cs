@@ -216,7 +216,7 @@
             cbxDocgia.Margin = new Padding(3, 4, 3, 4);
             cbxDocgia.Name = "cbxDocgia";
             cbxDocgia.Padding = new Padding(3, 4, 3, 4);
-            cbxDocgia.Size = new Size(837, 244);
+            cbxDocgia.Size = new Size(850, 244);
             cbxDocgia.TabIndex = 80;
             cbxDocgia.TabStop = false;
             cbxDocgia.Text = "Thông tin phiếu mượn";
@@ -481,7 +481,7 @@
             button1.Location = new Point(785, 747);
             button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(227, 36);
+            button1.Size = new Size(255, 36);
             button1.TabIndex = 87;
             button1.Text = "Xem danh sách phiếu mượn";
             button1.UseVisualStyleBackColor = false;
