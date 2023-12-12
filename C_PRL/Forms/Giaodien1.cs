@@ -174,7 +174,12 @@ namespace C_PRL.Forms
 
         private void sachĐươcMươnNhiêuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            panel2.Controls.Clear();
+            Form f = new Danhsachphieumuon();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panel2.Controls.Add(f);
+            f.Show();
         }
 
         private void thanhViênToolStripMenuItem_Click(object sender, EventArgs e)

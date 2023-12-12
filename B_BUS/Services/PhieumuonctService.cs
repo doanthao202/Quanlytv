@@ -102,6 +102,31 @@ namespace B_BUS.Services
                            };
             return joinData.ToList();
         }
+        public List<Thongtinphieutract> Getview2(int x)
+        {
+
+            var joinData = from Sach in _schrepos.GetAllSach()
+                           join Sachchitiet in _srepos.GetAll() on Sach.Id equals Sachchitiet.Idsach
+                           join Ngonngu in _nnrepos.GetAllNgonngu() on Sachchitiet.Idngonngu equals Ngonngu.Id
+                           join Nxb in _nxbrepos.GetAll() on Sachchitiet.Idnxb equals Nxb.Id
+                           join Phieumuonct in _repos.GetAll() on Sachchitiet.Id equals Phieumuonct.Idsachct
+                           join Phieutract in  _ptct.GetAll() on Phieumuonct.Id equals Phieutract.Idphieumuonct
+
+                           where (Phieutract.Idphieutra == x)
+
+                           select new Thongtinphieutract
+                           {
+                               Id=Phieutract.Id,
+                               Idsachct = Sachchitiet.Id,
+                               Tensach = Sach.Tensach,
+                               Idphieumuonct = Phieumuonct.Id,
+                               Tennn = Ngonngu.Tennn,
+                               Tennxb = Nxb.Tennxb,
+                               Lantaiban = Sachchitiet.Lantaiban
+                               
+                           };
+            return joinData.ToList();
+        }
         public List<Soluongsachmuon> Getview3()
         {
 

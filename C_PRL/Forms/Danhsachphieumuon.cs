@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using B_BUS.Services;
+using Syncfusion.XlsIO;
 
 namespace C_PRL.Forms
 {
@@ -103,5 +104,43 @@ namespace C_PRL.Forms
         }
         Random random = new Random();
         int r;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                r = random.Next(1, 10000);
+                using (ExcelEngine excelEngine = new ExcelEngine())
+                {
+                    IApplication application = excelEngine.Excel;
+                    application.DefaultVersion = ExcelVersion.Excel2016;
+                    IWorkbook workbook = application.Workbooks.Create(1);
+                    IWorksheet worksheet = workbook.Worksheets[0];
+                    //Adding text to a cell
+                    for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+                    {
+                        worksheet.Range[1, i].Text = dataGridView1.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        {
+                            worksheet.Range[i + 2, j + 1].Text = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    Stream excelstream = File.Create(Path.GetFullPath(@"D:\New folder\Xuatfilesachmuonnhieu(" + r + ").xlsx"));
+                    workbook.SaveAs(excelstream);
+                    excelstream.Dispose();
+                    MessageBox.Show("Xuất file thành công");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Xuất file thất bại");
+            }
+
+        }
     }
 }

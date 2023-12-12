@@ -11,7 +11,7 @@ namespace A_DAL.IRepository
     {
         IEnumerable<Phieutra> GetAll();
         //List<Sach> GetTheloaiByName(string name);
-
+        List<Phieutra> GetSearch(string searchText);
         bool Add(Phieutra phieutra);
 
         bool Delete(int id);

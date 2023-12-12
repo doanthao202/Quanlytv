@@ -485,7 +485,7 @@ namespace C_PRL
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            loatData(_service.GetSearch1(textBox1.Text));
         }
 
         private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)

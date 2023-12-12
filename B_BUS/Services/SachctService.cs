@@ -86,23 +86,28 @@ namespace B_BUS.Services
                            };
             return joinData.ToList();
         }
-       /* public List<TheloaiSach> GetSearch1(string searchText)
+        public List<Viewsachchitiet> GetSearch1(string searchText)
         {
-            var joinData = from Sach in _repos.GetAllSach()
-                           join Theloai in theloaiRepos.GetAllTheloai() on Sach.Idtheloai equals Theloai.Id
-                           select new TheloaiSach
+            var joinData = from Sach in _srepos.GetAllSach()
+                           join Sachchitiet in _repos.GetAll() on Sach.Id equals Sachchitiet.Idsach
+                           join Ngonngu in _nnrepos.GetAllNgonngu() on Sachchitiet.Idngonngu equals Ngonngu.Id
+                           join Nxb in _Nxbrepos.GetAll() on Sachchitiet.Idnxb equals Nxb.Id
+                           select new Viewsachchitiet
                            {
-                               Id = Sach.Id,
+                               Id = Sachchitiet.Id,
                                Tensach = Sach.Tensach,
-                               Ngaynhap = Sach.Ngaynhap,
-                               Namxuatban = Sach.Namxuatban,
-                               Tentheloai = Theloai.Tentheloai
+                               Tennn = Ngonngu.Tennn,
+                               Tennxb = Nxb.Tennxb,
+                               Lantaiban = Sachchitiet.Lantaiban,
+                               Giasach = Sachchitiet.Giasach,
+                               Dotuoidocsach = Sachchitiet.Dotuoidocsach,
+                               Tinhtrang = Sachchitiet.Tinhtrang
                            };
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 return joinData.ToList();
             }
             return joinData.Where(c => c.Tensach.Contains(searchText)).ToList();
-        }*/
+        }
     }
 }

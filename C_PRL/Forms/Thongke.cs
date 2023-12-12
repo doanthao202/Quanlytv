@@ -29,7 +29,7 @@ namespace C_PRL.Forms
 
         private void Thongke_Load(object sender, EventArgs e)
         {
-            
+
             loatData(_phieumuonctService.Getview1());
         }
 
@@ -77,6 +77,12 @@ namespace C_PRL.Forms
         private void vButton1_Click(object sender, EventArgs e)
         {
 
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             try
             {
                 r = random.Next(1, 10000);
@@ -111,10 +117,6 @@ namespace C_PRL.Forms
                 MessageBox.Show("Xuất file thất bại");
             }
 
-           
         }
-
-        
-        
     }
 }

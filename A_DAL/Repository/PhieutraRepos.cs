@@ -55,5 +55,15 @@ namespace A_DAL.Repository
         {
             return _dbContext.Phieutras.ToList();
         }
+
+        public List<Phieutra> GetSearch(string searchText)
+        {
+      
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieutras.ToList();
+            }
+            return _dbContext.Phieutras.Where(c =>c.Id.ToString().Contains(searchText)||c.Tendocgia.Contains(searchText)).ToList();
+        }
     }
 }

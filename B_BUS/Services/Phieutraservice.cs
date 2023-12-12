@@ -32,5 +32,9 @@ namespace B_BUS.Services
         {
             return _repos.GetAll().ToList();
         }
+        public List<Phieutra> GetSearch(string searchText)
+        {
+            return _repos.GetSearch(searchText);
+        }
     }
 }

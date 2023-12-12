@@ -88,8 +88,9 @@
             button1.Name = "button1";
             button1.Size = new Size(199, 27);
             button1.TabIndex = 95;
-            button1.Text = "Xem danh sách phiếu mượn";
+            button1.Text = "Xem danh sách phiếu trả";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // groupBox2
             // 
