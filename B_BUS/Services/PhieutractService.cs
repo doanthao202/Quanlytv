@@ -39,7 +39,10 @@ namespace B_BUS.Services
                 return "Thêm thất bại";
             }
         }
-
+        public bool Delete(int id)
+        {
+            return _repos.Delete(id);
+        }
         public IEnumerable<Phieutract> GetAll()
         {
             return _repos.GetAll().ToList();

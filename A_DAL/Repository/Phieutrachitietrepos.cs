@@ -43,6 +43,26 @@ namespace A_DAL.Repository
             }
         }
 
+        public bool Delete(int id)
+        {
+            
+                try
+                {
+                    var exist = _dbContext.Phieutracts.Find(id);
+
+
+                    _dbContext.Phieutracts.Remove(exist);
+                    _dbContext.SaveChanges();
+                    return true;
+
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            
+        }
+
         public IEnumerable<Phieutract> GetAll()
         {
             return _dbContext.Phieutracts.ToList();

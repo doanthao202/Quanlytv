@@ -113,5 +113,10 @@ namespace C_PRL.Forms
         {
             loatData(_pt.GetSearch(textBox1.Text));
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

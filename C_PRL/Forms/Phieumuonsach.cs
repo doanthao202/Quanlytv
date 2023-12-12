@@ -36,7 +36,7 @@ namespace C_PRL.Forms
         {
             cbxKieudocgia.Items.Add("Khách lẻ");
             cbxKieudocgia.Items.Add("Thành viên");
-            foreach (var i in _sachservice.Getview().Where(c=>c.Tinhtrang==1||c.Tinhtrang==2))
+            foreach (var i in _sachservice.Getview().Where(c => c.Tinhtrang == 1 || c.Tinhtrang == 2))
             {
                 comboBox1.Items.Add(i.Tensach + " - " + i.Tennn + " - " + i.Tennxb + " - " + i.Lantaiban);
             }
@@ -67,7 +67,7 @@ namespace C_PRL.Forms
             for (int i = 0; i < listView1.Items.Count; i++)
             {
                 ListViewItem lv = listView1.Items[i];
-                if (lv.SubItems[0].Text == _sachservice.Getview().ElementAt(comboBox1.SelectedIndex).Id.ToString() &&lv.SubItems[1].Text == comboBox1.Text  )
+                if (lv.SubItems[0].Text == _sachservice.Getview().ElementAt(comboBox1.SelectedIndex).Id.ToString() && lv.SubItems[1].Text == comboBox1.Text)
                 {
                     a = 1;
                 }
@@ -99,7 +99,7 @@ namespace C_PRL.Forms
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             if (listView1.SelectedItems.Count > 0)
             {
 
@@ -214,7 +214,7 @@ namespace C_PRL.Forms
 
 
                     phieumuon1.Tinhtrang = 1;
-                   
+
                     if (listView1.Items.Count == 0)
                     {
                         MessageBox.Show("Phiếu mượn chưa có sách");
@@ -356,7 +356,7 @@ namespace C_PRL.Forms
 
         }
 
-        
+
         private void datengaytra_ValueChanged_1(object sender, EventArgs e)
         {
             //datengaytra.Value > dtpNgaymuon.Value.AddDays(7);
@@ -410,7 +410,14 @@ namespace C_PRL.Forms
         private void thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-           
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = new DsPhieumuon();
+            f.Show();
+
         }
     }
 }

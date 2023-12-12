@@ -39,29 +39,31 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(206, 95);
+            label1.Location = new Point(227, 78);
             label1.Name = "label1";
-            label1.Size = new Size(630, 36);
+            label1.Size = new Size(729, 45);
             label1.TabIndex = 3;
-            label1.Text = "DANH SÁCH SÁCH ĐƯỢC MƯỢN NHIỀU";
+            label1.Text = "DANH SÁCH PHIẾU MƯỢN TRỄ HẠN";
             label1.Click += label1_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(54, 169);
+            dataGridView1.Location = new Point(70, 166);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(934, 332);
+            dataGridView1.Size = new Size(1067, 443);
             dataGridView1.TabIndex = 2;
             // 
             // button1
             // 
             button1.BackColor = Color.Peru;
-            button1.Location = new Point(862, 553);
+            button1.Location = new Point(998, 684);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(151, 60);
+            button1.Size = new Size(176, 70);
             button1.TabIndex = 4;
             button1.Text = "Xuất file Excel";
             button1.UseVisualStyleBackColor = false;
@@ -69,12 +71,13 @@
             // 
             // Thongke
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 654);
+            ClientSize = new Size(1221, 872);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Thongke";
             Text = "Thongke";
             Load += Thongke_Load;

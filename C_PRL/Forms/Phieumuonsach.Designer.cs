@@ -62,7 +62,6 @@
             thoat = new Button();
             them = new Button();
             label1 = new Label();
-            button2 = new Button();
             button3 = new Button();
             button1 = new Button();
             errorProvider1 = new ErrorProvider(components);
@@ -303,7 +302,7 @@
             // cbxTenthanhvien
             // 
             cbxTenthanhvien.FormattingEnabled = true;
-            cbxTenthanhvien.Location = new Point(384, 33);
+            cbxTenthanhvien.Location = new Point(387, 36);
             cbxTenthanhvien.Margin = new Padding(3, 4, 3, 4);
             cbxTenthanhvien.Name = "cbxTenthanhvien";
             cbxTenthanhvien.Size = new Size(146, 28);
@@ -315,7 +314,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(264, 44);
+            label5.Location = new Point(259, 40);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(111, 19);
@@ -325,7 +324,7 @@
             // txtTenkhachle
             // 
             txtTenkhachle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenkhachle.Location = new Point(686, 32);
+            txtTenkhachle.Location = new Point(684, 40);
             txtTenkhachle.Margin = new Padding(5, 4, 5, 4);
             txtTenkhachle.Name = "txtTenkhachle";
             txtTenkhachle.Size = new Size(143, 27);
@@ -347,7 +346,7 @@
             // cbxKieudocgia
             // 
             cbxKieudocgia.FormattingEnabled = true;
-            cbxKieudocgia.Location = new Point(112, 27);
+            cbxKieudocgia.Location = new Point(112, 33);
             cbxKieudocgia.Margin = new Padding(3, 4, 3, 4);
             cbxKieudocgia.Name = "cbxKieudocgia";
             cbxKieudocgia.Size = new Size(124, 28);
@@ -371,12 +370,12 @@
             txtDocgia.AutoSize = true;
             txtDocgia.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtDocgia.ForeColor = Color.Black;
-            txtDocgia.Location = new Point(550, 37);
+            txtDocgia.Location = new Point(550, 45);
             txtDocgia.Margin = new Padding(5, 0, 5, 0);
             txtDocgia.Name = "txtDocgia";
-            txtDocgia.Size = new Size(93, 19);
+            txtDocgia.Size = new Size(99, 19);
             txtDocgia.TabIndex = 17;
-            txtDocgia.Text = "Tên độc giả:";
+            txtDocgia.Text = "Tên khách lẻ:";
             // 
             // dtpNgaymuon
             // 
@@ -393,7 +392,7 @@
             // txtTiencoc
             // 
             txtTiencoc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTiencoc.Location = new Point(109, 185);
+            txtTiencoc.Location = new Point(109, 192);
             txtTiencoc.Margin = new Padding(5, 4, 5, 4);
             txtTiencoc.Name = "txtTiencoc";
             txtTiencoc.Size = new Size(127, 27);
@@ -404,7 +403,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(11, 32);
+            label2.Location = new Point(8, 40);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(101, 19);
@@ -427,7 +426,7 @@
             // 
             thoat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             thoat.ForeColor = Color.Red;
-            thoat.Location = new Point(638, 747);
+            thoat.Location = new Point(604, 747);
             thoat.Margin = new Padding(5, 4, 5, 4);
             thoat.Name = "thoat";
             thoat.Size = new Size(69, 36);
@@ -443,7 +442,7 @@
             them.Location = new Point(176, 747);
             them.Margin = new Padding(5, 4, 5, 4);
             them.Name = "them";
-            them.Size = new Size(163, 36);
+            them.Size = new Size(208, 36);
             them.TabIndex = 77;
             them.Text = "Thêm phiếu mượn";
             them.UseVisualStyleBackColor = true;
@@ -461,23 +460,11 @@
             label1.TabIndex = 76;
             label1.Text = "PHIẾU MƯỢN";
             // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(370, 747);
-            button2.Margin = new Padding(5, 4, 5, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(119, 36);
-            button2.TabIndex = 85;
-            button2.Text = "Xuất phiếu mượn";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.Red;
-            button3.Location = new Point(520, 747);
+            button3.Location = new Point(447, 747);
             button3.Margin = new Padding(5, 4, 5, 4);
             button3.Name = "button3";
             button3.Size = new Size(87, 36);
@@ -498,6 +485,7 @@
             button1.TabIndex = 87;
             button1.Text = "Xem danh sách phiếu mượn";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // errorProvider1
             // 
@@ -510,7 +498,6 @@
             ClientSize = new Size(1221, 888);
             Controls.Add(button1);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(groupBox2);
             Controls.Add(cbxDocgia);
             Controls.Add(thoat);
@@ -551,7 +538,6 @@
         private Button thoat;
         private Button them;
         private Label label1;
-        private Button button2;
         private ComboBox cbxTenthanhvien;
         private Label label5;
         private ComboBox cbxTennv;

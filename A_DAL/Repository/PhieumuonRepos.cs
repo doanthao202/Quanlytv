@@ -73,6 +73,24 @@ namespace A_DAL.Repository
                 return false;
             }
         }
+        public bool Update1(int id, DateTime y)
+        {
+            try
+            {
+                var exist = _dbContext.Phieumuons.Find(id);
+
+                exist.Ngaytradukien =  y;
+                _dbContext.Phieumuons.Update(exist);
+                _dbContext.SaveChanges();
+                return true;
+
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public List<Phieumuon> GetSearch(string searchText,string x)
         {
             if (string.IsNullOrWhiteSpace(searchText) && string.IsNullOrWhiteSpace(x))
@@ -124,6 +142,15 @@ namespace A_DAL.Repository
             {
                 return false;
             }
+        }
+
+        public List<Phieumuon> GetSearch1(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return _dbContext.Phieumuons.ToList();
+            }
+            return _dbContext.Phieumuons.Where(c => c.Id.ToString().Contains(searchText) || c.Tendocgia.Contains(searchText)).ToList();
         }
     }
 }

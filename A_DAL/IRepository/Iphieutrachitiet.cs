@@ -12,5 +12,7 @@ namespace A_DAL.IRepository
         IEnumerable<Phieutract> GetAll();
 
         int Add(Phieutract phieutract);
+        bool Delete(int id);
+
     }
 }

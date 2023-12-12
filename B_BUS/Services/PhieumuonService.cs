@@ -46,12 +46,18 @@ namespace B_BUS.Services
         public bool Update(int id)
         {
             return _repos.Update(id);
+        }public bool Update1(int id,DateTime Y)
+        {
+            return _repos.Update1(id,Y);
         }
         public List<Phieumuon> GetSearch(string searchText, string x)
         {
            return _repos.GetSearch(searchText, x).ToList();
            
         }
-       
+        public List<Phieumuon> GetSearch1(string searchText)
+        {
+            return _repos.GetSearch1(searchText);
+        }
     }
 }
