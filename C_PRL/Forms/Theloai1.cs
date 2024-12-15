@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using A_DAL.Models;
+using A_DAL.Models1;
 using B_BUS.Services;
+
 
 namespace C_PRL.Forms
 {
     public partial class Theloai1 : Form
     {
         Theloaiservi _service = new Theloaiservi();
+        Sachservice _sachservice = new Sachservice();
         int idCellClick = -1;
         public Theloai1()
         {
+            _sachservice = new Sachservice();
             _service = new Theloaiservi();
             InitializeComponent();
         }
@@ -26,11 +29,13 @@ namespace C_PRL.Forms
         {
             // dgv.DataSource = _service.GetAll();
             loatData(_service.GetAll());
+            sua.Enabled = false;
+            Xoa.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dgv.DataSource = _service.GetSearch(textBox1.Text);
+            loatData(_service.GetSearch(textBox1.Text));
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -41,6 +46,12 @@ namespace C_PRL.Forms
             txtVitri.Text = selectChild.Cells[3].Value.ToString();
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
+            them.Enabled = false;
+            sua.Enabled = true;
+          
+            
+                Xoa.Enabled = true;
+            
         }
         public void loatData(dynamic data)
         {
@@ -49,7 +60,7 @@ namespace C_PRL.Forms
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.ColumnCount = 4;
             dgv.Columns[0].Name = "Stt";
-            dgv.Columns[1].Name = "Mã thể loại";
+            dgv.Columns[1].Name = "Id thể loại";
             dgv.Columns[2].Name = "Tên thể loại";
             dgv.Columns[3].Name = "Vị trí";
 
@@ -69,6 +80,10 @@ namespace C_PRL.Forms
 
             idCellClick = Convert.ToInt32(selectChild.Cells[1].Value);//lấy id khi select 1 row
             them.Enabled = false;
+            sua.Enabled = true;
+            
+                Xoa.Enabled = true;
+            
         }
         public void reset()
         {
@@ -76,6 +91,8 @@ namespace C_PRL.Forms
             txtVitri.Text = "";
             idCellClick = -1;
             them.Enabled = true;
+            sua.Enabled = false;
+            Xoa.Enabled = false;
         }
         private void them_Click(object sender, EventArgs e)
         {
@@ -85,17 +102,12 @@ namespace C_PRL.Forms
             tl.Tentheloai = txtTentl.Text; ;
             tl.Vitri = txtVitri.Text;
 
-            var thongBao = MessageBox.Show("Xác nhận thêm sinh viên", "Xác nhận", MessageBoxButtons.YesNo);
-            if (thongBao == DialogResult.Yes)
-            {
+            
                 MessageBox.Show(_service.add(tl));
                 loatData(_service.GetAll());
                 reset();
-            }
-            else
-            {
-                return;
-            }
+            
+          
 
 
         }
@@ -118,7 +130,7 @@ namespace C_PRL.Forms
             }
             else if (result == 2)
             {
-                MessageBox.Show("Tên không được để trống");
+                MessageBox.Show("Tên thể loại không được để trống");
                 loatData(_service.GetAll());
 
             }
@@ -131,25 +143,57 @@ namespace C_PRL.Forms
 
         private void Xoa_Click_1(object sender, EventArgs e)
         {
-
-            var result = _service.Delete(idCellClick);
-            if (result)
+            var x = 0;
+            foreach (var i in _sachservice.GetAll())
             {
-                MessageBox.Show("Xóa thành công");
-                loatData(_service.GetAll());
+                if (i.Idtheloai==idCellClick)
+                {
+                    x = 1;
+                    continue;
+                }
+
+            }
+            if (x == 1)
+            {
+                var thongBao = MessageBox.Show("Đã có sách thuộc thể loại này.Bạn có muốn xóa thể loại này không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (thongBao == DialogResult.Yes)
+                {
+                    _sachservice.Delete1(idCellClick);
+                    var result = _service.Delete(idCellClick);
+                    if (result)
+                    {
+
+                        MessageBox.Show("Xóa thành công");
+                        loatData(_service.GetAll());
+                    }
+                  
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại");
-            }
 
+                var result = _service.Delete(idCellClick);
+                if (result)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    loatData(_service.GetAll());
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
             reset();
         }
 
         private void thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form f = new Giaodien();
+            Form f = new Giaodien1();
             f.Show();
         }
     }

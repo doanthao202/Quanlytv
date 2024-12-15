@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using A_DAL.IRepository;
-using A_DAL.Models;
+using A_DAL.Models1;
 
 namespace A_DAL.Repository
 {
     public class TheloaiRepos : ITheloaiRepos
     {
-        DUAN1Context _dbContext = new DUAN1Context();
+        DUAN3Context _dbContext = new DUAN3Context();
         public TheloaiRepos()
         {
             
         }
 
-        public TheloaiRepos(DUAN1Context dbContext)
+        public TheloaiRepos(DUAN3Context dbContext)
         {
             _dbContext = dbContext;
         }
@@ -65,9 +65,9 @@ namespace A_DAL.Repository
             return _dbContext.Theloais.ToList();
         }
 
-        public Theloai GetById(int id)
+        public Theloai GetById(string tentl)
         {
-            return _dbContext.Theloais.FirstOrDefault(c => c.Id == id);
+            return _dbContext.Theloais.FirstOrDefault(c => c.Tentheloai == tentl);
         }
 
         public List<Theloai> GetSearch(string searchText)
@@ -79,9 +79,9 @@ namespace A_DAL.Repository
             return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(searchText)).ToList();
         }
 
-        public List<Theloai> GetTheloaiByName(string name)
+        public List<Theloai> GetTheloaiByName(int id)
         {
-            return _dbContext.Theloais.Where(c => c.Tentheloai.Contains(name)).ToList();
+            return _dbContext.Theloais.Where(c => c.Id == id).ToList();
         }
 
         public int Update(int id, Theloai theloai)

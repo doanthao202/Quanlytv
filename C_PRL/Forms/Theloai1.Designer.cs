@@ -30,6 +30,7 @@ namespace C_PRL.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label5 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
@@ -40,27 +41,30 @@ namespace C_PRL.Forms
             thoat = new Button();
             sua = new Button();
             them = new Button();
-            label1 = new Label();
             dgv = new DataGridView();
             Xoa = new Button();
+            errorProvider1 = new ErrorProvider(components);
+            label1 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(25, 42);
+            label5.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(240, 110);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 16);
+            label5.Size = new Size(57, 15);
             label5.TabIndex = 33;
             label5.Text = "Tìm kiếm:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(98, 40);
+            textBox1.Location = new Point(313, 108);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập tên thể loại";
@@ -75,7 +79,8 @@ namespace C_PRL.Forms
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtVitri);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(18, 76);
+            groupBox1.ForeColor = Color.LightSeaGreen;
+            groupBox1.Location = new Point(233, 144);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(485, 102);
             groupBox1.TabIndex = 31;
@@ -93,22 +98,24 @@ namespace C_PRL.Forms
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(7, 32);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(80, 16);
+            label2.Size = new Size(73, 15);
             label2.TabIndex = 13;
             label2.Text = "Tên thể loại:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(10, 68);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(39, 16);
+            label3.Size = new Size(35, 15);
             label3.TabIndex = 15;
             label3.Text = "Vị trí:";
             // 
@@ -122,54 +129,53 @@ namespace C_PRL.Forms
             // 
             // thoat
             // 
-            thoat.Location = new Point(408, 194);
+            thoat.BackColor = Color.Peru;
+            thoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            thoat.ForeColor = SystemColors.ButtonHighlight;
+            thoat.Location = new Point(621, 262);
             thoat.Margin = new Padding(4, 3, 4, 3);
             thoat.Name = "thoat";
             thoat.Size = new Size(88, 27);
             thoat.TabIndex = 30;
             thoat.Text = "Thoát";
-            thoat.UseVisualStyleBackColor = true;
+            thoat.UseVisualStyleBackColor = false;
             thoat.Click += thoat_Click;
             // 
             // sua
             // 
-            sua.Location = new Point(146, 194);
+            sua.BackColor = Color.Peru;
+            sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            sua.ForeColor = SystemColors.ButtonHighlight;
+            sua.Location = new Point(367, 262);
             sua.Margin = new Padding(4, 3, 4, 3);
             sua.Name = "sua";
             sua.Size = new Size(88, 27);
             sua.TabIndex = 28;
             sua.Text = "Sửa";
-            sua.UseVisualStyleBackColor = true;
+            sua.UseVisualStyleBackColor = false;
             sua.Click += sua_Click;
             // 
             // them
             // 
-            them.Location = new Point(25, 194);
+            them.BackColor = Color.Peru;
+            them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            them.ForeColor = SystemColors.ButtonHighlight;
+            them.Location = new Point(240, 262);
             them.Margin = new Padding(4, 3, 4, 3);
             them.Name = "them";
             them.Size = new Size(88, 27);
             them.TabIndex = 27;
             them.Text = "Thêm";
-            them.UseVisualStyleBackColor = true;
+            them.UseVisualStyleBackColor = false;
             them.Click += them_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(156, 9);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(106, 26);
-            label1.TabIndex = 26;
-            label1.Text = "THỂ LOẠI";
             // 
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(18, 227);
+            dgv.Location = new Point(233, 295);
             dgv.Margin = new Padding(4, 3, 4, 3);
             dgv.Name = "dgv";
+            dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(485, 197);
             dgv.TabIndex = 25;
             dgv.CellClick += dgv_CellClick;
@@ -177,20 +183,39 @@ namespace C_PRL.Forms
             // 
             // Xoa
             // 
-            Xoa.Location = new Point(273, 194);
+            Xoa.BackColor = Color.Peru;
+            Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Xoa.ForeColor = SystemColors.ButtonHighlight;
+            Xoa.Location = new Point(494, 262);
             Xoa.Margin = new Padding(4, 3, 4, 3);
             Xoa.Name = "Xoa";
             Xoa.Size = new Size(88, 27);
             Xoa.TabIndex = 34;
             Xoa.Text = "Xóa";
-            Xoa.UseVisualStyleBackColor = true;
+            Xoa.UseVisualStyleBackColor = false;
             Xoa.Click += Xoa_Click_1;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSeaGreen;
+            label1.Location = new Point(394, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 36);
+            label1.TabIndex = 35;
+            label1.Text = "Thể loại";
             // 
             // Theloai1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 450);
+            ClientSize = new Size(1068, 666);
+            Controls.Add(label1);
             Controls.Add(Xoa);
             Controls.Add(label5);
             Controls.Add(textBox1);
@@ -198,14 +223,15 @@ namespace C_PRL.Forms
             Controls.Add(thoat);
             Controls.Add(sua);
             Controls.Add(them);
-            Controls.Add(label1);
             Controls.Add(dgv);
             Name = "Theloai1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Theloai";
             Load += Theloai_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,8 +255,9 @@ namespace C_PRL.Forms
         private Button thoat;
         private Button sua;
         private Button them;
-        private Label label1;
         private DataGridView dgv;
         private Button Xoa;
+        private ErrorProvider errorProvider1;
+        private Label label1;
     }
 }
